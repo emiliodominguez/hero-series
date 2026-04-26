@@ -7,8 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --bg: #1a1714; --paper: #f8f4ec; --ink: #14110a; --rule: rgba(20, 17, 10, 0.5); --shadow: rgba(0, 0, 0, 0.5); }
-body { background: var(--bg); background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.03), transparent 60%); color: var(--paper); font-family: "JetBrains Mono", monospace; min-height: 100svh; padding: clamp(28px, 4vw, 60px); display: flex; align-items: center; justify-content: center; gap: 50px; flex-wrap: wrap; }
+:root { --bg: #0f3a3a; --bg-2: #14524d; --paper: #f8f4ec; --ink: #14110a; --rule: rgba(20, 17, 10, 0.5); --shadow: rgba(0, 0, 0, 0.5); --neon: #ff5cae; }
+body { background: var(--bg); background-image: linear-gradient(180deg, var(--bg-2), var(--bg)), radial-gradient(circle at 70% 20%, rgba(255, 92, 174, 0.18), transparent 50%); color: var(--paper); font-family: "JetBrains Mono", monospace; min-height: 100svh; padding: clamp(28px, 4vw, 60px); display: flex; align-items: center; justify-content: center; gap: 50px; flex-wrap: wrap; position: relative; }
+body::before { content: "OPEN 24 HRS"; position: fixed; top: 30px; right: 38px; font-family: "VT323", monospace; font-size: 32px; letter-spacing: 0.2em; color: var(--neon); text-shadow: 0 0 14px rgba(255, 92, 174, 0.6), 0 0 28px rgba(255, 92, 174, 0.3); animation: hum 2.4s ease-in-out infinite; }
+@keyframes hum { 50% { opacity: 0.85; } 92% { opacity: 0.6; } 94% { opacity: 1; } }
 .receipt { width: 320px; background: var(--paper); color: var(--ink); padding: 24px 22px 0; font-family: "VT323", monospace; font-size: 18px; line-height: 1.35; transform: rotate(1.5deg); position: relative; box-shadow: 0 30px 60px var(--shadow), 0 0 0 1px rgba(0, 0, 0, 0.04); }
 .receipt::after { content: ""; position: absolute; left: 0; right: 0; bottom: -14px; height: 14px; background-image: linear-gradient(135deg, var(--paper) 50%, transparent 50%), linear-gradient(225deg, var(--paper) 50%, transparent 50%); background-size: 16px 14px; background-repeat: repeat-x; }
 .r-head { text-align: center; padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
@@ -29,7 +31,8 @@ body { background: var(--bg); background-image: radial-gradient(circle at 50% 30
 .aside { max-width: 320px; }
 .aside h2 { font-size: 26px; font-family: "JetBrains Mono", monospace; font-weight: 500; line-height: 1.15; padding-bottom: 12px; }
 .aside p { font-family: "JetBrains Mono", monospace; font-size: 13px; line-height: 1.65; opacity: 0.78; }
-.aside a { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(248, 244, 236, 0.4); padding-bottom: 1px; }
+.aside a { color: var(--neon); text-decoration: none; border-bottom: 1px solid rgba(255, 92, 174, 0.5); padding-bottom: 1px; }
+.aside h2 { color: var(--neon); }
 </style>
 </head>
 <body>
