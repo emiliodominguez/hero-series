@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #2a9a4e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.card { width: min(560px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+.head-l { display: flex; flex-direction: column; gap: 4px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.progress { display: flex; flex-direction: column; gap: 6px; align-items: end; }
+.progress-num { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.progress-num small { font-family: "JetBrains Mono", monospace; font-weight: 400; font-size: 10px; opacity: 0.6; margin-left: 3px; }
+.progress-bar { width: 100px; height: 4px; background: rgba(20, 17, 10, 0.08); border-radius: 2px; overflow: hidden; }
+.progress-fill { width: 60%; height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s; }
+.list { display: flex; flex-direction: column; gap: 4px; }
+.item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; cursor: pointer; transition: background 0.15s; }
+.item:hover { background: rgba(20, 17, 10, 0.04); }
+.box { width: 18px; height: 18px; border: 1.5px solid var(--rule); border-radius: 6px; background: var(--surface); display: grid; place-items: center; transition: background 0.15s, border-color 0.15s; flex-shrink: 0; }
+.box::after { content: "✓"; color: white; font-size: 12px; font-weight: 700; opacity: 0; transition: opacity 0.15s; }
+.item.done .box { background: var(--accent); border-color: var(--accent); }
+.item.done .box::after { opacity: 1; }
+.item.done .item-text { text-decoration: line-through; color: var(--ink-soft); }
+.item-text { flex: 1; font-size: 14px; font-weight: 500; }
+.item-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.cta { padding: 12px 18px; border-radius: 10px; background: var(--accent); color: white; border: 0; font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; align-self: end; transition: filter 0.15s; }
+.cta:hover { filter: brightness(0.95); }
+</style>
+</head>
+<body>
+<div class="card">
+  <header class="head">
+    <div class="head-l"><span class="eyebrow">/ launch checklist</span><h2 class="title">ready to <em>ship?</em></h2></div>
+    <div class="progress"><span class="progress-num">3<small>/5</small></span><div class="progress-bar"><div class="progress-fill"></div></div></div>
+  </header>
+  <div class="list">
+    <div class="item done" onclick="toggle(this)"><span class="box"></span><span class="item-text">Brand identity finalized</span><span class="item-meta">3 days ago</span></div>
+    <div class="item done" onclick="toggle(this)"><span class="box"></span><span class="item-text">Marketing site shipped</span><span class="item-meta">2 days ago</span></div>
+    <div class="item done" onclick="toggle(this)"><span class="box"></span><span class="item-text">Pricing page reviewed</span><span class="item-meta">today</span></div>
+    <div class="item" onclick="toggle(this)"><span class="box"></span><span class="item-text">Press kit prepared</span><span class="item-meta">due wed</span></div>
+    <div class="item" onclick="toggle(this)"><span class="box"></span><span class="item-text">Newsletter announcement</span><span class="item-meta">due fri</span></div>
+  </div>
+  <button class="cta">Save changes →</button>
+</div>
+<script>
+function toggle(el) { el.classList.toggle("done"); update(); }
+function update() {
+  const total = document.querySelectorAll(".item").length;
+  const done = document.querySelectorAll(".item.done").length;
+  document.querySelector(".progress-num").innerHTML = done + "<small>/" + total + "</small>";
+  document.querySelector(".progress-fill").style.width = (done / total * 100) + "%";
+}
+</script>
+</body>
+</html>

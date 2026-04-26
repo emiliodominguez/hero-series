@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Comparison Table</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #fffaef; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 64px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 32px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+thead { background: var(--ink); color: var(--bg); }
+thead th { padding: 18px 16px; text-align: left; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; }
+thead th.featured { background: var(--accent); color: white; }
+tbody tr { border-bottom: 1px solid var(--rule); transition: background 0.15s; }
+tbody tr:hover { background: rgba(176, 58, 30, 0.04); }
+tbody td { padding: 16px; vertical-align: middle; }
+tbody td:first-child { font-weight: 600; color: var(--ink); }
+tbody td.feat { background: rgba(176, 58, 30, 0.06); }
+.check { color: var(--accent); font-weight: 700; }
+.dash { color: var(--ink-soft); opacity: 0.5; }
+.feature-name { display: flex; flex-direction: column; gap: 2px; }
+.feature-detail { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+@media (max-width: 720px) { table { font-size: 13px; } tbody td { padding: 12px 8px; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ compare plans</p>
+  <h2 class="title">side-by-side, <em>no marketing fluff.</em></h2>
+</header>
+<table>
+  <thead><tr><th>Feature</th><th>Starter</th><th class="featured">Studio</th><th>Atelier</th></tr></thead>
+  <tbody>
+    <tr><td><span class="feature-name">Active projects<span class="feature-detail">at any time</span></span></td><td>1</td><td class="feat">10</td><td>Unlimited</td></tr>
+    <tr><td>Team seats</td><td>1</td><td class="feat">5</td><td>Unlimited</td></tr>
+    <tr><td>Email support</td><td><span class="check">✓</span></td><td class="feat"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Priority queue</td><td><span class="dash">—</span></td><td class="feat"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>SSO &amp; SCIM</td><td><span class="dash">—</span></td><td class="feat"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Custom contracts</td><td><span class="dash">—</span></td><td class="feat"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td>Dedicated manager</td><td><span class="dash">—</span></td><td class="feat"><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+    <tr><td><span class="feature-name">Price<span class="feature-detail">per month</span></span></td><td><strong>$12</strong></td><td class="feat"><strong>$48</strong></td><td><strong>$148</strong></td></tr>
+  </tbody>
+</table>
+</body>
+</html>

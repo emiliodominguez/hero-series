@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feature List w/ Icons</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #5aeaff; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(28px, 4vh, 40px); max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 10px; max-width: 600px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 32px; }
+.feat { display: flex; gap: 16px; align-items: start; padding: 8px 0; border-top: 1px solid var(--rule); padding-top: 18px; }
+.icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(90, 234, 255, 0.1); border: 1px solid rgba(90, 234, 255, 0.3); color: var(--accent); display: grid; place-items: center; flex-shrink: 0; font-family: "Newsreader", serif; font-style: italic; font-size: 22px; }
+.feat-content { display: flex; flex-direction: column; gap: 4px; }
+.feat-title { font-weight: 800; font-size: 16px; letter-spacing: -0.01em; }
+.feat-body { color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ what's inside · 9 features</p>
+  <h2 class="title">a tighter set, <em>built right.</em></h2>
+</header>
+<div class="grid">
+  <div class="feat"><span class="icon">a</span><div class="feat-content"><h3 class="feat-title">Tokens, not magic</h3><p class="feat-body">Every value lives in a CSS variable. Theme by writing one selector.</p></div></div>
+  <div class="feat"><span class="icon">b</span><div class="feat-content"><h3 class="feat-title">Async by default</h3><p class="feat-body">Replies in 24h, no synchronous calls unless asked.</p></div></div>
+  <div class="feat"><span class="icon">c</span><div class="feat-content"><h3 class="feat-title">A11y first</h3><p class="feat-body">WCAG AA across all routes, tested with screen readers.</p></div></div>
+  <div class="feat"><span class="icon">d</span><div class="feat-content"><h3 class="feat-title">Fast on day one</h3><p class="feat-body">90+ Lighthouse out of the box, on every page.</p></div></div>
+  <div class="feat"><span class="icon">e</span><div class="feat-content"><h3 class="feat-title">Forever updates</h3><p class="feat-body">Lifetime access to new versions, including Vol XVI.</p></div></div>
+  <div class="feat"><span class="icon">f</span><div class="feat-content"><h3 class="feat-title">Source files</h3><p class="feat-body">Figma, SCSS sources, design tokens all bundled.</p></div></div>
+  <div class="feat"><span class="icon">g</span><div class="feat-content"><h3 class="feat-title">No dependencies</h3><p class="feat-body">Each block is single-file. Drop in anywhere, no build step.</p></div></div>
+  <div class="feat"><span class="icon">h</span><div class="feat-content"><h3 class="feat-title">Fair license</h3><p class="feat-body">Personal · Studio · Agency tiers. Pick what fits.</p></div></div>
+  <div class="feat"><span class="icon">i</span><div class="feat-content"><h3 class="feat-title">Real support</h3><p class="feat-body">A human reply within a working day. Free for owners.</p></div></div>
+</div>
+</body>
+</html>

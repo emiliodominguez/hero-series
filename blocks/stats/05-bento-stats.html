@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bento Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --surface-2: #f4f0e8; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.1); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(20px, 3vw, 36px); display: grid; grid-template-rows: auto 1fr; gap: 18px; max-width: 1200px; margin: 0 auto; }
+.head { padding: 24px 8px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.title { font-weight: 800; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.03em; max-width: 720px; margin-top: 8px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 14px; }
+.cell { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 10px; position: relative; overflow: hidden; }
+.cell.dark { background: var(--surface-2); color: #14110a; }
+.cell.dark .label { color: rgba(20, 17, 10, 0.6); }
+.cell.accent { background: var(--accent); color: #fff; }
+.label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.num { font-weight: 800; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.num em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; }
+.foot { margin-top: auto; font-size: 12px; line-height: 1.45; opacity: 0.78; }
+.bar { display: flex; gap: 3px; align-items: end; height: 60px; margin-top: auto; }
+.bar span { flex: 1; background: currentColor; opacity: 0.18; border-radius: 2px; }
+.bar span:nth-child(odd) { opacity: 0.5; }
+.bar span:nth-child(5n) { background: var(--accent); opacity: 1; }
+.cell-large { grid-column: span 2; grid-row: span 2; }
+.cell-wide { grid-column: span 2; }
+.cell-large .num { font-size: clamp(80px, 8vw, 120px); }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } .cell-large { grid-column: span 2; grid-row: auto; } .cell-wide { grid-column: span 2; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ dashboard · q2 2026</p>
+  <h1 class="title">a quiet quarter, <em>but a full one.</em></h1>
+</header>
+<div class="grid">
+  <div class="cell cell-large dark"><span class="label">Active projects</span><span class="num">12<em>+</em></span><div class="bar"><span style="height:40%"></span><span style="height:60%"></span><span style="height:48%"></span><span style="height:75%"></span><span style="height:55%"></span><span style="height:90%"></span><span style="height:70%"></span><span style="height:85%"></span></div><p class="foot">Each given the time it deserves.</p></div>
+  <div class="cell"><span class="label">Coffee · L</span><span class="num">42</span></div>
+  <div class="cell accent"><span class="label" style="color: rgba(255,255,255,0.7)">NPS</span><span class="num"><em>9.6</em></span><p class="foot">Across 38 closed engagements</p></div>
+  <div class="cell cell-wide"><span class="label">Words shipped (avg/week)</span><span class="num">1,420</span><p class="foot">Strategy decks, design rationale, copy review.</p></div>
+  <div class="cell"><span class="label">Coffees per pixel</span><span class="num">0.04</span></div>
+</div>
+</body>
+</html>

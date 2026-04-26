@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skill Cloud</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #c4422e; --line: rgba(20, 17, 10, 0.18); --surface: #fffaef; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(24px, 4vh, 48px); justify-content: center; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; max-width: 980px; margin: 0 auto; width: 100%; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.title { font-weight: 800; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.04em; max-width: 560px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.cloud { display: flex; flex-wrap: wrap; gap: 10px; max-width: 980px; margin: 0 auto; width: 100%; }
+.chip { padding: 10px 18px; border: 1.5px solid var(--ink); border-radius: 999px; font-weight: 600; background: var(--surface); transition: background 0.15s, color 0.15s; cursor: default; }
+.chip:hover { background: var(--ink); color: var(--bg); }
+.chip.lg { font-size: 24px; padding: 14px 24px; }
+.chip.md { font-size: 18px; padding: 12px 22px; }
+.chip.sm { font-size: 13px; padding: 8px 14px; }
+.chip.accent { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.chip.accent:hover { background: var(--ink); border-color: var(--ink); }
+.chip.italic { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; }
+.foot { max-width: 980px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; gap: 14px; padding-top: 16px; border-top: 1px solid var(--line); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+@media (max-width: 720px) { .chip.lg { font-size: 18px; } .chip.md { font-size: 15px; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ skills · 18 entries</p>
+  <p class="eyebrow">2026 · vol 01</p>
+</header>
+<h1 class="title">a few of the things i'm <em>good at.</em></h1>
+<div class="cloud">
+  <span class="chip lg accent">UI Design</span>
+  <span class="chip md">Brand Identity</span>
+  <span class="chip lg italic">Typography</span>
+  <span class="chip sm">Iconography</span>
+  <span class="chip md">Motion</span>
+  <span class="chip lg">React</span>
+  <span class="chip italic md">Editorial</span>
+  <span class="chip sm">SCSS</span>
+  <span class="chip md accent">Next.js</span>
+  <span class="chip lg">Animation</span>
+  <span class="chip sm">Figma</span>
+  <span class="chip md italic">Storytelling</span>
+  <span class="chip sm">Webflow</span>
+  <span class="chip lg">Frontend</span>
+  <span class="chip md">CSS Tricks</span>
+  <span class="chip sm accent">3D / WebGL</span>
+  <span class="chip italic md">Strategy</span>
+  <span class="chip sm">Accessibility</span>
+</div>
+<footer class="foot"><span>est. 2018 · 8 yrs</span><span>open to projects · Q3 ’26</span></footer>
+</body>
+</html>

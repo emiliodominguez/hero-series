@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Final CTA</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: clamp(40px, 6vw, 96px) clamp(20px, 4vw, 56px); gap: 40px; align-items: center; text-align: center; position: relative; overflow: hidden; }
+body::before { content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 80vw; height: 80vw; max-width: 1000px; max-height: 1000px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 90, 61, 0.18), transparent 60%); pointer-events: none; }
+.eyebrow { position: relative; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before, .eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
+.massive { position: relative; font-weight: 900; font-size: clamp(80px, 14vw, 240px); line-height: 0.84; letter-spacing: -0.06em; }
+.massive em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { position: relative; max-width: 520px; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+.dek em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); }
+.actions { position: relative; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 32px; border-radius: 999px; background: var(--accent); color: var(--bg); font-weight: 800; font-size: 14px; letter-spacing: 0.04em; text-decoration: none; transition: transform 0.3s; box-shadow: 0 14px 40px rgba(255, 90, 61, 0.35); }
+.cta:hover { transform: translateY(-3px); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); box-shadow: none; }
+.cta.ghost:hover { background: var(--ink); color: var(--bg); }
+.proof { position: relative; display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid var(--rule); flex-wrap: wrap; justify-content: center; }
+.proof-cell { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.proof-num { font-weight: 800; font-size: 24px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.proof-num em { font-family: "Newsreader", serif; font-style: italic; color: var(--accent); }
+.proof-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+@media (max-width: 720px) { .massive { font-size: 72px; } }
+</style>
+</head>
+<body>
+<p class="eyebrow">last chance</p>
+<h1 class="massive">let's build <em>good things.</em></h1>
+<p class="dek">Two slots remain for 2026. If you've been waiting for the right moment to start, this is <em>probably it</em>.</p>
+<div class="actions">
+  <a class="cta" href="#">claim a slot →</a>
+  <a class="cta ghost" href="#">first, see the work</a>
+</div>
+<div class="proof">
+  <div class="proof-cell"><span class="proof-num">42<em>+</em></span><span class="proof-label">projects shipped</span></div>
+  <div class="proof-cell"><span class="proof-num">9.6</span><span class="proof-label">avg. NPS</span></div>
+  <div class="proof-cell"><span class="proof-num">8 yrs</span><span class="proof-label">in practice</span></div>
+  <div class="proof-cell"><span class="proof-num">★ 4.9</span><span class="proof-label">38 reviews</span></div>
+</div>
+</body>
+</html>

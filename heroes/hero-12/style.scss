@@ -1,0 +1,428 @@
+// -----------------------------------------------------------------------------
+// Theme tokens — sober palettes, single restrained accent
+// -----------------------------------------------------------------------------
+
+:root {
+	--bg: #f1ece0;
+	--ink: #1a1612;
+	--ink-soft: #6a655a;
+	--muted: #a09a8a;
+	--accent: #b85a2a;
+	--rule: rgba(26, 22, 18, 0.16);
+
+	&[data-theme="fog"] {
+		--bg: #ecedee;
+		--ink: #14161a;
+		--ink-soft: #5a5d62;
+		--muted: #8a8d92;
+		--accent: #4a6a82;
+		--rule: rgba(20, 22, 26, 0.16);
+	}
+
+	&[data-theme="stone"] {
+		--bg: #e8e0d2;
+		--ink: #2a2018;
+		--ink-soft: #6a5a48;
+		--muted: #98886a;
+		--accent: #8a4a2a;
+		--rule: rgba(42, 32, 24, 0.18);
+	}
+
+	&[data-theme="slate"] {
+		--bg: #d8dadc;
+		--ink: #1a1c20;
+		--ink-soft: #4a4d52;
+		--muted: #80848a;
+		--accent: #b87a3a;
+		--rule: rgba(26, 28, 32, 0.18);
+	}
+
+	&[data-theme="dusk"] {
+		--bg: #1a1814;
+		--ink: #f0eadc;
+		--ink-soft: #b0a890;
+		--muted: #6a6450;
+		--accent: #d4a04a;
+		--rule: rgba(240, 234, 220, 0.14);
+	}
+
+	&[data-theme="noir"] {
+		--bg: #0c0c0e;
+		--ink: #e8e4dc;
+		--ink-soft: #9a958a;
+		--muted: #5a5852;
+		--accent: #b85a2a;
+		--rule: rgba(232, 228, 220, 0.14);
+	}
+
+	&[data-theme="midnight"] {
+		--bg: #0c1220;
+		--ink: #e0e6f0;
+		--ink-soft: #8a92a4;
+		--muted: #4a526a;
+		--accent: #6a8ab0;
+		--rule: rgba(224, 230, 240, 0.14);
+	}
+
+	&[data-theme="moss"] {
+		--bg: #0e1612;
+		--ink: #e4e8d8;
+		--ink-soft: #9ca292;
+		--muted: #5a6052;
+		--accent: #c47a3a;
+		--rule: rgba(228, 232, 216, 0.14);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Reset
+// -----------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--ink);
+	font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+	font-size: 15px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+	transition:
+		background-color 0.5s ease,
+		color 0.5s ease;
+}
+
+::selection {
+	background-color: var(--ink);
+	color: var(--bg);
+}
+
+button,
+a {
+	font: inherit;
+	color: inherit;
+}
+
+// -----------------------------------------------------------------------------
+// Page shell — generous padding, thin top + bottom rules
+// -----------------------------------------------------------------------------
+
+.calm {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100svh;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: clamp(28px, 4vh, 56px) clamp(28px, 5vw, 96px);
+	gap: clamp(36px, 6vh, 80px);
+}
+
+// -----------------------------------------------------------------------------
+// Top nav
+// -----------------------------------------------------------------------------
+
+.calm-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.calm-mark {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--ink);
+	text-decoration: none;
+	font-family: "Source Serif 4", serif;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 17px;
+	letter-spacing: -0.01em;
+
+	.calm-mark-dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: var(--accent);
+	}
+
+	.calm-mark-slash {
+		font-style: normal;
+		color: var(--accent);
+		margin: 0 1px;
+	}
+}
+
+.calm-themes {
+	display: inline-flex;
+	gap: 10px;
+	padding: 5px 7px;
+	border: 1px solid var(--rule);
+	border-radius: 999px;
+}
+
+.calm-theme {
+	width: 14px;
+	height: 14px;
+	border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 0;
+	background-color: transparent;
+	outline: 1.5px solid transparent;
+	outline-offset: 2px;
+	transition:
+		transform 0.2s ease,
+		outline-color 0.2s ease;
+
+	&.calm-theme-bone {
+		background-image: conic-gradient(from 225deg, #f1ece0 0 180deg, #b85a2a 180deg 360deg);
+	}
+
+	&.calm-theme-fog {
+		background-image: conic-gradient(from 225deg, #ecedee 0 180deg, #4a6a82 180deg 360deg);
+	}
+
+	&.calm-theme-stone {
+		background-image: conic-gradient(from 225deg, #e8e0d2 0 180deg, #8a4a2a 180deg 360deg);
+	}
+
+	&.calm-theme-slate {
+		background-image: conic-gradient(from 225deg, #d8dadc 0 180deg, #b87a3a 180deg 360deg);
+	}
+
+	&.calm-theme-dusk {
+		background-image: conic-gradient(from 225deg, #1a1814 0 180deg, #d4a04a 180deg 360deg);
+	}
+
+	&.calm-theme-noir {
+		background-image: conic-gradient(from 225deg, #0c0c0e 0 180deg, #b85a2a 180deg 360deg);
+	}
+
+	&.calm-theme-midnight {
+		background-image: conic-gradient(from 225deg, #0c1220 0 180deg, #6a8ab0 180deg 360deg);
+	}
+
+	&.calm-theme-moss {
+		background-image: conic-gradient(from 225deg, #0e1612 0 180deg, #c47a3a 180deg 360deg);
+	}
+
+	&:hover {
+		transform: scale(1.15);
+	}
+
+	&.is-active {
+		outline-color: var(--ink);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Stage — centered, with lots of breathing room
+// -----------------------------------------------------------------------------
+
+.calm-stage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: clamp(20px, 3vh, 36px);
+	max-width: 720px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.calm-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	font-family: "Inter", system-ui, sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.calm-eyebrow-num {
+	font-family: "Source Serif 4", serif;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 14px;
+	letter-spacing: 0;
+	text-transform: none;
+	color: var(--accent);
+}
+
+.calm-eyebrow-rule {
+	flex: 0 0 28px;
+	height: 1px;
+	background-color: var(--rule);
+}
+
+// -----------------------------------------------------------------------------
+// Title
+// -----------------------------------------------------------------------------
+
+.calm-title {
+	font-family: "Source Serif 4", serif;
+	font-weight: 500;
+	font-size: clamp(72px, 9.5vw, 156px);
+	line-height: 0.96;
+	letter-spacing: -0.04em;
+	color: var(--ink);
+	margin: 0;
+}
+
+.calm-title-line {
+	display: block;
+
+	&.calm-title-line-b {
+		em {
+			font-style: italic;
+			font-weight: 400;
+		}
+	}
+}
+
+.calm-title-dot {
+	color: var(--accent);
+	font-style: normal;
+}
+
+// -----------------------------------------------------------------------------
+// Dek
+// -----------------------------------------------------------------------------
+
+.calm-dek {
+	max-width: 520px;
+	color: var(--ink);
+	font-family: "Source Serif 4", serif;
+	font-size: clamp(15px, 1.15vw, 17px);
+	line-height: 1.6;
+}
+
+// -----------------------------------------------------------------------------
+// CTA — text link with rule, no box
+// -----------------------------------------------------------------------------
+
+.calm-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 4px;
+	padding: 4px 0;
+	color: var(--ink);
+	text-decoration: none;
+	font-family: "Inter", sans-serif;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	border-bottom: 1px solid var(--ink);
+	width: fit-content;
+	transition:
+		gap 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+		color 0.2s ease,
+		border-color 0.2s ease;
+
+	&:hover {
+		gap: 14px;
+		color: var(--accent);
+		border-color: var(--accent);
+	}
+
+	.calm-cta-arrow {
+		transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Foot — single thin row
+// -----------------------------------------------------------------------------
+
+.calm-foot {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding-top: 16px;
+	border-top: 1px solid var(--rule);
+	font-family: "Inter", sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.calm-foot-meta {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.calm-foot-pulse {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background-color: var(--accent);
+	animation: calm-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes calm-pulse {
+	0%,
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.4;
+		transform: scale(0.85);
+	}
+}
+
+.calm-foot-rule {
+	flex: 0 0 18px;
+	height: 1px;
+	background-color: var(--rule);
+
+	&:last-of-type {
+		flex: 1;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+@media (max-width: 720px) {
+	.calm-foot {
+		flex-wrap: wrap;
+	}
+
+	.calm-foot-rule {
+		display: none;
+	}
+
+	.calm-title {
+		font-size: clamp(56px, 18vw, 96px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}

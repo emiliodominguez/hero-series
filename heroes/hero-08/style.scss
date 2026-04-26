@@ -1,0 +1,799 @@
+// -----------------------------------------------------------------------------
+// Theme tokens
+// -----------------------------------------------------------------------------
+
+:root {
+	--bg: #1a0a3a;
+	--bg-soft: #2a1056;
+	--ink: #f4eaff;
+	--ink-soft: #d8c8f0;
+	--muted: #a098c0;
+	--orb-a: #ff3da8;
+	--orb-b: #6a3aff;
+	--orb-c: #2effd8;
+	--orb-d: #ffaa3d;
+	--accent: #ff7adc;
+	--accent-cool: #5af0ff;
+	--glass-bg: rgba(255, 255, 255, 0.1);
+	--glass-bg-strong: rgba(255, 255, 255, 0.16);
+	--glass-border: rgba(255, 255, 255, 0.28);
+	--glass-rim: rgba(255, 255, 255, 0.5);
+	--glass-shadow: rgba(10, 4, 24, 0.45);
+
+	&[data-theme="iris"] {
+		--bg: #08043a;
+		--bg-soft: #140a5a;
+		--ink: #eaeaff;
+		--ink-soft: #c8c8ff;
+		--muted: #9098c8;
+		--orb-a: #5a3aff;
+		--orb-b: #3a8aff;
+		--orb-c: #b86aff;
+		--orb-d: #2effd8;
+		--accent: #6a8aff;
+		--accent-cool: #b86aff;
+	}
+
+	&[data-theme="citrus"] {
+		--bg: #2a1408;
+		--bg-soft: #4a2410;
+		--ink: #fff4e8;
+		--ink-soft: #ffd8a8;
+		--muted: #c0a080;
+		--orb-a: #ff5a1f;
+		--orb-b: #ffaa3d;
+		--orb-c: #fff03d;
+		--orb-d: #ff3d8a;
+		--accent: #ffae3d;
+		--accent-cool: #ff5a1f;
+	}
+
+	&[data-theme="mint"] {
+		--bg: #051f1a;
+		--bg-soft: #0a3024;
+		--ink: #eafff4;
+		--ink-soft: #b8e8d0;
+		--muted: #80b098;
+		--orb-a: #2effa8;
+		--orb-b: #5af0d8;
+		--orb-c: #b8ff3d;
+		--orb-d: #5a8aff;
+		--accent: #2effa8;
+		--accent-cool: #5af0d8;
+	}
+
+	&[data-theme="dusk"] {
+		--bg: #2a0a1a;
+		--bg-soft: #4a0a2a;
+		--ink: #fff0f4;
+		--ink-soft: #ffc8d8;
+		--muted: #c08aa0;
+		--orb-a: #ff3d8a;
+		--orb-b: #ff5a3d;
+		--orb-c: #b86aff;
+		--orb-d: #ffaa3d;
+		--accent: #ff7adc;
+		--accent-cool: #ff5a3d;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Reset
+// -----------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--ink);
+	font-family: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	overflow: hidden;
+	transition:
+		background-color 0.5s ease,
+		color 0.5s ease;
+}
+
+::selection {
+	background-color: var(--accent);
+	color: var(--bg);
+}
+
+button,
+a {
+	font: inherit;
+	color: inherit;
+}
+
+// -----------------------------------------------------------------------------
+// Stage
+// -----------------------------------------------------------------------------
+
+.glass {
+	position: relative;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100svh;
+	overflow: hidden;
+	isolation: isolate;
+	padding: clamp(16px, 2vw, 24px);
+	gap: clamp(12px, 1.6vw, 18px);
+	background-color: var(--bg);
+}
+
+// -----------------------------------------------------------------------------
+// Vivid background — colored orbs with heavy blur
+// -----------------------------------------------------------------------------
+
+.glass-bg {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.glass-orb {
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(90px);
+	opacity: 0.85;
+	will-change: transform;
+}
+
+.glass-orb-a {
+	width: 60vw;
+	height: 60vw;
+	max-width: 800px;
+	max-height: 800px;
+	top: -10%;
+	left: -8%;
+	background-color: var(--orb-a);
+	animation: glass-orb-drift-a 22s ease-in-out infinite alternate;
+}
+
+.glass-orb-b {
+	width: 48vw;
+	height: 48vw;
+	max-width: 640px;
+	max-height: 640px;
+	bottom: -12%;
+	right: -10%;
+	background-color: var(--orb-b);
+	animation: glass-orb-drift-b 28s ease-in-out infinite alternate -6s;
+}
+
+.glass-orb-c {
+	width: 36vw;
+	height: 36vw;
+	max-width: 460px;
+	max-height: 460px;
+	top: 30%;
+	right: 20%;
+	background-color: var(--orb-c);
+	opacity: 0.55;
+	animation: glass-orb-drift-c 18s ease-in-out infinite alternate -3s;
+}
+
+.glass-orb-d {
+	width: 30vw;
+	height: 30vw;
+	max-width: 400px;
+	max-height: 400px;
+	bottom: 20%;
+	left: 24%;
+	background-color: var(--orb-d);
+	opacity: 0.6;
+	animation: glass-orb-drift-d 24s ease-in-out infinite alternate -10s;
+}
+
+@keyframes glass-orb-drift-a {
+	from {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+	to {
+		transform: translate3d(8vw, 4vh, 0) scale(1.1);
+	}
+}
+
+@keyframes glass-orb-drift-b {
+	from {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+	to {
+		transform: translate3d(-6vw, -4vh, 0) scale(0.92);
+	}
+}
+
+@keyframes glass-orb-drift-c {
+	from {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+	to {
+		transform: translate3d(-4vw, 6vh, 0) scale(1.15);
+	}
+}
+
+@keyframes glass-orb-drift-d {
+	from {
+		transform: translate3d(0, 0, 0) scale(1);
+	}
+	to {
+		transform: translate3d(6vw, -3vh, 0) scale(0.9);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Frosted glass surface (shared)
+// -----------------------------------------------------------------------------
+
+.glass-pane {
+	position: relative;
+	background-color: var(--glass-bg);
+	border: 1px solid var(--glass-border);
+	border-radius: 22px;
+	backdrop-filter: blur(24px) saturate(140%);
+	-webkit-backdrop-filter: blur(24px) saturate(140%);
+	box-shadow:
+		0 30px 60px var(--glass-shadow),
+		0 6px 18px color-mix(in srgb, var(--glass-shadow) 60%, transparent),
+		inset 0 1px 0 var(--glass-rim);
+}
+
+// -----------------------------------------------------------------------------
+// Top nav
+// -----------------------------------------------------------------------------
+
+.glass-nav {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 10px clamp(16px, 2vw, 24px);
+	border-radius: 999px;
+}
+
+.glass-mark {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--ink);
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 14px;
+	letter-spacing: -0.01em;
+
+	.glass-mark-glyph {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		border-radius: 4px;
+		background-image: linear-gradient(135deg, var(--accent), var(--accent-cool));
+		box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 60%, transparent);
+	}
+
+	.glass-mark-slash {
+		color: var(--accent);
+		margin: 0 1px;
+	}
+}
+
+.glass-links {
+	display: inline-flex;
+	gap: clamp(14px, 2.4vw, 28px);
+
+	a {
+		color: var(--ink-soft);
+		text-decoration: none;
+		font-size: 13px;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--ink);
+		}
+	}
+}
+
+.glass-themes {
+	display: inline-flex;
+	gap: 10px;
+	padding: 4px 6px;
+	border: 1px solid var(--glass-border);
+	border-radius: 999px;
+	background-color: rgba(255, 255, 255, 0.06);
+}
+
+.glass-theme {
+	width: 16px;
+	height: 16px;
+	border: 1.5px solid rgba(255, 255, 255, 0.4);
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 0;
+	background-color: transparent;
+	outline: 1.5px solid transparent;
+	outline-offset: 2px;
+	transition:
+		transform 0.2s ease,
+		outline-color 0.2s ease;
+
+	&.glass-theme-prism {
+		background-image: conic-gradient(from 225deg, #1a0a3a 0 180deg, #ff3da8 180deg 360deg);
+	}
+
+	&.glass-theme-iris {
+		background-image: conic-gradient(from 225deg, #08043a 0 180deg, #5a3aff 180deg 360deg);
+	}
+
+	&.glass-theme-citrus {
+		background-image: conic-gradient(from 225deg, #2a1408 0 180deg, #ffae3d 180deg 360deg);
+	}
+
+	&.glass-theme-mint {
+		background-image: conic-gradient(from 225deg, #051f1a 0 180deg, #2effa8 180deg 360deg);
+	}
+
+	&.glass-theme-dusk {
+		background-image: conic-gradient(from 225deg, #2a0a1a 0 180deg, #ff7adc 180deg 360deg);
+	}
+
+	&:hover {
+		transform: scale(1.15);
+	}
+
+	&.is-active {
+		outline-color: var(--ink);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Stage layout (overlapping cards on a grid)
+// -----------------------------------------------------------------------------
+
+.glass-stage {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
+	grid-template-rows: minmax(0, 1fr) auto;
+	gap: clamp(12px, 1.6vw, 20px);
+}
+
+// -----------------------------------------------------------------------------
+// Cards
+// -----------------------------------------------------------------------------
+
+.glass-card {
+	padding: clamp(24px, 3vw, 36px);
+}
+
+.glass-card-main {
+	grid-column: 1 / 2;
+	grid-row: 1 / 3;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: clamp(20px, 2.6vh, 32px);
+	border-radius: 28px;
+	padding: clamp(36px, 4vw, 64px);
+}
+
+.glass-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: "Geist Mono", monospace;
+	font-size: 11px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.glass-eyebrow-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: var(--accent);
+	box-shadow: 0 0 10px var(--accent);
+	animation: glass-eyebrow-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes glass-eyebrow-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.4;
+	}
+}
+
+.glass-title {
+	font-family: "Geist", sans-serif;
+	font-weight: 800;
+	font-size: clamp(72px, 12vw, 200px);
+	line-height: 0.92;
+	letter-spacing: -0.04em;
+	color: var(--ink);
+	margin: 0;
+	text-shadow: 0 6px 30px color-mix(in srgb, var(--bg) 50%, transparent);
+}
+
+.glass-title-line {
+	display: block;
+
+	&.glass-title-line-b {
+		em {
+			font-family: "Instrument Serif", serif;
+			font-style: italic;
+			font-weight: 400;
+			color: var(--accent);
+		}
+	}
+}
+
+.glass-blurb {
+	max-width: 480px;
+	color: var(--ink);
+	font-size: clamp(14px, 1.1vw, 16px);
+	line-height: 1.6;
+
+	em {
+		font-family: "Instrument Serif", serif;
+		font-style: italic;
+		font-size: 1.15em;
+		color: var(--accent-cool);
+	}
+}
+
+.glass-actions {
+	display: inline-flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.glass-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 13px 22px;
+	border: 1px solid var(--glass-border);
+	border-radius: 999px;
+	background-color: var(--ink);
+	color: var(--bg);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	cursor: pointer;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+
+	&:hover {
+		background-color: var(--accent);
+		color: var(--bg);
+		transform: translateY(-2px);
+	}
+
+	.glass-cta-arrow {
+		transition: transform 0.3s ease;
+	}
+
+	&:hover .glass-cta-arrow {
+		transform: translateX(4px);
+	}
+
+	&.glass-cta-ghost {
+		background-color: rgba(255, 255, 255, 0.1);
+		color: var(--ink);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+			color: var(--ink);
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Stats card
+// -----------------------------------------------------------------------------
+
+.glass-card-stats {
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	justify-content: center;
+}
+
+.glass-card-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid var(--glass-border);
+
+	&:last-child {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+}
+
+.glass-card-label {
+	font-family: "Geist Mono", monospace;
+	font-size: 10px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.glass-card-num {
+	font-family: "Geist", sans-serif;
+	font-size: 32px;
+	font-weight: 600;
+	color: var(--ink);
+	letter-spacing: -0.03em;
+	font-variant-numeric: tabular-nums;
+}
+
+.glass-card-bar {
+	display: inline-block;
+	width: 80px;
+	height: 5px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 999px;
+	overflow: hidden;
+
+	.glass-card-bar-fill {
+		display: block;
+		height: 100%;
+		width: 62%;
+		background-image: linear-gradient(90deg, var(--accent), var(--accent-cool));
+		border-radius: 999px;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Player card
+// -----------------------------------------------------------------------------
+
+.glass-card-player {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+	display: grid;
+	grid-template-columns: 56px 1fr auto;
+	align-items: center;
+	gap: 14px;
+	padding: 16px 18px;
+}
+
+.glass-player-art {
+	position: relative;
+	width: 56px;
+	height: 56px;
+	border-radius: 14px;
+	overflow: hidden;
+	background-image: linear-gradient(135deg, var(--orb-a), var(--orb-b));
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 1px;
+	padding: 4px;
+
+	span {
+		background-color: rgba(255, 255, 255, 0.14);
+		border-radius: 4px;
+
+		&:nth-child(2) {
+			background-color: rgba(255, 255, 255, 0.32);
+		}
+
+		&:nth-child(3) {
+			background-color: rgba(0, 0, 0, 0.18);
+		}
+	}
+}
+
+.glass-player-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 0;
+}
+
+.glass-player-tag {
+	font-family: "Geist Mono", monospace;
+	font-size: 9px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.glass-player-title {
+	font-weight: 600;
+	color: var(--ink);
+	font-size: 14px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.glass-player-sub {
+	font-size: 12px;
+	color: var(--ink-soft);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.glass-player-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	border: 1px solid var(--glass-border);
+	background-color: var(--ink);
+	color: var(--bg);
+	cursor: pointer;
+	font-size: 12px;
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease;
+
+	&:hover {
+		background-color: var(--accent);
+		color: var(--bg);
+		transform: scale(1.06);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Floating badge (absolute on top of main card)
+// -----------------------------------------------------------------------------
+
+.glass-card-badge {
+	position: absolute;
+	left: clamp(20px, 4vw, 40px);
+	bottom: clamp(20px, 4vh, 40px);
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	padding: 14px 16px;
+	border-radius: 18px;
+	font-family: "Geist Mono", monospace;
+	font-size: 10px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--ink);
+	transform: rotate(-6deg);
+}
+
+.glass-badge-row {
+	color: var(--ink-soft);
+}
+
+.glass-badge-num {
+	font-family: "Instrument Serif", serif;
+	font-style: italic;
+	font-size: 36px;
+	font-weight: 400;
+	letter-spacing: 0;
+	text-transform: none;
+	color: var(--accent);
+	line-height: 1;
+}
+
+// -----------------------------------------------------------------------------
+// Foot bar
+// -----------------------------------------------------------------------------
+
+.glass-foot {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 10px clamp(16px, 2vw, 24px);
+	border-radius: 999px;
+	font-family: "Geist Mono", monospace;
+	font-size: 11px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+}
+
+.glass-foot-tag {
+	color: var(--accent);
+	font-weight: 500;
+}
+
+.glass-foot-spacer {
+	flex: 0 0 14px;
+	height: 1px;
+	background-color: var(--glass-border);
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+@media (max-width: 900px) {
+	.glass-links {
+		display: none;
+	}
+
+	.glass-stage {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+	}
+
+	.glass-card-main {
+		grid-column: 1;
+		grid-row: 1;
+		min-height: 380px;
+	}
+
+	.glass-card-stats {
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	.glass-card-player {
+		grid-column: 1;
+		grid-row: 3;
+	}
+
+	.glass-card-badge {
+		display: none;
+	}
+}
+
+@media (max-width: 720px) {
+	.glass-foot {
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+		border-radius: 22px;
+	}
+
+	.glass-foot-spacer {
+		flex: 0 0 8px;
+	}
+
+	.glass-title {
+		font-size: clamp(56px, 18vw, 110px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+	}
+}

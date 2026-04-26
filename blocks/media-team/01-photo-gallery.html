@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photo Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(24px, 4vh, 40px); max-width: 1240px; margin: 0 auto; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.right { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 12px; }
+.tile { position: relative; overflow: hidden; border-radius: 14px; cursor: pointer; }
+.tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.tile:hover img { transform: scale(1.06); }
+.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6)); pointer-events: none; opacity: 0; transition: opacity 0.3s; }
+.tile:hover::after { opacity: 1; }
+.tile-cap { position: absolute; left: 14px; bottom: 14px; right: 14px; color: white; display: flex; justify-content: space-between; gap: 12px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; z-index: 1; }
+.tile:hover .tile-cap { opacity: 1; }
+.tile.span-2 { grid-column: span 2; }
+.tile.span-2-r { grid-row: span 2; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } .tile.span-2-r { grid-row: span 1; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div><p class="eyebrow">/ lookbook · vol IV</p><h2 class="title">selected work, <em>2024 — 2026</em>.</h2></div>
+  <span class="right">8 of 42 shown · view all →</span>
+</header>
+<div class="grid">
+  <a class="tile span-2 span-2-r" href="#"><img src="https://picsum.photos/seed/g1/800/800" alt="" /><div class="tile-cap"><span>Halo Labs · Brand</span><span>2026</span></div></a>
+  <a class="tile" href="#"><img src="https://picsum.photos/seed/g2/600/400" alt="" /><div class="tile-cap"><span>Periodical</span><span>2025</span></div></a>
+  <a class="tile" href="#"><img src="https://picsum.photos/seed/g3/600/400" alt="" /><div class="tile-cap"><span>Northstar</span><span>2025</span></div></a>
+  <a class="tile span-2" href="#"><img src="https://picsum.photos/seed/g4/800/400" alt="" /><div class="tile-cap"><span>Atelier 04 · Identity system</span><span>2025</span></div></a>
+  <a class="tile" href="#"><img src="https://picsum.photos/seed/g5/600/400" alt="" /><div class="tile-cap"><span>Folio</span><span>2024</span></div></a>
+  <a class="tile" href="#"><img src="https://picsum.photos/seed/g6/600/400" alt="" /><div class="tile-cap"><span>Soft Press</span><span>2024</span></div></a>
+  <a class="tile" href="#"><img src="https://picsum.photos/seed/g7/600/400" alt="" /><div class="tile-cap"><span>Tempor</span><span>2024</span></div></a>
+</div>
+</body>
+</html>

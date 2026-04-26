@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feature Card Pair</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 32px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.04em; line-height: 1.05; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 22px; padding: 36px; display: flex; flex-direction: column; gap: 22px; }
+.card-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255, 90, 61, 0.15); border: 1px solid rgba(255, 90, 61, 0.4); color: var(--accent); display: grid; place-items: center; font-family: "Newsreader", serif; font-style: italic; font-size: 28px; }
+.card-title { font-weight: 800; font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -0.02em; line-height: 1.15; }
+.card-title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.card-body { color: var(--ink-soft); line-height: 1.6; font-size: 14px; }
+.card-body em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); font-size: 1.08em; }
+.card-list { list-style: none; display: flex; flex-direction: column; gap: 4px; padding-top: 12px; border-top: 1px dashed var(--rule); }
+.card-list li { display: flex; gap: 10px; align-items: center; font-size: 13px; padding: 6px 0; color: var(--ink-soft); }
+.card-list li::before { content: "→"; color: var(--accent); font-weight: 700; }
+.card-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 13px; text-decoration: none; transition: transform 0.2s; align-self: start; margin-top: auto; }
+.card-cta:hover { transform: translateX(4px); }
+.card.alt .card-icon { background: rgba(255, 208, 61, 0.15); border-color: rgba(255, 208, 61, 0.4); color: #ffd03d; }
+.card.alt .card-title em, .card.alt .card-body em { color: #ffd03d; }
+.card.alt .card-cta { background: #ffd03d; color: var(--bg); }
+@media (max-width: 800px) { .pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ two ways to start</p>
+  <h2 class="title">pick the <em>one</em> that fits.</h2>
+</header>
+<div class="pair">
+  <article class="card">
+    <span class="card-icon">i.</span>
+    <h3 class="card-title">For makers, <em>one project</em>.</h3>
+    <p class="card-body">A flat-rate, fixed-scope engagement. We agree on the shape, ship in 4–6 weeks, and you own everything.</p>
+    <ul class="card-list"><li>Single deliverable</li><li>Two rounds of revision</li><li>Source files transferred</li><li>30-day warranty</li></ul>
+    <a class="card-cta" href="#">start a brief →</a>
+  </article>
+  <article class="card alt">
+    <span class="card-icon">ii.</span>
+    <h3 class="card-title">For teams, <em>quarterly</em>.</h3>
+    <p class="card-body">An embedded design partner for one product team. Weekly working sessions and an always-on Linear inbox.</p>
+    <ul class="card-list"><li>Embedded with your team</li><li>Weekly working sessions</li><li>Unlimited revisions</li><li>First-look on new IP</li></ul>
+    <a class="card-cta" href="#">apply for atelier →</a>
+  </article>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spec Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(40px, 5vw, 64px); max-width: 1100px; margin: 0 auto; align-items: start; }
+.left { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 40px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+.right { display: flex; flex-direction: column; gap: 24px; }
+.group { display: flex; flex-direction: column; }
+.group-title { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; padding-bottom: 8px; border-bottom: 1.5px solid var(--ink); margin-bottom: 4px; }
+.spec { display: grid; grid-template-columns: minmax(120px, 30%) 1fr; padding: 12px 0; border-bottom: 1px dashed var(--rule); gap: 14px; }
+.spec-key { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); text-transform: uppercase; }
+.spec-val { font-size: 14px; color: var(--ink); }
+.spec-val em { font-family: "Newsreader", serif; font-style: italic; color: var(--accent); }
+.spec-val strong { font-weight: 700; }
+.spec-val .dim { color: var(--ink-soft); }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; } .left { position: static; } }
+</style>
+</head>
+<body>
+<aside class="left">
+  <p class="eyebrow">/ spec sheet · vol 042</p>
+  <h2 class="title">technical <em>fine print.</em></h2>
+  <p class="dek">Every detail of the build, no marketing fluff. Useful for press, partner kits, or just remembering what you actually shipped.</p>
+</aside>
+<div class="right">
+  <section class="group">
+    <h3 class="group-title">/ build</h3>
+    <div class="spec"><span class="spec-key">Framework</span><span class="spec-val">Next.js <strong>15.4</strong> · App Router</span></div>
+    <div class="spec"><span class="spec-key">Runtime</span><span class="spec-val">Node 22 · React <strong>19</strong></span></div>
+    <div class="spec"><span class="spec-key">Bundler</span><span class="spec-val">Turbopack <span class="dim">(beta)</span></span></div>
+    <div class="spec"><span class="spec-key">Styling</span><span class="spec-val">SCSS modules + design tokens</span></div>
+    <div class="spec"><span class="spec-key">Type</span><span class="spec-val">TypeScript <strong>5.4</strong> · strict</span></div>
+  </section>
+  <section class="group">
+    <h3 class="group-title">/ performance</h3>
+    <div class="spec"><span class="spec-key">Lighthouse</span><span class="spec-val"><strong>97</strong> · 99 · 100 · 100</span></div>
+    <div class="spec"><span class="spec-key">LCP</span><span class="spec-val">0.8 s · <em>good</em></span></div>
+    <div class="spec"><span class="spec-key">CLS</span><span class="spec-val">0.02 · <em>good</em></span></div>
+    <div class="spec"><span class="spec-key">Bundle (gzip)</span><span class="spec-val">38 kB <span class="dim">/ first load</span></span></div>
+  </section>
+  <section class="group">
+    <h3 class="group-title">/ accessibility</h3>
+    <div class="spec"><span class="spec-key">WCAG</span><span class="spec-val"><strong>AA</strong> across 14 audited routes</span></div>
+    <div class="spec"><span class="spec-key">Contrast</span><span class="spec-val">≥ 4.5 : 1 / body · ≥ 3 : 1 / large</span></div>
+    <div class="spec"><span class="spec-key">Keyboard</span><span class="spec-val">Tab order verified</span></div>
+    <div class="spec"><span class="spec-key">Reduced motion</span><span class="spec-val"><em>respected</em></span></div>
+  </section>
+</div>
+</body>
+</html>

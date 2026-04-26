@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feature Toggle Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.14); --surface: #ffffff; --ok: #2a9a4e; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.card { width: min(560px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; overflow: hidden; }
+.head { padding: 22px 24px 18px; border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.title { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.list { display: flex; flex-direction: column; }
+.row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; padding: 18px 24px; border-bottom: 1px solid var(--rule); }
+.row:last-child { border-bottom: 0; }
+.row-name { display: flex; flex-direction: column; gap: 4px; }
+.row-title { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+.row-title small { display: inline-block; padding: 2px 6px; background: rgba(46, 154, 78, 0.14); color: var(--ok); border-radius: 4px; font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; vertical-align: 2px; margin-left: 8px; }
+.row-title small.beta { background: rgba(176, 58, 30, 0.14); color: var(--accent); }
+.row-desc { font-size: 12px; color: var(--ink-soft); line-height: 1.5; }
+.toggle { width: 44px; height: 26px; border-radius: 999px; background: rgba(20, 17, 10, 0.14); position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0; border: 0; padding: 0; }
+.toggle::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: transform 0.2s; }
+.toggle.on { background: var(--ok); }
+.toggle.on::after { transform: translateX(18px); }
+.foot { padding: 14px 24px; background: rgba(20, 17, 10, 0.03); border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; }
+.foot strong { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="card">
+  <header class="head"><span class="eyebrow">/ settings · features</span><h2 class="title">try the <em>new things.</em></h2></header>
+  <div class="list">
+    <div class="row"><div class="row-name"><span class="row-title">Live cursors <small class="beta">beta</small></span><span class="row-desc">See your team's cursors move in real time across docs.</span></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="row"><div class="row-name"><span class="row-title">Slash commands</span><span class="row-desc">Use ⌥-/ anywhere to summon the command palette.</span></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="row"><div class="row-name"><span class="row-title">AI suggestions <small class="beta">beta</small></span><span class="row-desc">Inline suggestions while you type. Off by default for new docs.</span></div><button class="toggle" onclick="this.classList.toggle('on')"></button></div>
+    <div class="row"><div class="row-name"><span class="row-title">Auto-save <small>stable</small></span><span class="row-desc">Drafts saved every 30 seconds when idle.</span></div><button class="toggle on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="row"><div class="row-name"><span class="row-title">Vim mode</span><span class="row-desc">Modal editing for power users. Modes: normal, insert, visual.</span></div><button class="toggle" onclick="this.classList.toggle('on')"></button></div>
+  </div>
+  <footer class="foot"><span>3 of 5 enabled</span><span><strong>save changes →</strong></span></footer>
+</div>
+</body>
+</html>

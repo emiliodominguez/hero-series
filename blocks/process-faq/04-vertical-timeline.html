@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vertical Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.18); --surface: #fffaef; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(40px, 5vw, 80px); max-width: 1100px; margin: 0 auto; align-items: start; }
+.head { position: sticky; top: 40px; display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 14px; line-height: 1.55; max-width: 320px; }
+.timeline { display: flex; flex-direction: column; position: relative; padding-left: 28px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--rule); }
+.entry { position: relative; padding: 0 0 32px 0; display: flex; flex-direction: column; gap: 6px; }
+.entry::before { content: ""; position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--ink); }
+.entry.accent::before { background: var(--accent); border-color: var(--accent); }
+.year { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.role { font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
+.where { font-family: "Newsreader", serif; font-style: italic; color: var(--ink-soft); font-size: 16px; }
+.body { color: var(--ink-soft); font-size: 14px; line-height: 1.55; max-width: 480px; padding-top: 4px; }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; } .head { position: static; } }
+</style>
+</head>
+<body>
+<aside class="head">
+  <p class="eyebrow">/ a working timeline</p>
+  <h2 class="title">eight years, <em>well spent.</em></h2>
+  <p class="dek">A short version of where I've been and what I've shipped. Long version on request.</p>
+</aside>
+<div class="timeline">
+  <div class="entry accent"><span class="year">2026 — present</span><span class="role">Independent · Studio of one</span><span class="where">Self-employed</span><p class="body">Running my own practice. Editorial sites, brand systems, kinetic identity work. 12 closed engagements YTD.</p></div>
+  <div class="entry"><span class="year">2023 — 2026</span><span class="role">Lead Designer</span><span class="where">Halo Labs (Series B)</span><p class="body">Owned the visual identity through three product launches. Built a 200-component design system from scratch.</p></div>
+  <div class="entry"><span class="year">2020 — 2023</span><span class="role">Senior Product Designer</span><span class="where">Periodical (Editorial CMS)</span><p class="body">Helped 4,000 publishers redesign their reader experience. Shipped Reader 2.0 and the Composer rich-text engine.</p></div>
+  <div class="entry"><span class="year">2018 — 2020</span><span class="role">Designer</span><span class="where">Atelier 04 (Branding agency)</span><p class="body">Identity work for B-Corp clients. First taste of the kind of practice I wanted to run myself one day.</p></div>
+</div>
+</body>
+</html>

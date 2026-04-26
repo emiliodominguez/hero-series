@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Careers / Hiring</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #fffaef; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(28px, 4vh, 40px); max-width: 980px; margin: 0 auto; justify-content: center; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.head-l { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 15px; line-height: 1.55; max-width: 520px; }
+.live { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: rgba(176, 58, 30, 0.08); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+.list { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+.role { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); cursor: pointer; transition: padding 0.2s, background 0.2s; }
+.role:hover { padding-inline: 12px; background: var(--surface); }
+.role-name { display: flex; flex-direction: column; gap: 4px; }
+.role-title { font-weight: 800; font-size: 19px; letter-spacing: -0.01em; }
+.role-meta { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.role-tags { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.role-tag { padding: 4px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--rule); font-size: 11px; font-weight: 600; }
+.role-tag.accent { background: var(--accent); color: white; border-color: var(--accent); }
+.role-arrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.role-arrow::after { content: " →"; transition: transform 0.2s; display: inline-block; }
+.role:hover .role-arrow::after { transform: translateX(4px); }
+@media (max-width: 720px) { .role { grid-template-columns: 1fr; gap: 8px; } .role-arrow { display: none; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div class="head-l">
+    <p class="eyebrow">/ join the studio</p>
+    <h2 class="title">we're hiring <em>three</em>.</h2>
+    <p class="dek">Small team, async-first, paid time to think. Each role open to portfolios from anywhere — apply with whatever feels most like you.</p>
+  </div>
+  <span class="live">3 open</span>
+</header>
+<div class="list">
+  <a class="role" href="#">
+    <div class="role-name"><span class="role-title">Senior Product Designer</span><span class="role-meta">Lisbon · Hybrid · Full-time</span></div>
+    <div class="role-tags"><span class="role-tag accent">Design</span><span class="role-tag">Product</span><span class="role-tag">Lead</span></div>
+    <span class="role-arrow">apply</span>
+  </a>
+  <a class="role" href="#">
+    <div class="role-name"><span class="role-title">Frontend Engineer</span><span class="role-meta">Remote · EU timezones · Full-time</span></div>
+    <div class="role-tags"><span class="role-tag">Engineering</span><span class="role-tag">React</span><span class="role-tag accent">Senior</span></div>
+    <span class="role-arrow">apply</span>
+  </a>
+  <a class="role" href="#">
+    <div class="role-name"><span class="role-title">Brand Strategist (Contract)</span><span class="role-meta">Remote · 6-month engagement</span></div>
+    <div class="role-tags"><span class="role-tag">Strategy</span><span class="role-tag">Brand</span><span class="role-tag">Contract</span></div>
+    <span class="role-arrow">apply</span>
+  </a>
+</div>
+</body>
+</html>

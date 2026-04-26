@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tabbed Features</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --rule: rgba(244, 240, 232, 0.14); --accent: #ff5a3d; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 32px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; max-width: 560px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.tabs { display: inline-flex; gap: 4px; padding: 4px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; align-self: start; flex-wrap: wrap; }
+.tabs button { padding: 10px 18px; border-radius: 999px; border: 0; background: transparent; color: var(--ink-soft); font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.tabs button.active { background: var(--accent); color: var(--bg); }
+.panel { display: none; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 36px; padding: 40px; background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; }
+.panel.active { display: grid; }
+.copy { display: flex; flex-direction: column; gap: 12px; }
+.copy h3 { font-weight: 800; font-size: clamp(24px, 3vw, 36px); letter-spacing: -0.02em; line-height: 1.1; }
+.copy h3 em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.copy p { color: var(--ink-soft); line-height: 1.55; max-width: 460px; }
+.copy ul { list-style: none; display: flex; flex-direction: column; gap: 6px; padding-top: 8px; }
+.copy ul li { display: flex; align-items: center; gap: 10px; color: var(--ink-soft); font-size: 14px; }
+.copy ul li::before { content: "→"; color: var(--accent); font-weight: 700; }
+.preview { background: var(--bg); border: 1px solid var(--rule); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.preview .preview-bar { display: flex; gap: 6px; }
+.preview .preview-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--rule); }
+.preview .preview-bar span:first-child { background: var(--accent); }
+.preview .preview-content { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.preview .preview-content div { height: 8px; background: var(--rule); border-radius: 4px; }
+.preview .preview-content div:nth-child(1) { width: 60%; background: var(--accent); }
+.preview .preview-content div:nth-child(2) { width: 90%; }
+.preview .preview-content div:nth-child(3) { width: 75%; }
+.preview .preview-content div:nth-child(4) { width: 95%; }
+@media (max-width: 800px) { .panel { grid-template-columns: 1fr; padding: 24px; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ what's inside</p>
+  <h2 class="title">three product <em>chapters.</em></h2>
+</header>
+<div class="tabs">
+  <button class="active" onclick="setTab(0, this)">Editor</button>
+  <button onclick="setTab(1, this)">Library</button>
+  <button onclick="setTab(2, this)">Insights</button>
+</div>
+<div class="panel active">
+  <div class="copy"><h3>An editor that <em>stays out of the way.</em></h3><p>Distraction-free writing with a small set of formatting tools. Slash commands, keyboard-first, version history baked in.</p><ul><li>Slash command palette</li><li>Live collaboration cursors</li><li>5,000-word benchmark in &lt;30ms</li></ul></div>
+  <div class="preview"><div class="preview-bar"><span></span><span></span><span></span></div><div class="preview-content"><div></div><div></div><div></div><div></div></div></div>
+</div>
+<div class="panel">
+  <div class="copy"><h3>A <em>component library</em> people actually use.</h3><p>200+ patterns documented with rationale, accessibility notes, and copy-paste snippets. Themed via tokens.</p><ul><li>Tokens → CSS variables</li><li>WCAG AA tested</li><li>Figma + Storybook synced</li></ul></div>
+  <div class="preview"><div class="preview-bar"><span></span><span></span><span></span></div><div class="preview-content"><div></div><div></div><div></div><div></div></div></div>
+</div>
+<div class="panel">
+  <div class="copy"><h3>The <em>insights</em> that move the needle.</h3><p>Lightweight analytics that respect privacy. Track outcomes, not click-paths. No cookie banner needed.</p><ul><li>0-cookie tracking</li><li>Cohort funnels</li><li>Custom event API</li></ul></div>
+  <div class="preview"><div class="preview-bar"><span></span><span></span><span></span></div><div class="preview-content"><div></div><div></div><div></div><div></div></div></div>
+</div>
+<script>
+function setTab(i, btn) {
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll(".panel").forEach((p, idx) => p.classList.toggle("active", idx === i));
+}
+</script>
+</body>
+</html>

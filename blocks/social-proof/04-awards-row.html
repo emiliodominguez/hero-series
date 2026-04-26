@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Awards Row</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #c47a2e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 28px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.medal { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px 16px; display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; transition: transform 0.2s, border-color 0.2s; cursor: default; }
+.medal:hover { transform: translateY(-3px); border-color: var(--accent); }
+.medal-icon { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #ffd03d); display: grid; place-items: center; font-family: "Newsreader", serif; font-style: italic; color: white; font-size: 22px; box-shadow: 0 4px 12px rgba(196, 122, 46, 0.3); position: relative; }
+.medal-icon::after { content: ""; position: absolute; inset: -4px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0.4; }
+.medal-name { font-weight: 800; font-size: 13px; letter-spacing: -0.01em; }
+.medal-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.medal.gold .medal-icon { background: linear-gradient(135deg, #ffd03d, #c47a2e); }
+.medal.silver .medal-icon { background: linear-gradient(135deg, #d8d4c8, #8a857a); }
+.medal.bronze .medal-icon { background: linear-gradient(135deg, #d8a07a, #8a4e2e); }
+.foot { display: flex; justify-content: center; gap: 14px; padding-top: 16px; border-top: 1px dashed var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+@media (max-width: 800px) { .row { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ honors · 2018 — 2026</p>
+  <h2 class="title">five things i'm <em>quietly proud of.</em></h2>
+</header>
+<div class="row">
+  <div class="medal gold"><div class="medal-icon">i.</div><span class="medal-name">SOTD</span><span class="medal-meta">Awwwards · 2026</span></div>
+  <div class="medal"><div class="medal-icon">ii.</div><span class="medal-name">CSS Design Awards</span><span class="medal-meta">Featured · 2025</span></div>
+  <div class="medal silver"><div class="medal-icon">iii.</div><span class="medal-name">FWA</span><span class="medal-meta">Mobile · 2025</span></div>
+  <div class="medal bronze"><div class="medal-icon">iv.</div><span class="medal-name">Sidebar.io</span><span class="medal-meta">Pick · 2024</span></div>
+  <div class="medal"><div class="medal-icon">v.</div><span class="medal-name">TypeWolf</span><span class="medal-meta">Site of the Day</span></div>
+</div>
+<footer class="foot"><span>★★★★★</span><span>4.9 / 5 ★ avg.</span><span>across 38 reviews</span></footer>
+</body>
+</html>

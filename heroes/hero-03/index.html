@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#0e0e10" />
+		<title>Hero 03 - Floating Worlds</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="depth">
+			<div class="depth-grid" aria-hidden="true"></div>
+			<div class="depth-glow" aria-hidden="true"></div>
+
+			<header class="depth-nav">
+				<a class="depth-mark" href="#">
+					<span class="depth-mark-glyph" aria-hidden="true"></span>
+					<span>lorem<span class="depth-mark-slash">/</span>ipsum</span>
+				</a>
+				<nav class="depth-links" aria-label="Primary">
+					<a href="#">lorem</a>
+					<a href="#">ipsum</a>
+					<a href="#">dolor</a>
+					<a href="#">amet</a>
+				</nav>
+				<div class="depth-themes" role="group" aria-label="Theme">
+					<button class="depth-theme depth-theme-violet is-active" type="button" data-theme="violet" aria-label="Violet"></button>
+					<button class="depth-theme depth-theme-mint" type="button" data-theme="mint" aria-label="Mint"></button>
+					<button class="depth-theme depth-theme-flame" type="button" data-theme="flame" aria-label="Flame"></button>
+					<button class="depth-theme depth-theme-noir" type="button" data-theme="noir" aria-label="Noir"></button>
+					<button class="depth-theme depth-theme-pearl" type="button" data-theme="pearl" aria-label="Pearl"></button>
+				</div>
+			</header>
+
+			<section class="depth-stage" data-tilt>
+				<div class="depth-scene">
+					<div class="depth-card depth-card-back" data-z="-180">
+						<span class="depth-card-tag">/ 042</span>
+						<span class="depth-card-text">Sed do eiusmod tempor incididunt</span>
+					</div>
+
+					<div class="depth-card depth-card-mid" data-z="-90">
+						<span class="depth-card-tag">/ 028</span>
+						<span class="depth-card-text">Lorem ipsum dolor sit amet</span>
+						<span class="depth-card-num">2026</span>
+					</div>
+
+					<div class="depth-shape depth-shape-sphere" data-z="-40" aria-hidden="true">
+						<span class="depth-sphere-halo" aria-hidden="true"></span>
+						<span class="depth-sphere-orb" aria-hidden="true">
+							<span class="depth-sphere-spec" aria-hidden="true"></span>
+						</span>
+						<span class="depth-sphere-ring" aria-hidden="true"></span>
+					</div>
+
+					<h1 class="depth-title" data-z="0">
+						<span class="depth-title-line">floating</span>
+						<span class="depth-title-line depth-title-line-b">worlds.</span>
+					</h1>
+
+					<div class="depth-card depth-card-front" data-z="140">
+						<div class="depth-card-row">
+							<span class="depth-card-dot" aria-hidden="true"></span>
+							<span class="depth-card-tag">live · vol 03</span>
+						</div>
+						<span class="depth-card-text">
+							Consectetur adipiscing elit, ut labore et dolore magna aliqua.
+						</span>
+						<button class="depth-cta" type="button">
+							<span>enter scene</span>
+							<span class="depth-cta-arrow" aria-hidden="true">↗</span>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<footer class="depth-foot">
+				<div class="depth-foot-col">
+					<span class="depth-foot-label">scene</span>
+					<span class="depth-foot-value">03 / 08</span>
+				</div>
+				<div class="depth-foot-col">
+					<span class="depth-foot-label">tilt</span>
+					<span class="depth-foot-value" data-tilt-readout>0.00 · 0.00</span>
+				</div>
+				<div class="depth-foot-col">
+					<span class="depth-foot-label">depth</span>
+					<span class="depth-foot-value">parallax · ƒ 1.0</span>
+				</div>
+				<div class="depth-foot-col depth-foot-col-right">
+					<span class="depth-foot-label">hint</span>
+					<span class="depth-foot-value">move cursor →</span>
+				</div>
+			</footer>
+		</main>
+		<script src="script.js" defer></script>
+	</body>
+</html>

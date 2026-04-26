@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Code Block</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --rule: rgba(244, 240, 232, 0.14); --accent: #5aeaff; --pink: #ff5a9a; --green: #2eff7a; --yellow: #ffd03d; --orange: #ff8a3a; --comment: #5a554a; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 8px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: 28px; letter-spacing: -0.02em; }
+.code { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3); }
+.code-bar { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(244, 240, 232, 0.04); border-bottom: 1px solid var(--rule); }
+.code-dots { display: flex; gap: 5px; }
+.code-dots span { width: 11px; height: 11px; border-radius: 50%; }
+.code-dots span:nth-child(1) { background: #ff5a5a; }
+.code-dots span:nth-child(2) { background: #ffd03d; }
+.code-dots span:nth-child(3) { background: var(--green); }
+.code-name { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-soft); flex: 1; text-align: center; letter-spacing: 0.06em; }
+.code-copy { background: transparent; border: 1px solid var(--rule); border-radius: 6px; color: var(--ink-soft); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.code-copy:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.code-copy.ok { background: var(--green); color: var(--bg); border-color: var(--green); }
+pre { padding: 20px 24px; font-family: "JetBrains Mono", monospace; font-size: 13px; line-height: 1.7; counter-reset: line; overflow-x: auto; }
+pre code { display: block; }
+pre .ln { display: inline-block; width: 28px; color: var(--comment); user-select: none; }
+.tag { color: var(--accent); }
+.attr { color: var(--green); }
+.str { color: var(--orange); }
+.kw { color: var(--pink); }
+.fn { color: var(--yellow); }
+.cm { color: var(--comment); font-style: italic; }
+.foot { display: flex; justify-content: space-between; padding: 10px 16px; border-top: 1px solid var(--rule); background: rgba(244, 240, 232, 0.02); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ snippet · 14 lines</p>
+  <h2 class="title">drop in. no build step.</h2>
+</header>
+<div class="code">
+  <div class="code-bar">
+    <div class="code-dots"><span></span><span></span><span></span></div>
+    <span class="code-name">app/page.tsx</span>
+    <button class="code-copy" onclick="this.textContent='✓ copied';this.classList.add('ok');setTimeout(()=>{this.textContent='copy';this.classList.remove('ok')}, 1400)">copy</button>
+  </div>
+  <pre><code><span class="ln">1</span><span class="cm">// the smallest possible page</span>
+<span class="ln">2</span><span class="kw">import</span> <span class="fn">{ Hero }</span> <span class="kw">from</span> <span class="str">"@/components/hero"</span>
+<span class="ln">3</span>
+<span class="ln">4</span><span class="kw">export default function</span> <span class="fn">Page</span>() {
+<span class="ln">5</span>  <span class="kw">return</span> (
+<span class="ln">6</span>    <span class="tag">&lt;main</span> <span class="attr">className</span>=<span class="str">"min-h-svh"</span><span class="tag">&gt;</span>
+<span class="ln">7</span>      <span class="tag">&lt;Hero</span>
+<span class="ln">8</span>        <span class="attr">eyebrow</span>=<span class="str">"vol XV — 2026"</span>
+<span class="ln">9</span>        <span class="attr">title</span>=<span class="str">"things i make."</span>
+<span class="ln">10</span>        <span class="attr">accent</span>=<span class="str">"flame"</span>
+<span class="ln">11</span>      <span class="tag">/&gt;</span>
+<span class="ln">12</span>    <span class="tag">&lt;/main&gt;</span>
+<span class="ln">13</span>  )
+<span class="ln">14</span>}</code></pre>
+  <footer class="foot"><span>typescript · 14 lines</span><span>last edited 2 min ago</span></footer>
+</div>
+</body>
+</html>

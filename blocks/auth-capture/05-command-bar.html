@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Command Bar</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --rule: rgba(244, 240, 232, 0.14); --accent: #5aeaff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.cmd { width: min(640px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), 0 8px 22px rgba(0, 0, 0, 0.3); overflow: hidden; }
+.cmd-input { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--rule); }
+.cmd-icon { color: var(--ink-soft); font-size: 18px; }
+.cmd-input input { flex: 1; background: transparent; border: 0; outline: 0; color: var(--ink); font-family: inherit; font-size: 16px; padding: 4px 0; }
+.cmd-input input::placeholder { color: var(--ink-soft); }
+.cmd-kbd { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; padding: 4px 8px; border: 1px solid var(--rule); border-radius: 6px; color: var(--ink-soft); }
+.cmd-section { padding: 8px 0; }
+.cmd-section-title { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); padding: 8px 20px 6px; }
+.cmd-row { display: flex; align-items: center; gap: 12px; padding: 10px 20px; cursor: pointer; transition: background 0.1s; }
+.cmd-row:hover, .cmd-row.active { background: rgba(244, 240, 232, 0.05); }
+.cmd-row.active { color: var(--accent); }
+.cmd-row-icon { width: 24px; height: 24px; display: grid; place-items: center; border: 1px solid var(--rule); border-radius: 6px; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent); }
+.cmd-row.active .cmd-row-icon { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.cmd-row-name { font-weight: 500; font-size: 14px; flex: 1; }
+.cmd-row-kbd { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-soft); letter-spacing: 0.04em; }
+.cmd-foot { display: flex; justify-content: space-between; gap: 12px; padding: 12px 20px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.cmd-foot-keys { display: flex; gap: 12px; }
+.cmd-foot-keys span { display: inline-flex; gap: 4px; align-items: center; }
+.cmd-foot-keys kbd { font-family: inherit; padding: 2px 6px; background: rgba(244, 240, 232, 0.06); border-radius: 4px; }
+</style>
+</head>
+<body>
+<div class="cmd">
+  <div class="cmd-input">
+    <span class="cmd-icon">⌕</span>
+    <input type="text" placeholder="Type a command or search…" autofocus />
+    <span class="cmd-kbd">esc</span>
+  </div>
+  <div class="cmd-section">
+    <p class="cmd-section-title">Recent</p>
+    <div class="cmd-row active"><span class="cmd-row-icon">→</span><span class="cmd-row-name">Open new project</span><span class="cmd-row-kbd">⌘ N</span></div>
+    <div class="cmd-row"><span class="cmd-row-icon">↗</span><span class="cmd-row-name">Switch workspace</span><span class="cmd-row-kbd">⌘ ⇧ W</span></div>
+    <div class="cmd-row"><span class="cmd-row-icon">★</span><span class="cmd-row-name">Star a folder</span><span class="cmd-row-kbd">⌘ S</span></div>
+  </div>
+  <div class="cmd-section">
+    <p class="cmd-section-title">Suggestions</p>
+    <div class="cmd-row"><span class="cmd-row-icon">↻</span><span class="cmd-row-name">Refresh dashboard</span><span class="cmd-row-kbd">R</span></div>
+    <div class="cmd-row"><span class="cmd-row-icon">⌘</span><span class="cmd-row-name">Settings &amp; preferences</span><span class="cmd-row-kbd">⌘ ,</span></div>
+    <div class="cmd-row"><span class="cmd-row-icon">?</span><span class="cmd-row-name">Open help center</span><span class="cmd-row-kbd">⌘ ?</span></div>
+  </div>
+  <div class="cmd-foot">
+    <span>14 results</span>
+    <div class="cmd-foot-keys"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> select</span></div>
+  </div>
+</div>
+</body>
+</html>

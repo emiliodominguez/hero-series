@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resource Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 64px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 28px; max-width: 1100px; margin: 0 auto; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; padding-bottom: 18px; border-bottom: 1.5px solid var(--ink); }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.search { display: flex; gap: 6px; padding: 4px 6px 4px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; min-width: 280px; align-items: center; }
+.search input { flex: 1; background: transparent; border: 0; outline: 0; padding: 6px 0; font-size: 13px; font-family: inherit; color: var(--ink); }
+.search button { padding: 6px 12px; background: var(--ink); color: var(--bg); border: 0; border-radius: 999px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.06em; font-weight: 700; cursor: pointer; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.f { padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.f:hover { background: var(--ink); color: var(--bg); }
+.f.active { background: var(--accent); color: white; border-color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.res { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+.res:hover { transform: translateY(-2px); border-color: var(--accent); }
+.res-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: var(--bg); border: 1px solid var(--rule); font-family: "Newsreader", serif; font-style: italic; font-size: 18px; color: var(--accent); flex-shrink: 0; }
+.res-tag { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.res-title { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; line-height: 1.2; }
+.res-desc { color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
+.res-foot { display: flex; justify-content: space-between; gap: 8px; padding-top: 10px; border-top: 1px dashed var(--rule); margin-top: auto; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.res-foot strong { color: var(--accent); }
+.res.featured { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.res.featured .res-icon { background: rgba(244, 239, 230, 0.06); border-color: rgba(244, 239, 230, 0.18); }
+.res.featured .res-desc { color: rgba(244, 239, 230, 0.7); }
+.res.featured .res-foot { border-top-color: rgba(244, 239, 230, 0.16); }
+</style>
+</head>
+<body>
+<header class="head">
+  <h1 class="title">a small <em>library</em>.</h1>
+  <div class="search"><input type="text" placeholder="Search 42 resources…" /><button>⌕ Search</button></div>
+</header>
+<div class="filters"><span class="f active">All</span><span class="f">Free</span><span class="f">Paid</span><span class="f">Templates</span><span class="f">Articles</span><span class="f">Tools</span><span class="f">Talks</span></div>
+<div class="grid">
+  <a class="res featured"><span class="res-icon">★</span><span class="res-tag">/ template · paid</span><h3 class="res-title">Hero Series · vol XV</h3><p class="res-desc">15 self-contained banners, single-file each. Sources included.</p><div class="res-foot"><span><strong>$48</strong> · digital</span><span>★ 204</span></div></a>
+  <a class="res"><span class="res-icon">i.</span><span class="res-tag">/ article · free</span><h3 class="res-title">A small type system in CSS variables</h3><p class="res-desc">Variable fonts + tokens + a single ratio = scalable type.</p><div class="res-foot"><span>8 min read</span><span>★ 481</span></div></a>
+  <a class="res"><span class="res-icon">▶</span><span class="res-tag">/ talk · free</span><h3 class="res-title">Tokens that aren't terrible</h3><p class="res-desc">Config '26 — practical patterns for design systems.</p><div class="res-foot"><span>25 min</span><span>★ 312</span></div></a>
+  <a class="res"><span class="res-icon">⌥</span><span class="res-tag">/ tool · free</span><h3 class="res-title">Tokenizer · CLI</h3><p class="res-desc">A Figma → CSS tokens pipeline I built &amp; use daily.</p><div class="res-foot"><span>open source</span><span>★ 142</span></div></a>
+  <a class="res"><span class="res-icon">∇</span><span class="res-tag">/ template · free</span><h3 class="res-title">A short brief template</h3><p class="res-desc">The 1-page brief I send to every new client.</p><div class="res-foot"><span>1 page</span><span>★ 89</span></div></a>
+  <a class="res"><span class="res-icon">@</span><span class="res-tag">/ article · free</span><h3 class="res-title">On the slow art of building things</h3><p class="res-desc">A short essay on patience and quiet design.</p><div class="res-foot"><span>12 min read</span><span>★ 567</span></div></a>
+</div>
+</body>
+</html>

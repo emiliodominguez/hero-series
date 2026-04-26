@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Press / Awards Strip</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ffd03d; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(28px, 4vh, 40px); max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; }
+.title em { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-block: 1px solid var(--rule); }
+.entry { display: flex; flex-direction: column; gap: 8px; padding: 28px; border-right: 1px solid var(--rule); }
+.entry:last-child { border-right: 0; }
+.entry-source { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; }
+.entry-source strong { color: var(--accent); font-weight: 700; }
+.entry-quote { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 22px; line-height: 1.35; }
+.entry-quote::before { content: "\201C"; color: var(--accent); }
+.entry-quote::after { content: "\201D"; color: var(--accent); }
+.entry-link { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: auto; padding-top: 8px; }
+.entry-link::after { content: " ↗"; }
+@media (max-width: 800px) { .list { grid-template-columns: 1fr; } .entry { border-right: 0; border-bottom: 1px solid var(--rule); } .entry:last-child { border-bottom: 0; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ press &amp; awards</p>
+  <h2 class="title">people <em>kindly</em> took notice.</h2>
+</header>
+<div class="list">
+  <article class="entry">
+    <div class="entry-source"><span>Awwwards</span><strong>SOTD · 2026</strong></div>
+    <blockquote class="entry-quote">A quiet masterclass in editorial pacing — restraint that lets the work breathe.</blockquote>
+    <a class="entry-link" href="#">Read feature</a>
+  </article>
+  <article class="entry">
+    <div class="entry-source"><span>Sidebar.io</span><strong>Featured</strong></div>
+    <blockquote class="entry-quote">An identity system that reads like a small press print run, but ships at SaaS speed.</blockquote>
+    <a class="entry-link" href="#">Read feature</a>
+  </article>
+  <article class="entry">
+    <div class="entry-source"><span>Type Wolf</span><strong>Type pairing</strong></div>
+    <blockquote class="entry-quote">An exemplary pairing of variable serif and grotesque — every weight earns its keep.</blockquote>
+    <a class="entry-link" href="#">Read feature</a>
+  </article>
+</div>
+</body>
+</html>

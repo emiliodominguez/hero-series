@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discount Code Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.18); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.card { width: min(520px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center; box-shadow: 0 14px 40px rgba(20, 17, 10, 0.08); }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--accent); color: white; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 999px; font-weight: 700; }
+.tag::before { content: "★"; }
+.title { font-weight: 900; font-size: clamp(40px, 5.5vw, 60px); line-height: 1; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 14px; line-height: 1.55; max-width: 380px; }
+.code-box { display: flex; gap: 0; align-items: stretch; width: 100%; max-width: 380px; border: 2px dashed var(--ink); border-radius: 12px; overflow: hidden; transition: background 0.2s; }
+.code-box.copied { background: rgba(176, 58, 30, 0.05); border-color: var(--accent); }
+.code-text { flex: 1; padding: 16px 20px; font-family: "JetBrains Mono", monospace; font-size: 18px; font-weight: 700; letter-spacing: 0.16em; text-align: center; color: var(--ink); }
+.code-box.copied .code-text { color: var(--accent); }
+.code-btn { padding: 16px 20px; background: var(--ink); color: var(--bg); border: 0; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+.code-btn:hover { background: var(--accent); }
+.timer { display: flex; gap: 12px; padding-top: 16px; border-top: 1px dashed var(--rule); width: 100%; justify-content: center; }
+.timer-cell { display: flex; flex-direction: column; gap: 2px; }
+.timer-num { font-weight: 800; font-size: 22px; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.timer-num small { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); font-weight: 400; display: block; margin-top: 2px; }
+.timer-sep { color: var(--accent); font-weight: 800; font-size: 22px; line-height: 1; }
+.fine { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<aside class="card">
+  <span class="tag">limited drop · 100 copies</span>
+  <h2 class="title">−30<em>%</em> on the bundle.</h2>
+  <p class="dek">For first-time customers, this weekend only. Use the code at checkout — it'll auto-apply.</p>
+  <div class="code-box" onclick="navigator.clipboard.writeText('DROP30');this.classList.add('copied');this.querySelector('.code-btn').textContent='✓ copied'">
+    <span class="code-text">DROP30</span>
+    <button class="code-btn">copy</button>
+  </div>
+  <div class="timer">
+    <div class="timer-cell"><span class="timer-num">02<small>days</small></span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-cell"><span class="timer-num">14<small>hours</small></span></div>
+    <span class="timer-sep">:</span>
+    <div class="timer-cell"><span class="timer-num">42<small>mins</small></span></div>
+  </div>
+  <p class="fine">★ first-time customers · expires Sun 23:59 WET</p>
+</aside>
+</body>
+</html>

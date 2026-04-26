@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Now Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 32px; max-width: 720px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 12px; padding-bottom: 20px; border-bottom: 1.5px solid var(--ink); }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(48px, 7vw, 80px); line-height: 1; letter-spacing: -0.02em; }
+.title em { color: var(--accent); }
+.dek { font-family: "Cormorant Garamond", serif; font-size: 18px; line-height: 1.55; font-style: italic; color: var(--ink-soft); max-width: 560px; }
+.list { display: flex; flex-direction: column; gap: 22px; }
+.row { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 8px; }
+.row.muted .dot { background: var(--ink-soft); opacity: 0.5; }
+.row-content { display: flex; flex-direction: column; gap: 4px; }
+.row-title { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+.row-title em { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--accent); font-weight: 500; }
+.row-body { color: var(--ink-soft); font-size: 14px; line-height: 1.6; max-width: 540px; }
+.row-body a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+.foot { display: flex; justify-content: space-between; gap: 14px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.foot strong { color: var(--accent); }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ now · updated 26 apr 26</p>
+  <h1 class="title">what i'm <em>up to</em>, today.</h1>
+  <p class="dek">A "now" page in the spirit of <a href="#">nownownow.com</a> — public scratchpad for what's keeping me busy.</p>
+</header>
+<div class="list">
+  <div class="row"><span class="dot"></span><div class="row-content"><span class="row-title">Working on <em>Halo Labs · phase II</em></span><p class="row-body">Year two of the relaunch. This phase focuses on the Composer (their rich-text engine) and a marketing site refresh ahead of the summer summit.</p></div></div>
+  <div class="row"><span class="dot"></span><div class="row-content"><span class="row-title">Reading <em>The Practice</em> by Seth Godin</span><p class="row-body">Slowly. A page or two each morning before email. I'm using <a href="#">Readwise</a> to highlight; the tagged notes are public.</p></div></div>
+  <div class="row"><span class="dot"></span><div class="row-content"><span class="row-title">Writing the next <em>journal</em> entry</span><p class="row-body">Working title: "Why I stopped chasing 100ms loads." Should be out next Friday. Drafts on the journal page, marked <code style="background:rgba(20,17,10,0.06);padding:1px 6px;border-radius:4px;font-family:JetBrains Mono;font-size:12px">[draft]</code>.</p></div></div>
+  <div class="row muted"><span class="dot"></span><div class="row-content"><span class="row-title">Not taking new projects · until June</span><p class="row-body">All four 2026 slots booked. Happy to chat about July onwards — drop a brief and I'll reply within the week.</p></div></div>
+</div>
+<footer class="foot"><span>updated weekly</span><span><strong>← previous: 19 apr 26</strong></span></footer>
+</body>
+</html>

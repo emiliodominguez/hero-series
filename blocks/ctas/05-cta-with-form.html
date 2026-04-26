@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CTA with Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); max-width: 1200px; margin: 0 auto; align-items: center; }
+.left { display: flex; flex-direction: column; gap: 18px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(40px, 6vw, 80px); line-height: 0.95; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 16px; line-height: 1.55; max-width: 460px; }
+.dek em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); }
+.proof { display: flex; gap: 24px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.proof-cell { display: flex; flex-direction: column; gap: 4px; }
+.proof-num { font-weight: 800; font-size: 24px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.proof-num em { font-family: "Newsreader", serif; font-style: italic; color: var(--accent); }
+.proof-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.form { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 14px 30px rgba(20, 17, 10, 0.06); }
+.form h3 { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; margin-bottom: 4px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 700; }
+.field input, .field textarea { padding: 12px 14px; border-radius: 10px; border: 1px solid var(--rule); background: var(--bg); font-family: inherit; font-size: 14px; color: var(--ink); transition: border-color 0.15s; resize: none; }
+.field textarea { min-height: 80px; }
+.field input:focus, .field textarea:focus { outline: 0; border-color: var(--accent); }
+.cta { padding: 14px; border-radius: 10px; background: var(--ink); color: var(--bg); border: 0; font-family: inherit; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.15s; }
+.cta:hover { background: var(--accent); }
+.fine { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); text-align: center; }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<aside class="left">
+  <p class="eyebrow">/ start a project</p>
+  <h2 class="title">tell us what <em>you're building.</em></h2>
+  <p class="dek">No need for a deck or a brief — just a couple of paragraphs. We'll send a thoughtful first response within <em>48 hours</em>.</p>
+  <div class="proof">
+    <div class="proof-cell"><span class="proof-num">42<em>+</em></span><span class="proof-label">projects shipped</span></div>
+    <div class="proof-cell"><span class="proof-num">87%</span><span class="proof-label">repeat clients</span></div>
+    <div class="proof-cell"><span class="proof-num">9.6</span><span class="proof-label">avg. NPS</span></div>
+  </div>
+</aside>
+<form class="form" onsubmit="event.preventDefault();this.querySelector('.cta').textContent='✓ thanks — talk soon'">
+  <h3>The brief</h3>
+  <div class="field"><label>Your name</label><input type="text" placeholder="Mara Lindqvist" required /></div>
+  <div class="field"><label>Email</label><input type="email" placeholder="hello@studio.com" required /></div>
+  <div class="field"><label>What you're building</label><textarea placeholder="A few paragraphs is plenty…" required></textarea></div>
+  <button class="cta" type="submit">send brief →</button>
+  <p class="fine">no decks · no funnels · real reply</p>
+</form>
+</body>
+</html>

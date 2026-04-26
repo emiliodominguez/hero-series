@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Promo Banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ffd03d; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.promo { width: min(900px, 100%); background: linear-gradient(135deg, #ffd03d 0%, #ff5a3d 60%, #ff3d8a 100%); color: #14110a; border-radius: 24px; padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; position: relative; overflow: hidden; box-shadow: 0 30px 60px rgba(255, 90, 61, 0.35); }
+.promo::before { content: ""; position: absolute; right: -10%; top: -50%; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 60%); pointer-events: none; }
+.left { display: flex; flex-direction: column; gap: 14px; position: relative; }
+.tag { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; background: rgba(20, 17, 10, 0.85); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 999px; align-self: start; font-weight: 700; }
+.tag::before { content: "★"; color: var(--accent); }
+.title { font-weight: 900; font-size: clamp(32px, 5vw, 56px); line-height: 0.95; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; }
+.dek { font-size: 15px; line-height: 1.5; color: rgba(20, 17, 10, 0.85); max-width: 460px; }
+.dek strong { font-weight: 700; color: var(--ink); background: rgba(255, 255, 255, 0.5); padding: 1px 6px; border-radius: 4px; }
+.right { display: flex; flex-direction: column; gap: 10px; align-items: end; position: relative; }
+.cta { padding: 16px 30px; border-radius: 999px; background: #14110a; color: var(--accent); font-weight: 800; font-size: 14px; letter-spacing: 0.04em; text-decoration: none; transition: transform 0.2s, background 0.2s; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); }
+.cta:hover { transform: translateY(-2px); background: white; color: #14110a; }
+.code { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 12px; border: 1.5px dashed rgba(20, 17, 10, 0.6); border-radius: 6px; font-weight: 700; }
+.timer { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(20, 17, 10, 0.75); font-weight: 700; }
+@media (max-width: 700px) { .promo { grid-template-columns: 1fr; } .right { align-items: start; flex-direction: row; flex-wrap: wrap; } }
+</style>
+</head>
+<body>
+<aside class="promo">
+  <div class="left">
+    <span class="tag">Limited drop · 100 copies</span>
+    <h2 class="title"><em>—30%</em> off the studio bundle.</h2>
+    <p class="dek">All 15 hero banners + 25+ blocks, plus the source SCSS files. <strong>Through Sunday only.</strong> Use the code below at checkout.</p>
+  </div>
+  <div class="right">
+    <a class="cta" href="#">claim drop →</a>
+    <span class="code">code · DROP30</span>
+    <span class="timer">ends in 02d : 14h : 42m</span>
+  </div>
+</aside>
+</body>
+</html>

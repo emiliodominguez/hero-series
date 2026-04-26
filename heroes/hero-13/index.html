@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#ffd0a8" />
+		<title>Hero 13 - Out There</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="vista" data-parallax>
+			<div class="vista-sky" aria-hidden="true">
+				<span class="vista-sun"></span>
+				<span class="vista-stars">
+					<span></span><span></span><span></span><span></span><span></span>
+					<span></span><span></span><span></span><span></span><span></span>
+				</span>
+				<span class="vista-cloud vista-cloud-1"></span>
+				<span class="vista-cloud vista-cloud-2"></span>
+			</div>
+
+			<header class="vista-nav">
+				<a class="vista-mark" href="#">
+					<span class="vista-mark-glyph" aria-hidden="true">▲</span>
+					<span>lorem<span class="vista-mark-slash">/</span>ipsum</span>
+				</a>
+				<nav class="vista-links" aria-label="Primary">
+					<a href="#">lorem</a>
+					<a href="#">ipsum</a>
+					<a href="#">dolor</a>
+					<a href="#">amet</a>
+				</nav>
+				<div class="vista-themes" role="group" aria-label="Time of day">
+					<button class="vista-theme vista-theme-dawn is-active" type="button" data-theme="dawn" aria-label="Dawn"></button>
+					<button class="vista-theme vista-theme-alpine" type="button" data-theme="alpine" aria-label="Alpine — midday"></button>
+					<button class="vista-theme vista-theme-dusk" type="button" data-theme="dusk" aria-label="Dusk"></button>
+					<button class="vista-theme vista-theme-midnight" type="button" data-theme="midnight" aria-label="Midnight"></button>
+					<button class="vista-theme vista-theme-mars" type="button" data-theme="mars" aria-label="Mars"></button>
+				</div>
+			</header>
+
+			<div class="vista-layer vista-layer-back" aria-hidden="true" style="--rate-x: 12; --rate-y: 6">
+				<svg viewBox="0 0 100 30" preserveAspectRatio="none">
+					<polygon
+						points="0,30 6,18 12,22 20,8 28,16 36,4 44,14 52,2 60,12 68,6 76,16 84,10 92,18 100,12 100,30"
+					/>
+				</svg>
+			</div>
+
+			<h1 class="vista-title" style="--rate-x: 18; --rate-y: 10">
+				<span class="vista-title-line">out</span>
+				<span class="vista-title-line vista-title-line-b">there.</span>
+			</h1>
+
+			<div class="vista-layer vista-layer-mid" aria-hidden="true" style="--rate-x: 26; --rate-y: 14">
+				<svg viewBox="0 0 100 28" preserveAspectRatio="none">
+					<polygon
+						points="0,28 8,18 18,22 26,8 36,18 46,4 56,16 66,6 76,18 86,10 96,20 100,16 100,28"
+					/>
+				</svg>
+			</div>
+
+			<div class="vista-layer vista-layer-front" aria-hidden="true" style="--rate-x: 42; --rate-y: 20">
+				<svg viewBox="0 0 100 22" preserveAspectRatio="none">
+					<polygon
+						points="0,22 0,14 7,6 14,12 22,2 30,10 38,4 47,14 55,6 64,16 72,8 80,12 88,4 95,10 100,6 100,22"
+					/>
+				</svg>
+			</div>
+
+			<div class="vista-meta" aria-hidden="true">
+				<span>↑ MOVE TO EXPLORE</span>
+			</div>
+
+			<footer class="vista-foot">
+				<span class="vista-foot-tag">// 0xOUT_THERE</span>
+				<span class="vista-foot-rule" aria-hidden="true"></span>
+				<span>lat 47.42 · lon -121.42</span>
+				<span class="vista-foot-rule" aria-hidden="true"></span>
+				<span>elev 2,041 m</span>
+				<span class="vista-foot-rule" aria-hidden="true"></span>
+				<span>vol 13 · field notes</span>
+			</footer>
+		</main>
+		<script src="script.js" defer></script>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Live Stat Ticker</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #2eff7a; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 32px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05; }
+.right { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cell { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); display: flex; justify-content: space-between; }
+.label .delta { color: var(--accent); font-weight: 700; }
+.num { font-weight: 900; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.num small { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 400; opacity: 0.5; margin-left: 4px; }
+.spark { display: flex; gap: 2px; align-items: end; height: 36px; margin-top: auto; }
+.spark span { flex: 1; background: var(--accent); border-radius: 1px; opacity: 0.3; }
+.spark span:nth-last-child(-n+3) { opacity: 0.7; }
+.spark span:last-child { opacity: 1; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div><p class="eyebrow">live · last 60 s</p><h2 class="title" style="margin-top: 8px">activity ticker.</h2></div>
+  <span class="right">refreshed 2 sec ago</span>
+</header>
+<div class="grid">
+  <div class="cell"><span class="label">Active users<span class="delta">+12</span></span><span class="num" data-target="2041">0<small>/min</small></span><div class="spark"><span style="height:30%"></span><span style="height:50%"></span><span style="height:35%"></span><span style="height:55%"></span><span style="height:40%"></span><span style="height:65%"></span><span style="height:55%"></span><span style="height:80%"></span></div></div>
+  <div class="cell"><span class="label">Pages / s<span class="delta">+4.2%</span></span><span class="num" data-target="142">0</span><div class="spark"><span style="height:50%"></span><span style="height:45%"></span><span style="height:60%"></span><span style="height:55%"></span><span style="height:70%"></span><span style="height:65%"></span><span style="height:80%"></span><span style="height:90%"></span></div></div>
+  <div class="cell"><span class="label">Conv rate<span class="delta">+0.8%</span></span><span class="num" data-target="14">0<small>%</small></span><div class="spark"><span style="height:35%"></span><span style="height:40%"></span><span style="height:50%"></span><span style="height:45%"></span><span style="height:60%"></span><span style="height:70%"></span><span style="height:65%"></span><span style="height:75%"></span></div></div>
+  <div class="cell"><span class="label">MRR (k)<span class="delta">+2.1k</span></span><span class="num" data-target="84">$0<small>k</small></span><div class="spark"><span style="height:40%"></span><span style="height:55%"></span><span style="height:60%"></span><span style="height:65%"></span><span style="height:70%"></span><span style="height:80%"></span><span style="height:85%"></span><span style="height:95%"></span></div></div>
+</div>
+<script>
+document.querySelectorAll("[data-target]").forEach(el => {
+  const target = parseInt(el.dataset.target, 10);
+  const small = el.querySelector("small");
+  const prefix = el.textContent.startsWith("$") ? "$" : "";
+  let n = 0;
+  const step = Math.max(1, Math.floor(target / 60));
+  const tick = () => {
+    n = Math.min(target, n + step);
+    el.textContent = prefix + n.toLocaleString();
+    if (small) el.appendChild(small);
+    if (n < target) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+});
+</script>
+</body>
+</html>

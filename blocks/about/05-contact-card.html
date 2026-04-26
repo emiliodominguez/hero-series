@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #5aeaff; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.card { width: min(720px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 24px; padding: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+.left { display: flex; flex-direction: column; gap: 20px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 44px); line-height: 1.05; letter-spacing: -0.03em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+.actions { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.cta { padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 13px; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+.cta:hover { background: var(--accent); transform: translateY(-1px); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.cta.ghost:hover { background: var(--ink); color: var(--bg); }
+.right { display: flex; flex-direction: column; gap: 16px; padding-left: 36px; border-left: 1px solid var(--rule); }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.field-value { font-weight: 600; font-size: 15px; }
+.field a { color: var(--ink); text-decoration: none; transition: color 0.15s; }
+.field a:hover { color: var(--accent); }
+.handles { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.handle { padding: 6px 12px; border-radius: 999px; background: rgba(244, 240, 232, 0.04); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink); text-decoration: none; transition: background 0.15s; }
+.handle:hover { background: var(--accent); color: var(--bg); }
+@media (max-width: 720px) { .card { grid-template-columns: 1fr; } .right { padding-left: 0; padding-top: 24px; border-left: 0; border-top: 1px solid var(--rule); } }
+</style>
+</head>
+<body>
+<article class="card">
+  <div class="left">
+    <p class="eyebrow">currently online · q3 ’26</p>
+    <h2 class="title">say <em>hello</em>.</h2>
+    <p class="dek">Open for new project briefs and conversation. Most replies under 24 hours during weekdays. No bots, no funnels — just a person with an inbox.</p>
+    <div class="actions">
+      <a class="cta" href="mailto:hello@example.com">send a brief →</a>
+      <a class="cta ghost" href="#">book a call</a>
+    </div>
+  </div>
+  <div class="right">
+    <div class="field"><span class="field-label">Email</span><span class="field-value"><a href="mailto:hello@example.com">hello@example.com</a></span></div>
+    <div class="field"><span class="field-label">Phone</span><span class="field-value"><a href="tel:+351900000000">+351 900 000 000</a></span></div>
+    <div class="field"><span class="field-label">Studio</span><span class="field-value">Lisbon · Mon–Thu</span></div>
+    <div class="field"><span class="field-label">Hours</span><span class="field-value">10:00 — 18:00 WET</span></div>
+    <div class="handles">
+      <a class="handle" href="#">@studio</a>
+      <a class="handle" href="#">read.cv</a>
+      <a class="handle" href="#">are.na</a>
+      <a class="handle" href="#">github</a>
+    </div>
+  </div>
+</article>
+</body>
+</html>

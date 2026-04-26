@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume Mini</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.18); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(24px, 4vw, 64px); display: flex; flex-direction: column; gap: clamp(28px, 4vh, 40px); max-width: 880px; margin: 0 auto; justify-content: center; }
+.head { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 40px; align-items: end; padding-bottom: 24px; border-bottom: 2px solid var(--ink); }
+.who { display: flex; flex-direction: column; gap: 8px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.name { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(48px, 6vw, 80px); line-height: 0.95; letter-spacing: -0.02em; }
+.tagline { color: var(--ink-soft); font-size: 16px; line-height: 1.5; max-width: 480px; }
+.contact { display: flex; flex-direction: column; gap: 4px; text-align: right; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); }
+.contact a { color: var(--ink); text-decoration: none; transition: color 0.15s; }
+.contact a:hover { color: var(--accent); }
+.contact strong { color: var(--accent); display: block; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; }
+.cols { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 40px; }
+.section-head { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; padding-bottom: 8px; border-bottom: 1px solid var(--ink); margin-bottom: 12px; }
+.entry { padding: 12px 0; border-bottom: 1px dashed var(--rule); }
+.entry:last-child { border-bottom: 0; }
+.entry-row { display: flex; justify-content: space-between; gap: 12px; align-items: end; flex-wrap: wrap; }
+.entry-name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+.entry-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.entry-where { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--ink-soft); font-size: 14px; }
+.skills { display: flex; flex-direction: column; gap: 4px; }
+.skill { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; padding: 4px 0; }
+.skill-dots { display: flex; gap: 2px; align-items: center; }
+.skill-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(20, 17, 10, 0.16); }
+.skill-dots span.fill { background: var(--accent); }
+@media (max-width: 720px) { .head { grid-template-columns: 1fr; } .contact { text-align: left; } .cols { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div class="who">
+    <p class="eyebrow">/ resume · 2026</p>
+    <h1 class="name">Emilio Domínguez</h1>
+    <p class="tagline">Independent designer + frontend engineer working at the intersection of identity, editorial, and product UI. Eight years in. Currently in Lisbon.</p>
+  </div>
+  <div class="contact">
+    <strong>Contact</strong><a href="mailto:hello@example.com">hello@example.com</a><a href="#">+351 900 000 000</a><a href="#">@studio · Read.cv</a>
+  </div>
+</header>
+<div class="cols">
+  <section>
+    <h2 class="section-head">/ experience</h2>
+    <div class="entry"><div class="entry-row"><span class="entry-name">Independent · Studio of one</span><span class="entry-meta">2026 — now</span></div><span class="entry-where">Self-employed · Lisbon</span></div>
+    <div class="entry"><div class="entry-row"><span class="entry-name">Lead Designer</span><span class="entry-meta">2023 — 2026</span></div><span class="entry-where">Halo Labs (Series B)</span></div>
+    <div class="entry"><div class="entry-row"><span class="entry-name">Senior Product Designer</span><span class="entry-meta">2020 — 2023</span></div><span class="entry-where">Periodical (Editorial CMS)</span></div>
+    <div class="entry"><div class="entry-row"><span class="entry-name">Designer</span><span class="entry-meta">2018 — 2020</span></div><span class="entry-where">Atelier 04</span></div>
+  </section>
+  <aside>
+    <h2 class="section-head">/ skills</h2>
+    <div class="skills">
+      <div class="skill"><span>UI Design</span><span class="skill-dots"><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span></span></div>
+      <div class="skill"><span>Brand</span><span class="skill-dots"><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span></span></span></div>
+      <div class="skill"><span>Frontend</span><span class="skill-dots"><span class="fill"></span><span class="fill"></span><span class="fill"></span><span class="fill"></span><span></span></span></div>
+      <div class="skill"><span>Motion</span><span class="skill-dots"><span class="fill"></span><span class="fill"></span><span class="fill"></span><span></span><span></span></span></div>
+      <div class="skill"><span>3D</span><span class="skill-dots"><span class="fill"></span><span class="fill"></span><span></span><span></span><span></span></span></div>
+    </div>
+  </aside>
+</div>
+</body>
+</html>

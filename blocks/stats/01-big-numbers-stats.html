@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Big Numbers Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f1ece0; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.18); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; gap: clamp(40px, 6vh, 80px); justify-content: center; max-width: 1200px; margin: 0 auto; }
+.head { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(40px, 5.5vw, 72px); line-height: 1; letter-spacing: -0.04em; max-width: 720px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.cell { display: flex; flex-direction: column; gap: 14px; padding: clamp(24px, 3vw, 36px); border-right: 1px solid var(--rule); }
+.cell:last-child { border-right: 0; }
+.label { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.num { font-weight: 900; font-size: clamp(72px, 9vw, 140px); line-height: 0.85; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.num em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); font-size: 0.7em; vertical-align: 0.18em; }
+.detail { font-size: 14px; color: var(--ink-soft); line-height: 1.5; max-width: 240px; }
+.detail strong { color: var(--ink); }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } .cell { border-right: 0; border-bottom: 1px solid var(--rule); } .cell:last-child { border-bottom: 0; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ the numbers · 2018 — 2026</p>
+  <h1 class="title">eight years, <em>measured.</em></h1>
+</header>
+<div class="grid">
+  <div class="cell"><span class="label">Projects shipped</span><span class="num">042<em>+</em></span><p class="detail">Across <strong>brand systems, editorial sites, and product UI</strong>.</p></div>
+  <div class="cell"><span class="label">Returning clients</span><span class="num">87<em>%</em></span><p class="detail">Most of my work comes from <strong>second &amp; third briefs</strong>.</p></div>
+  <div class="cell"><span class="label">Awards / features</span><span class="num">12</span><p class="detail">Awwwards SOTD, CSS Design Awards, FWA mentions.</p></div>
+</div>
+</body>
+</html>

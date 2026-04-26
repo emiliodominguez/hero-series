@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feature Bento</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --surface-2: #fafaf6; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.1); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px; max-width: 1280px; margin: 0 auto; }
+.head { display: flex; flex-direction: column; gap: 12px; max-width: 600px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 4.5vw, 56px); line-height: 1.05; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 14px; }
+.cell { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; position: relative; }
+.cell-2x2 { grid-column: span 2; grid-row: span 2; }
+.cell-2 { grid-column: span 2; }
+.cell.dark { background: var(--surface-2); color: #14110a; }
+.cell.dark .label { color: rgba(20, 17, 10, 0.55); }
+.cell.accent { background: var(--accent); color: white; }
+.cell.accent .label { color: rgba(255, 255, 255, 0.75); }
+.label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.headline { font-weight: 800; font-size: 22px; line-height: 1.15; letter-spacing: -0.02em; }
+.cell-2x2 .headline { font-size: 32px; }
+.body { color: inherit; opacity: 0.78; font-size: 14px; line-height: 1.5; max-width: 320px; }
+.deco { margin-top: auto; height: 80px; display: flex; align-items: end; gap: 4px; }
+.deco span { flex: 1; background: currentColor; opacity: 0.16; border-radius: 4px; }
+.deco span:nth-child(odd) { opacity: 0.35; }
+.deco-circle { margin-top: auto; align-self: flex-end; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #ff8a3a); }
+.deco-stripes { margin-top: auto; height: 60px; background-image: repeating-linear-gradient(45deg, transparent 0 8px, currentColor 8px 9px); opacity: 0.4; border-radius: 6px; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } .cell-2x2 { grid-column: span 2; grid-row: auto; } .cell-2 { grid-column: span 2; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ what's in the box</p>
+  <h2 class="title">tools <em>built to last</em>, made to share.</h2>
+</header>
+<div class="grid">
+  <article class="cell cell-2x2">
+    <span class="label">flagship</span>
+    <h3 class="headline">A design system that doesn't break under traffic.</h3>
+    <p class="body">Tokens, primitives, and patterns documented in a way humans actually read. 200+ components, accessible by default.</p>
+    <div class="deco-circle"></div>
+  </article>
+  <article class="cell dark">
+    <span class="label">speed</span>
+    <h3 class="headline">90<span style="color: var(--accent)">+</span> Lighthouse</h3>
+    <p class="body">Out of the box, on every page.</p>
+  </article>
+  <article class="cell accent">
+    <span class="label">support</span>
+    <h3 class="headline">Office hours, Wed @ 10am.</h3>
+    <p class="body">Live design crits with the team.</p>
+  </article>
+  <article class="cell cell-2">
+    <span class="label">themes</span>
+    <h3 class="headline">12 themes, infinite variants.</h3>
+    <div class="deco"><span style="height:30%"></span><span style="height:55%"></span><span style="height:75%"></span><span style="height:50%"></span><span style="height:90%"></span><span style="height:65%"></span><span style="height:80%"></span><span style="height:45%"></span></div>
+  </article>
+  <article class="cell">
+    <span class="label">a11y</span>
+    <h3 class="headline">WCAG AA, by default.</h3>
+    <p class="body">Tested, audited, signed.</p>
+  </article>
+  <article class="cell">
+    <span class="label">tools</span>
+    <h3 class="headline">Figma → Prod.</h3>
+    <div class="deco-stripes"></div>
+  </article>
+</div>
+</body>
+</html>

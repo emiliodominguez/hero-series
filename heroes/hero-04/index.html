@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#0a0612" />
+		<title>Hero 04 - Soft Matter</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<svg class="goo-defs" aria-hidden="true" focusable="false">
+			<defs>
+				<filter id="goo">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur" />
+					<feColorMatrix
+						in="blur"
+						mode="matrix"
+						values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10"
+						result="goo"
+					/>
+					<feBlend in="SourceGraphic" in2="goo" />
+				</filter>
+			</defs>
+		</svg>
+
+		<main class="goo">
+			<div class="goo-grain" aria-hidden="true"></div>
+
+			<header class="goo-nav">
+				<a class="goo-mark" href="#">
+					<span class="goo-mark-glyph" aria-hidden="true"></span>
+					<span>lorem<span class="goo-mark-slash">/</span>ipsum</span>
+				</a>
+				<nav class="goo-links" aria-label="Primary">
+					<a href="#">lorem</a>
+					<a href="#">ipsum</a>
+					<a href="#">dolor</a>
+					<a href="#">amet</a>
+				</nav>
+				<div class="goo-themes" role="group" aria-label="Theme">
+					<button class="goo-theme goo-theme-jelly is-active" type="button" data-theme="jelly" aria-label="Jelly"></button>
+					<button class="goo-theme goo-theme-candy" type="button" data-theme="candy" aria-label="Candy"></button>
+					<button class="goo-theme goo-theme-lava" type="button" data-theme="lava" aria-label="Lava"></button>
+					<button class="goo-theme goo-theme-abyss" type="button" data-theme="abyss" aria-label="Abyss"></button>
+					<button class="goo-theme goo-theme-aurora" type="button" data-theme="aurora" aria-label="Aurora"></button>
+				</div>
+			</header>
+
+			<section class="goo-stage">
+				<div class="goo-blobs" aria-hidden="true">
+					<span class="goo-blob goo-blob-a"></span>
+					<span class="goo-blob goo-blob-b"></span>
+					<span class="goo-blob goo-blob-c"></span>
+					<span class="goo-blob goo-blob-d"></span>
+				</div>
+
+				<div class="goo-content">
+					<p class="goo-eyebrow">
+						<span class="goo-eyebrow-num">/ 04</span>
+						<span>Lorem ipsum dolor sit amet - viscosity ƒ 0.42</span>
+					</p>
+
+					<h1 class="goo-title">
+						<span class="goo-title-line">soft</span>
+						<span class="goo-title-line goo-title-line-b">matter.</span>
+					</h1>
+
+					<p class="goo-blurb">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+						incididunt - <em>liquid surfaces, slow gradients</em>, soft edges everywhere.
+					</p>
+
+					<div class="goo-actions">
+						<button class="goo-cta" type="button">
+							<span>melt in</span>
+							<span class="goo-cta-arrow" aria-hidden="true">→</span>
+						</button>
+						<button class="goo-cta goo-cta-ghost" type="button">
+							<span>read paper</span>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<footer class="goo-foot">
+				<div class="goo-foot-col">
+					<span class="goo-foot-label">phase</span>
+					<span class="goo-foot-value">colloidal · L1</span>
+				</div>
+				<div class="goo-foot-col">
+					<span class="goo-foot-label">surface tension</span>
+					<span class="goo-foot-value">ƒ 0.42 mN/m</span>
+				</div>
+				<div class="goo-foot-col">
+					<span class="goo-foot-label">temp</span>
+					<span class="goo-foot-value">22.0°C</span>
+				</div>
+				<div class="goo-foot-col goo-foot-col-right">
+					<span class="goo-foot-label">vol</span>
+					<span class="goo-foot-value">04 / 08</span>
+				</div>
+			</footer>
+		</main>
+
+		<script src="script.js" defer></script>
+	</body>
+</html>

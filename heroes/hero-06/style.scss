@@ -1,0 +1,744 @@
+// -----------------------------------------------------------------------------
+// Theme tokens
+// -----------------------------------------------------------------------------
+
+:root {
+	--bg: #06010f;
+	--bg-soft: #1a0428;
+	--ink: #f4eaff;
+	--ink-soft: #d8c8f0;
+	--muted: #8a7aa8;
+	--neon: #ff2eaa;
+	--neon-soft: #ff6ad4;
+	--neon-accent: #2effd8;
+	--neon-deep: #6a3aff;
+	--sun-top: #ff2eaa;
+	--sun-bot: #ff6ad4;
+	--horizon: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--neon) 35%, transparent) 50%, var(--bg) 100%);
+
+	&[data-theme="acid"] {
+		--bg: #050f08;
+		--bg-soft: #0a1f10;
+		--ink: #eaffe8;
+		--ink-soft: #a8d8b0;
+		--muted: #5a8a6a;
+		--neon: #2eff5a;
+		--neon-soft: #7aff8a;
+		--neon-accent: #ff2efc;
+		--neon-deep: #b8ff3d;
+		--sun-top: #2eff5a;
+		--sun-bot: #b8ff3d;
+	}
+
+	&[data-theme="inferno"] {
+		--bg: #0f0408;
+		--bg-soft: #2a060a;
+		--ink: #fff0ea;
+		--ink-soft: #ffaa90;
+		--muted: #a06a5a;
+		--neon: #ff3d2e;
+		--neon-soft: #ff8a3d;
+		--neon-accent: #ffd03d;
+		--neon-deep: #ff2e8a;
+		--sun-top: #ff3d2e;
+		--sun-bot: #ffd03d;
+	}
+
+	&[data-theme="cobalt"] {
+		--bg: #02060e;
+		--bg-soft: #051828;
+		--ink: #eaf0ff;
+		--ink-soft: #a0c0d8;
+		--muted: #5a7a90;
+		--neon: #3d6aff;
+		--neon-soft: #6a9aff;
+		--neon-accent: #2effd8;
+		--neon-deep: #b86aff;
+		--sun-top: #3d6aff;
+		--sun-bot: #6ad8ff;
+	}
+
+	&[data-theme="xenon"] {
+		--bg: #08020f;
+		--bg-soft: #1a0a2a;
+		--ink: #f0eaff;
+		--ink-soft: #c0a8d8;
+		--muted: #6a4a8a;
+		--neon: #b86aff;
+		--neon-soft: #d8a0ff;
+		--neon-accent: #b8ff3d;
+		--neon-deep: #ff2eaa;
+		--sun-top: #b86aff;
+		--sun-bot: #ff6ad4;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Reset
+// -----------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--ink);
+	font-family: "Space Mono", ui-monospace, Menlo, monospace;
+	font-size: 13px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease;
+}
+
+::selection {
+	background-color: var(--neon);
+	color: var(--bg);
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+// -----------------------------------------------------------------------------
+// Stage
+// -----------------------------------------------------------------------------
+
+.neon {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100svh;
+	overflow: hidden;
+	isolation: isolate;
+	background-color: var(--bg);
+	background-image:
+		radial-gradient(ellipse 70% 50% at 50% 65%, color-mix(in srgb, var(--neon) 20%, transparent), transparent 70%),
+		linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 60%, var(--bg) 100%);
+}
+
+// -----------------------------------------------------------------------------
+// Background - stars, sun, grid floor, scanlines
+// -----------------------------------------------------------------------------
+
+.neon-stars {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background-image:
+		radial-gradient(1px 1px at 12% 18%, color-mix(in srgb, var(--ink) 80%, transparent), transparent 100%),
+		radial-gradient(1px 1px at 24% 36%, color-mix(in srgb, var(--ink) 70%, transparent), transparent 100%),
+		radial-gradient(1.5px 1.5px at 38% 12%, color-mix(in srgb, var(--neon-accent) 80%, transparent), transparent 100%),
+		radial-gradient(1px 1px at 52% 28%, color-mix(in srgb, var(--ink) 65%, transparent), transparent 100%),
+		radial-gradient(1px 1px at 66% 8%, color-mix(in srgb, var(--ink) 70%, transparent), transparent 100%),
+		radial-gradient(1.5px 1.5px at 76% 22%, color-mix(in srgb, var(--neon) 80%, transparent), transparent 100%),
+		radial-gradient(1px 1px at 88% 14%, color-mix(in srgb, var(--ink) 75%, transparent), transparent 100%),
+		radial-gradient(1px 1px at 8% 30%, color-mix(in srgb, var(--ink) 60%, transparent), transparent 100%);
+	background-repeat: no-repeat;
+	animation: neon-twinkle 4.5s ease-in-out infinite;
+}
+
+@keyframes neon-twinkle {
+	0%,
+	100% {
+		opacity: 0.85;
+	}
+	50% {
+		opacity: 0.55;
+	}
+}
+
+.neon-sun {
+	position: absolute;
+	left: 50%;
+	bottom: clamp(180px, 32vh, 280px);
+	z-index: 0;
+	width: clamp(280px, 38vw, 480px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	transform: translateX(-50%);
+	background-image: linear-gradient(180deg, var(--sun-top) 0%, var(--sun-bot) 100%);
+	box-shadow:
+		0 0 80px color-mix(in srgb, var(--neon) 70%, transparent),
+		0 0 160px color-mix(in srgb, var(--neon-soft) 50%, transparent),
+		0 0 240px color-mix(in srgb, var(--neon) 30%, transparent);
+	overflow: hidden;
+}
+
+.neon-sun-stripes {
+	position: absolute;
+	inset: 50% 0 0 0;
+	background-image: repeating-linear-gradient(
+		180deg,
+		transparent 0,
+		transparent 14px,
+		var(--bg) 14px,
+		var(--bg) 18px
+	);
+}
+
+.neon-grid {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	z-index: 0;
+	width: 240vw;
+	height: 60vh;
+	transform: translateX(-50%) perspective(800px) rotateX(64deg);
+	transform-origin: 50% 0%;
+	background-image:
+		linear-gradient(to right, var(--neon) 0 1px, transparent 1px),
+		linear-gradient(to bottom, var(--neon) 0 1px, transparent 1px);
+	background-size: clamp(48px, 6vw, 80px) clamp(48px, 6vw, 80px);
+	animation: neon-grid-scroll 5s linear infinite;
+	mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+	-webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+	opacity: 0.85;
+}
+
+@keyframes neon-grid-scroll {
+	from {
+		background-position-y: 0;
+	}
+	to {
+		background-position-y: clamp(48px, 6vw, 80px);
+	}
+}
+
+.neon-horizon {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: clamp(160px, 30vh, 260px);
+	z-index: 1;
+	height: 2px;
+	background-color: var(--neon);
+	box-shadow:
+		0 0 8px var(--neon),
+		0 0 18px var(--neon-soft),
+		0 0 36px color-mix(in srgb, var(--neon) 60%, transparent);
+}
+
+.neon-scanlines {
+	position: absolute;
+	inset: 0;
+	z-index: 6;
+	pointer-events: none;
+	background-image: repeating-linear-gradient(
+		to bottom,
+		transparent 0,
+		transparent 2px,
+		rgba(0, 0, 0, 0.18) 2px,
+		rgba(0, 0, 0, 0.18) 3px
+	);
+	mix-blend-mode: multiply;
+	opacity: 0.6;
+}
+
+// -----------------------------------------------------------------------------
+// Top nav
+// -----------------------------------------------------------------------------
+
+.neon-nav {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: clamp(16px, 2vw, 24px) clamp(20px, 4vw, 56px);
+	border-bottom: 1px solid color-mix(in srgb, var(--neon) 25%, transparent);
+}
+
+.neon-mark {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--ink);
+	text-decoration: none;
+	font-family: "Orbitron", sans-serif;
+	font-weight: 700;
+	font-size: 13px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+
+	.neon-mark-glyph {
+		color: var(--neon);
+		font-size: 16px;
+		text-shadow:
+			0 0 6px var(--neon),
+			0 0 14px var(--neon-soft);
+	}
+
+	.neon-mark-slash {
+		color: var(--neon-accent);
+		margin: 0 2px;
+		text-shadow: 0 0 6px var(--neon-accent);
+	}
+}
+
+.neon-links {
+	display: inline-flex;
+	gap: clamp(14px, 2.4vw, 28px);
+
+	a {
+		color: var(--ink-soft);
+		text-decoration: none;
+		font-family: "Orbitron", sans-serif;
+		font-size: 12px;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--neon);
+			text-shadow: 0 0 8px var(--neon);
+		}
+	}
+}
+
+.neon-themes {
+	display: inline-flex;
+	gap: 10px;
+	padding: 6px 8px;
+	border: 1px solid color-mix(in srgb, var(--neon) 30%, transparent);
+}
+
+.neon-theme {
+	width: 16px;
+	height: 16px;
+	border: 1.5px solid color-mix(in srgb, var(--ink) 30%, transparent);
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 0;
+	background-color: transparent;
+	outline: 1.5px solid transparent;
+	outline-offset: 2px;
+	transition:
+		transform 0.2s ease,
+		outline-color 0.2s ease;
+
+	&.neon-theme-fuchsia {
+		background-image: conic-gradient(from 225deg, #06010f 0 180deg, #ff2eaa 180deg 360deg);
+	}
+
+	&.neon-theme-acid {
+		background-image: conic-gradient(from 225deg, #050f08 0 180deg, #2eff5a 180deg 360deg);
+	}
+
+	&.neon-theme-inferno {
+		background-image: conic-gradient(from 225deg, #0f0408 0 180deg, #ff3d2e 180deg 360deg);
+	}
+
+	&.neon-theme-cobalt {
+		background-image: conic-gradient(from 225deg, #02060e 0 180deg, #3d6aff 180deg 360deg);
+	}
+
+	&.neon-theme-xenon {
+		background-image: conic-gradient(from 225deg, #08020f 0 180deg, #b86aff 180deg 360deg);
+	}
+
+	&:hover {
+		transform: scale(1.15);
+	}
+
+	&.is-active {
+		outline-color: var(--neon);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// HUD panel (top-right, absolute)
+// -----------------------------------------------------------------------------
+
+.neon-hud {
+	position: absolute;
+	top: clamp(70px, 10vh, 100px);
+	right: clamp(20px, 4vw, 56px);
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 12px 14px;
+	border: 1px solid color-mix(in srgb, var(--neon) 35%, transparent);
+	background-color: color-mix(in srgb, var(--bg) 70%, transparent);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	font-family: "Space Mono", monospace;
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	color: var(--ink-soft);
+	min-width: 200px;
+}
+
+.neon-hud-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+}
+
+.neon-hud-label {
+	color: var(--muted);
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.neon-hud-value {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--neon-accent);
+	font-variant-numeric: tabular-nums;
+	text-shadow: 0 0 6px color-mix(in srgb, var(--neon-accent) 60%, transparent);
+}
+
+.neon-bars {
+	display: inline-flex;
+	gap: 2px;
+	align-items: flex-end;
+
+	span {
+		display: inline-block;
+		width: 3px;
+		background-color: var(--neon-accent);
+		box-shadow: 0 0 4px var(--neon-accent);
+
+		&:nth-child(1) {
+			height: 4px;
+		}
+		&:nth-child(2) {
+			height: 7px;
+		}
+		&:nth-child(3) {
+			height: 10px;
+		}
+		&:nth-child(4) {
+			height: 6px;
+			opacity: 0.4;
+		}
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Stage content
+// -----------------------------------------------------------------------------
+
+.neon-stage {
+	position: relative;
+	z-index: 3;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: clamp(20px, 3vh, 36px);
+	padding: clamp(40px, 6vh, 80px) clamp(20px, 4vw, 56px) clamp(120px, 22vh, 200px);
+	text-align: center;
+}
+
+.neon-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: "Orbitron", sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+	color: var(--neon-accent);
+	text-shadow: 0 0 6px color-mix(in srgb, var(--neon-accent) 50%, transparent);
+}
+
+.neon-eyebrow-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: var(--neon-accent);
+	box-shadow:
+		0 0 6px var(--neon-accent),
+		0 0 14px var(--neon-accent);
+	animation: neon-eyebrow-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes neon-eyebrow-pulse {
+	0%,
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.4;
+		transform: scale(0.85);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Neon outline title with chromatic aberration
+// -----------------------------------------------------------------------------
+
+.neon-title {
+	font-family: "Orbitron", sans-serif;
+	font-weight: 900;
+	font-size: clamp(80px, 16vw, 240px);
+	line-height: 0.92;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	margin: 0;
+	color: transparent;
+	-webkit-text-stroke: 2px var(--ink);
+	text-shadow:
+		0 0 4px color-mix(in srgb, var(--ink) 40%, transparent),
+		0 0 12px color-mix(in srgb, var(--neon) 30%, transparent);
+	animation: neon-flicker 8s steps(80) infinite;
+}
+
+.neon-title-line {
+	position: relative;
+	display: block;
+
+	&.neon-title-line-b {
+		color: var(--neon);
+		-webkit-text-stroke: 0;
+		text-shadow:
+			0 0 6px var(--neon),
+			0 0 18px var(--neon),
+			0 0 36px var(--neon-soft),
+			0 0 72px var(--neon-soft);
+	}
+
+	&::before,
+	&::after {
+		content: attr(data-text);
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		mix-blend-mode: screen;
+	}
+
+	&::before {
+		color: var(--neon-accent);
+		-webkit-text-stroke: 0;
+		transform: translate(-2px, 0);
+		text-shadow: 0 0 6px color-mix(in srgb, var(--neon-accent) 60%, transparent);
+		opacity: 0.7;
+	}
+
+	&::after {
+		color: var(--neon-deep);
+		-webkit-text-stroke: 0;
+		transform: translate(2px, 0);
+		text-shadow: 0 0 6px color-mix(in srgb, var(--neon-deep) 60%, transparent);
+		opacity: 0.7;
+	}
+}
+
+@keyframes neon-flicker {
+	0%,
+	18%,
+	22%,
+	25%,
+	53%,
+	57%,
+	100% {
+		opacity: 1;
+	}
+	20%,
+	24%,
+	55% {
+		opacity: 0.85;
+	}
+}
+
+.neon-blurb {
+	max-width: 560px;
+	color: var(--ink);
+	font-family: "Space Mono", monospace;
+	font-size: clamp(13px, 1.05vw, 15px);
+	line-height: 1.6;
+	padding: 12px 18px;
+	background-color: color-mix(in srgb, var(--bg) 75%, transparent);
+	border: 1px solid color-mix(in srgb, var(--neon) 25%, transparent);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+
+	em {
+		font-style: italic;
+		color: var(--neon-accent);
+		text-shadow: 0 0 6px color-mix(in srgb, var(--neon-accent) 60%, transparent);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Buttons
+// -----------------------------------------------------------------------------
+
+.neon-actions {
+	display: inline-flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.neon-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 24px;
+	border: 1.5px solid var(--neon);
+	background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+	color: var(--ink);
+	font-family: "Orbitron", sans-serif;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	cursor: pointer;
+	position: relative;
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	box-shadow:
+		0 0 0 1px color-mix(in srgb, var(--neon) 35%, transparent),
+		0 0 14px color-mix(in srgb, var(--neon) 40%, transparent),
+		inset 0 0 14px color-mix(in srgb, var(--neon) 14%, transparent);
+	transition:
+		color 0.2s ease,
+		background-color 0.2s ease,
+		box-shadow 0.2s ease,
+		transform 0.15s ease;
+
+	&:hover {
+		color: var(--bg);
+		background-color: var(--neon);
+		box-shadow:
+			0 0 0 1px var(--neon),
+			0 0 24px var(--neon),
+			0 0 48px color-mix(in srgb, var(--neon-soft) 60%, transparent);
+	}
+
+	&:active {
+		transform: translateY(1px);
+	}
+
+	&.neon-cta-ghost {
+		border-color: color-mix(in srgb, var(--ink) 60%, transparent);
+		color: var(--ink);
+		background-color: color-mix(in srgb, var(--bg) 70%, transparent);
+		box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 18%, transparent);
+
+		&:hover {
+			background-color: var(--ink);
+			color: var(--bg);
+			border-color: var(--ink);
+			box-shadow: 0 0 24px color-mix(in srgb, var(--ink) 50%, transparent);
+		}
+	}
+
+	.neon-cta-arrow {
+		font-size: 0.9em;
+		color: var(--neon);
+		transition: transform 0.2s ease;
+		text-shadow: 0 0 6px var(--neon);
+	}
+
+	&:hover .neon-cta-arrow {
+		color: var(--bg);
+		transform: translateX(4px);
+		text-shadow: none;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Foot bar
+// -----------------------------------------------------------------------------
+
+.neon-foot {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 10px clamp(20px, 4vw, 56px);
+	border-top: 1px solid color-mix(in srgb, var(--neon) 30%, transparent);
+	font-family: "Space Mono", monospace;
+	font-size: 10px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+	background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+}
+
+.neon-foot-tag {
+	color: var(--neon);
+	text-shadow: 0 0 6px color-mix(in srgb, var(--neon) 60%, transparent);
+	font-weight: 700;
+}
+
+.neon-foot-spacer {
+	flex: 0 0 12px;
+	height: 1px;
+	background-color: color-mix(in srgb, var(--neon) 35%, transparent);
+}
+
+.neon-foot-meta {
+	font-variant-numeric: tabular-nums;
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+@media (max-width: 900px) {
+	.neon-links {
+		display: none;
+	}
+
+	.neon-hud {
+		display: none;
+	}
+}
+
+@media (max-width: 720px) {
+	.neon-foot {
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.neon-foot-spacer {
+		flex: 0 0 8px;
+	}
+
+	.neon-sun {
+		bottom: clamp(140px, 26vh, 220px);
+	}
+
+	.neon-horizon {
+		bottom: clamp(120px, 24vh, 200px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+	}
+}

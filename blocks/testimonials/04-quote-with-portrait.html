@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quote with Portrait</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Hanken+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ff8a3a; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(40px, 5vw, 80px); max-width: 1200px; margin: 0 auto; align-items: center; }
+.portrait { aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; position: relative; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3) contrast(1.05); display: block; }
+.portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4)); pointer-events: none; }
+.portrait-label { position: absolute; bottom: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: end; color: white; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 24px; }
+.quote { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 3.6vw, 48px); line-height: 1.25; letter-spacing: -0.01em; }
+.quote::before { content: "\201C"; color: var(--accent); margin-right: 4px; font-size: 1.1em; vertical-align: -0.05em; }
+.quote::after { content: "\201D"; color: var(--accent); }
+.quote em { color: var(--accent); }
+.byline { display: flex; flex-direction: column; gap: 4px; padding-top: 24px; margin-top: 24px; border-top: 1px solid var(--rule); }
+.name { font-weight: 700; font-size: 16px; }
+.role { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; } .portrait { max-width: 320px; } }
+</style>
+</head>
+<body>
+<div class="portrait">
+  <img src="https://picsum.photos/seed/portrait-15/600/750" alt="" />
+  <div class="portrait-label"><span>Mara L.</span><span>★★★★★</span></div>
+</div>
+<div>
+  <p class="eyebrow">/ a kind word · 042 of 088</p>
+  <blockquote class="quote">Working with Emilio felt like watching a craftsman set type by hand — every detail considered, every decision <em>earned.</em></blockquote>
+  <div class="byline"><span class="name">Mara Lindqvist</span><span class="role">Head of Brand · Studio Halo · Stockholm</span></div>
+</div>
+</body>
+</html>

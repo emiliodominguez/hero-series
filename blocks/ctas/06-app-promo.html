@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>App Promo</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0a0418; --ink: #f4eeff; --ink-soft: #c8b8e0; --accent: #b86aff; --accent-2: #5af0ff; --rule: rgba(244, 238, 255, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 5vw, 80px); max-width: 1200px; margin: 0 auto; align-items: center; position: relative; overflow: hidden; }
+body::before { content: ""; position: absolute; left: -10%; top: -20%; width: 60vw; height: 60vw; max-width: 700px; max-height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(184, 106, 255, 0.4), transparent 60%); filter: blur(60px); pointer-events: none; }
+body::after { content: ""; position: absolute; right: -10%; bottom: -20%; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(90, 240, 255, 0.3), transparent 60%); filter: blur(60px); pointer-events: none; }
+.left { display: flex; flex-direction: column; gap: 18px; position: relative; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--rule); border-radius: 999px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-2); align-self: start; backdrop-filter: blur(8px); }
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+.title { font-weight: 800; font-size: clamp(40px, 5.5vw, 64px); line-height: 1; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.dek { color: var(--ink-soft); font-size: 15px; line-height: 1.6; max-width: 460px; }
+.actions { display: inline-flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.cta { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 13px; text-decoration: none; transition: transform 0.2s; }
+.cta:hover { transform: translateY(-2px); }
+.cta-icon { font-family: "JetBrains Mono", monospace; font-size: 16px; }
+.cta.ghost { background: rgba(255, 255, 255, 0.08); color: var(--ink); border: 1px solid var(--rule); }
+.cta.ghost:hover { background: rgba(255, 255, 255, 0.16); }
+.proof { display: flex; gap: 14px; align-items: center; padding-top: 16px; border-top: 1px solid var(--rule); margin-top: 4px; }
+.stack { display: flex; }
+.stack img { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -8px; object-fit: cover; }
+.stack img:first-child { margin-left: 0; }
+.proof-text { font-size: 12px; color: var(--ink-soft); }
+.proof-text strong { color: var(--ink); }
+.right { position: relative; display: grid; place-items: center; }
+.phone { width: 280px; height: 560px; border-radius: 36px; background: linear-gradient(180deg, #2a1656, #14082a); border: 8px solid #06010f; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.18); padding: 18px; display: flex; flex-direction: column; gap: 14px; transform: rotate(-4deg); position: relative; }
+.phone::before { content: ""; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 80px; height: 18px; background: #06010f; border-radius: 999px; }
+.phone-content { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; height: 100%; }
+.phone-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; backdrop-filter: blur(10px); }
+.phone-card.feat { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; color: white; }
+.phone-card-title { font-weight: 700; font-size: 13px; }
+.phone-card-meta { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+.phone-card-num { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; margin-top: 4px; }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; } .phone { width: 240px; height: 480px; transform: rotate(0); } }
+</style>
+</head>
+<body>
+<aside class="left">
+  <span class="eyebrow">now in beta · join 2,041 makers</span>
+  <h2 class="title">a tiny app for <em>quiet hours.</em></h2>
+  <p class="dek">A focus timer that saves your favorite working playlists, hides notifications, and gently nudges you when it's time to step away.</p>
+  <div class="actions">
+    <a class="cta" href="#"><span class="cta-icon">⌥</span>Download for Mac</a>
+    <a class="cta ghost" href="#">Get it on iOS →</a>
+  </div>
+  <div class="proof">
+    <div class="stack"><img src="https://picsum.photos/seed/u1/60" /><img src="https://picsum.photos/seed/u2/60" /><img src="https://picsum.photos/seed/u3/60" /><img src="https://picsum.photos/seed/u4/60" /></div>
+    <p class="proof-text"><strong>★ 4.9 · 482 reviews.</strong> Loved by writers and developers alike.</p>
+  </div>
+</aside>
+<div class="right">
+  <div class="phone">
+    <div class="phone-content">
+      <div class="phone-card feat"><span class="phone-card-meta">today · session</span><span class="phone-card-title">Focus · 02:14:08</span><span class="phone-card-num">14<small style="font-size:10px;font-family:JetBrains Mono;font-weight:400;opacity:0.6;margin-left:4px">cycles</small></span></div>
+      <div class="phone-card"><span class="phone-card-meta">streak</span><span class="phone-card-title">28 days running</span></div>
+      <div class="phone-card"><span class="phone-card-meta">now playing</span><span class="phone-card-title">soft pixels — b-side</span></div>
+      <div class="phone-card"><span class="phone-card-meta">next break</span><span class="phone-card-title">in 18 minutes</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Status Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --rule: rgba(244, 240, 232, 0.14); --ok: #2eff7a; --warn: #ffd03d; --bad: #ff5a3d; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(24px, 4vh, 40px); max-width: 880px; margin: 0 auto; justify-content: center; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+.title { font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.03em; }
+.live { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(46, 255, 122, 0.12); color: var(--ok); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+.live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+.list { display: flex; flex-direction: column; gap: 12px; }
+.row { display: grid; grid-template-columns: 14px 1fr auto auto; gap: 16px; align-items: center; padding: 16px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.ok { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+.dot.warn { background: var(--warn); box-shadow: 0 0 8px var(--warn); }
+.dot.bad { background: var(--bad); box-shadow: 0 0 8px var(--bad); }
+.svc-name { font-weight: 700; font-size: 14px; }
+.svc-name small { display: block; font-family: "JetBrains Mono", monospace; font-weight: 400; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 2px; }
+.uptime { display: flex; gap: 2px; }
+.uptime span { width: 4px; height: 22px; border-radius: 1px; background: var(--ok); }
+.uptime span.warn { background: var(--warn); }
+.uptime span.bad { background: var(--bad); }
+.uptime-num { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.06em; }
+.uptime-num strong { color: var(--ink); font-weight: 700; }
+@media (max-width: 720px) { .row { grid-template-columns: 14px 1fr auto; } .uptime { display: none; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <h2 class="title">All systems · operational</h2>
+  <span class="live">live · last 60 s</span>
+</header>
+<div class="list">
+  <div class="row"><span class="dot ok"></span><span class="svc-name">API · v1<small>api.example.com</small></span><div class="uptime"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="uptime-num"><strong>99.99</strong>% / 90d</span></div>
+  <div class="row"><span class="dot ok"></span><span class="svc-name">Web app<small>app.example.com</small></span><div class="uptime"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="uptime-num"><strong>99.95</strong>% / 90d</span></div>
+  <div class="row"><span class="dot warn"></span><span class="svc-name">Search<small>search.example.com</small></span><div class="uptime"><span></span><span></span><span></span><span></span><span></span><span></span><span class="warn"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="uptime-num"><strong>99.42</strong>% / 90d</span></div>
+  <div class="row"><span class="dot ok"></span><span class="svc-name">Webhooks<small>hooks.example.com</small></span><div class="uptime"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="uptime-num"><strong>100</strong>% / 90d</span></div>
+  <div class="row"><span class="dot ok"></span><span class="svc-name">CDN<small>cdn.example.com</small></span><div class="uptime"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="uptime-num"><strong>99.98</strong>% / 90d</span></div>
+</div>
+</body>
+</html>

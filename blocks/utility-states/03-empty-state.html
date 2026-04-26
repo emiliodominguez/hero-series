@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Empty State</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.empty { width: min(560px, 100%); text-align: center; display: flex; flex-direction: column; gap: 18px; align-items: center; padding: 48px clamp(24px, 4vw, 40px); border: 1.5px dashed var(--rule); border-radius: 18px; background: var(--surface); }
+.illustration { width: 110px; height: 110px; position: relative; margin-bottom: 8px; }
+.illustration .box { position: absolute; inset: 18%; border: 2px dashed var(--rule); border-radius: 10px; transform: rotate(-6deg); }
+.illustration .box-2 { transform: rotate(8deg); inset: 24% 14%; opacity: 0.6; }
+.illustration .glyph { position: absolute; inset: 0; display: grid; place-items: center; font-family: "Newsreader", serif; font-style: italic; font-size: 56px; color: var(--accent); }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(24px, 3vw, 30px); letter-spacing: -0.02em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 14px; line-height: 1.55; max-width: 380px; }
+.actions { display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+.cta { padding: 12px 20px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 13px; text-decoration: none; transition: background 0.15s; }
+.cta:hover { background: var(--accent); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.cta.ghost:hover { background: var(--ink); color: var(--bg); }
+.tip { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); padding-top: 14px; border-top: 1px dashed var(--rule); width: 100%; margin-top: 4px; }
+.tip kbd { background: rgba(20, 17, 10, 0.06); padding: 2px 6px; border-radius: 4px; font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="empty">
+  <div class="illustration">
+    <div class="box box-2"></div>
+    <div class="box"></div>
+    <div class="glyph">∅</div>
+  </div>
+  <p class="eyebrow">/ nothing here yet</p>
+  <h2 class="title">your archive is <em>empty.</em></h2>
+  <p class="dek">When you save something, it'll appear here for safekeeping. Try starting with a draft, a quote, or a project pitch.</p>
+  <div class="actions">
+    <a class="cta" href="#">+ new draft</a>
+    <a class="cta ghost" href="#">browse templates</a>
+  </div>
+  <p class="tip">tip — press <kbd>⌘ N</kbd> anytime to start fresh</p>
+</div>
+</body>
+</html>

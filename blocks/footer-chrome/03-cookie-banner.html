@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cookie Banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.14); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; position: relative; padding: 48px clamp(20px, 4vw, 56px); }
+.fake { display: flex; flex-direction: column; gap: 14px; max-width: 600px; }
+.fake h1 { font-weight: 800; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.03em; }
+.fake p { color: var(--ink-soft); line-height: 1.55; }
+.banner { position: fixed; left: 24px; right: 24px; bottom: 24px; max-width: 720px; margin: 0 auto; background: var(--ink); color: var(--bg); border-radius: 16px; padding: 20px 22px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; box-shadow: 0 20px 50px rgba(20, 17, 10, 0.25); }
+.banner.minimal { padding: 14px 18px; }
+.copy { display: flex; flex-direction: column; gap: 4px; }
+.copy-tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.copy-text { font-size: 14px; line-height: 1.5; max-width: 480px; }
+.copy-text a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.actions { display: inline-flex; gap: 8px; }
+.btn { padding: 10px 16px; border-radius: 10px; border: 0; font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; cursor: pointer; white-space: nowrap; }
+.btn.primary { background: var(--accent); color: white; }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.ghost { background: transparent; color: var(--bg); border: 1px solid rgba(244, 239, 230, 0.3); }
+.btn.ghost:hover { background: rgba(244, 239, 230, 0.08); }
+@media (max-width: 600px) { .banner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<section class="fake">
+  <h1>Your page goes here.</h1>
+  <p>The bottom banner is a simple cookie consent — single primary action, ghost decline, settings link inline. Drop it anywhere.</p>
+</section>
+<aside class="banner">
+  <div class="copy">
+    <span class="copy-tag">→ a quick note</span>
+    <p class="copy-text">We use a small set of cookies to keep things working and remember your preferences. <a href="#">manage preferences</a> · <a href="#">privacy</a></p>
+  </div>
+  <div class="actions">
+    <button class="btn ghost">Decline</button>
+    <button class="btn primary">Accept all →</button>
+  </div>
+</aside>
+</body>
+</html>

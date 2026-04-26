@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Event Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.event { width: min(720px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; overflow: hidden; box-shadow: 0 14px 40px rgba(20, 17, 10, 0.06); }
+.banner { background: var(--ink); color: var(--bg); padding: 32px 28px; display: flex; gap: 28px; align-items: center; position: relative; }
+.banner::after { content: ""; position: absolute; right: 28px; top: 28px; width: 60px; height: 60px; border: 2px solid var(--accent); border-radius: 50%; opacity: 0.6; }
+.date { display: flex; flex-direction: column; align-items: center; padding: 14px 18px; border: 2px solid var(--bg); border-radius: 12px; min-width: 88px; flex-shrink: 0; background: rgba(255, 255, 255, 0.06); }
+.date-month { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.date-day { font-weight: 900; font-size: 40px; line-height: 1; letter-spacing: -0.04em; }
+.date-time { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin-top: 4px; }
+.banner-info { display: flex; flex-direction: column; gap: 8px; }
+.tag { display: inline-flex; padding: 4px 10px; background: var(--accent); color: var(--bg); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; border-radius: 999px; font-weight: 700; align-self: start; }
+.title { font-weight: 800; font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.02em; line-height: 1.15; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.body { padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.dek { color: var(--ink-soft); line-height: 1.55; }
+.meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 16px 0; border-block: 1px solid var(--rule); }
+.meta-cell { display: flex; flex-direction: column; gap: 4px; padding: 0 16px; border-right: 1px solid var(--rule); }
+.meta-cell:first-child { padding-left: 0; }
+.meta-cell:last-child { border-right: 0; }
+.meta-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.meta-val { font-weight: 700; font-size: 14px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.cta { padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 13px; text-decoration: none; transition: background 0.2s; }
+.cta:hover { background: var(--accent); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.spots { margin-left: auto; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+@media (max-width: 600px) { .banner { flex-direction: column; align-items: start; } .meta { grid-template-columns: 1fr; gap: 8px; } .meta-cell { border-right: 0; padding: 8px 0; border-bottom: 1px dashed var(--rule); } }
+</style>
+</head>
+<body>
+<article class="event">
+  <header class="banner">
+    <div class="date"><span class="date-month">Jun</span><span class="date-day">04</span><span class="date-time">19:00</span></div>
+    <div class="banner-info">
+      <span class="tag">workshop · in person</span>
+      <h2 class="title">an evening on <em>type for screens</em></h2>
+    </div>
+  </header>
+  <div class="body">
+    <p class="dek">A two-hour hands-on session walking through how we set type for product UI — variable fonts, optical sizing, and the subtle math of vertical rhythm.</p>
+    <div class="meta">
+      <div class="meta-cell"><span class="meta-label">Where</span><span class="meta-val">Studio Halo · Lisbon</span></div>
+      <div class="meta-cell"><span class="meta-label">Cost</span><span class="meta-val">€42 · drinks incl.</span></div>
+      <div class="meta-cell"><span class="meta-label">Capacity</span><span class="meta-val">12 spots</span></div>
+    </div>
+    <div class="actions">
+      <a class="cta" href="#">reserve a spot →</a>
+      <a class="cta ghost" href="#">add to calendar</a>
+      <span class="spots">★ 3 left</span>
+    </div>
+  </div>
+</article>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Progress Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #5aeaff; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 28px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; line-height: 1.05; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.list { display: flex; flex-direction: column; gap: 14px; }
+.item { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+.item-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
+.item-name { display: flex; flex-direction: column; gap: 2px; }
+.item-title { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+.item-meta { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.item-num { font-weight: 900; font-size: 32px; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.item-num small { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 400; opacity: 0.55; margin-left: 4px; }
+.bar { height: 6px; background: rgba(244, 240, 232, 0.08); border-radius: 3px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; background: var(--accent); border-radius: 3px; position: relative; }
+.bar-fill::after { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 6px; background: white; opacity: 0.5; border-radius: 3px; }
+.item.warn .bar-fill { background: #ffd03d; }
+.item.bad .bar-fill { background: #ff5a3d; }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ progress · q2 goals</p>
+  <h2 class="title">how the quarter is <em>going.</em></h2>
+</header>
+<div class="list">
+  <div class="item"><div class="item-head"><div class="item-name"><span class="item-title">Revenue · MRR target</span><span class="item-meta">$84k of $100k goal</span></div><span class="item-num">84<small>%</small></span></div><div class="bar"><div class="bar-fill" style="width: 84%"></div></div></div>
+  <div class="item warn"><div class="item-head"><div class="item-name"><span class="item-title">Active users · DAU</span><span class="item-meta">2,041 of 3,200 goal</span></div><span class="item-num">64<small>%</small></span></div><div class="bar"><div class="bar-fill" style="width: 64%"></div></div></div>
+  <div class="item"><div class="item-head"><div class="item-name"><span class="item-title">NPS · response score</span><span class="item-meta">9.6 of 9.0 goal</span></div><span class="item-num">107<small>%</small></span></div><div class="bar"><div class="bar-fill" style="width: 100%"></div></div></div>
+  <div class="item bad"><div class="item-head"><div class="item-name"><span class="item-title">Time to first deploy</span><span class="item-meta">14 min · target &lt; 5 min</span></div><span class="item-num">35<small>%</small></span></div><div class="bar"><div class="bar-fill" style="width: 35%"></div></div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Product Detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); max-width: 1200px; margin: 0 auto; align-items: start; }
+.gallery { display: flex; flex-direction: column; gap: 12px; }
+.gallery-main { aspect-ratio: 1; border-radius: 18px; overflow: hidden; background: var(--surface); }
+.gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.thumb { aspect-ratio: 1; border-radius: 10px; overflow: hidden; cursor: pointer; opacity: 0.6; transition: opacity 0.15s; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb:hover, .thumb.active { opacity: 1; }
+.thumb.active { box-shadow: 0 0 0 2px var(--accent); }
+.info { display: flex; flex-direction: column; gap: 18px; padding-top: 8px; }
+.crumbs { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.crumbs a { color: inherit; text-decoration: none; }
+.crumbs a:hover { color: var(--accent); }
+.crumbs span { color: var(--accent); }
+.title { font-weight: 800; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.03em; line-height: 1.1; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.rating { display: flex; gap: 10px; align-items: center; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.rating .stars { color: var(--accent); letter-spacing: 0.08em; font-size: 14px; }
+.price { font-weight: 900; font-size: 32px; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.price small { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 400; opacity: 0.6; margin-left: 6px; vertical-align: 0.5em; }
+.price del { color: var(--ink-soft); font-weight: 500; font-size: 18px; margin-right: 8px; }
+.dek { color: var(--ink-soft); line-height: 1.6; font-size: 15px; }
+.dek em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); }
+.options { display: flex; flex-direction: column; gap: 8px; }
+.options-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.opts { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.opt { padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; background: transparent; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+.opt.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.opt:hover { border-color: var(--accent); }
+.actions { display: inline-flex; gap: 8px; margin-top: 8px; }
+.cta { padding: 14px 24px; border-radius: 12px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 14px; border: 0; cursor: pointer; transition: background 0.15s; flex: 1; font-family: inherit; }
+.cta:hover { background: var(--accent); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); flex: 0 0 auto; padding: 14px 18px; }
+.cta.ghost:hover { background: var(--ink); color: var(--bg); }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 16px 0; border-block: 1px solid var(--rule); margin-top: 8px; }
+.fact { display: flex; flex-direction: column; gap: 2px; padding: 0 14px; border-right: 1px solid var(--rule); }
+.fact:first-child { padding-left: 0; }
+.fact:last-child { border-right: 0; }
+.fact-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.fact-val { font-weight: 700; font-size: 13px; }
+@media (max-width: 800px) { body { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="gallery">
+  <div class="gallery-main"><img src="https://picsum.photos/seed/prod-main/800/800" alt="" /></div>
+  <div class="gallery-thumbs">
+    <div class="thumb active"><img src="https://picsum.photos/seed/prod-main/200" alt="" /></div>
+    <div class="thumb"><img src="https://picsum.photos/seed/prod-2/200" alt="" /></div>
+    <div class="thumb"><img src="https://picsum.photos/seed/prod-3/200" alt="" /></div>
+    <div class="thumb"><img src="https://picsum.photos/seed/prod-4/200" alt="" /></div>
+  </div>
+</div>
+<div class="info">
+  <nav class="crumbs"><a href="#">Shop</a> <span>›</span> <a href="#">Bundles</a> <span>›</span> Vol XV</nav>
+  <h1 class="title">Hero Series · <em>vol XV</em></h1>
+  <div class="rating"><span class="stars">★★★★★</span><span>(4.9 · 204 reviews)</span><span style="color: var(--accent); margin-left: auto">in stock — 12</span></div>
+  <span class="price"><del>$78</del>$48<small>USD</small></span>
+  <p class="dek">A one-page printable archive of <em>15 self-contained hero banners</em>. Each is single-file or near it, ready to copy into a fresh CodePen or drop into a real project. Source SCSS files included for the SCSS-curious.</p>
+  <div class="options"><span class="options-label">/ format</span><div class="opts"><button class="opt active">Digital · ZIP</button><button class="opt">Printed book · 96pp</button><button class="opt">Both</button></div></div>
+  <div class="options"><span class="options-label">/ license</span><div class="opts"><button class="opt active">Personal</button><button class="opt">Studio · 5 seats</button><button class="opt">Agency</button></div></div>
+  <div class="actions"><button class="cta">add to cart →</button><button class="cta ghost">♡</button></div>
+  <div class="facts"><div class="fact"><span class="fact-label">Files</span><span class="fact-val">42 HTML · 18 SCSS</span></div><div class="fact"><span class="fact-label">Size</span><span class="fact-val">~ 2.4 MB</span></div><div class="fact"><span class="fact-label">License</span><span class="fact-val">Forever, transferable</span></div></div>
+</div>
+</body>
+</html>

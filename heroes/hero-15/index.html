@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#0a0a0c" />
+		<title>Hero 15 - Look Closer</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="reveal" data-reveal>
+			<!-- BASE LAYER : muted state, always visible -->
+			<div class="reveal-base" aria-hidden="true">
+				<img class="reveal-img" src="https://picsum.photos/seed/dusk-15/1600/900" alt="" loading="lazy" />
+				<div class="reveal-base-vignette"></div>
+				<div class="reveal-base-grain"></div>
+			</div>
+
+			<!-- MASKED LAYER : revealed state, visible only inside the cursor circle -->
+			<div class="reveal-mask" aria-hidden="true">
+				<img class="reveal-img reveal-img-color" src="https://picsum.photos/seed/dusk-15/1600/900" alt="" loading="lazy" />
+				<div class="reveal-mask-color"></div>
+			</div>
+
+			<!-- WARM LIGHT BEAM : a white-ish glow simulating a flashlight beam, on top of everything -->
+			<div class="reveal-light" aria-hidden="true"></div>
+
+			<!-- BASE TITLE : ghosted outline -->
+			<h1 class="reveal-title reveal-title-base" aria-label="Look closer.">
+				<span class="reveal-title-line">look</span>
+				<span class="reveal-title-line reveal-title-line-b">closer.</span>
+			</h1>
+
+			<!-- REVEALED TITLE : same font + position, filled in accent inside mask -->
+			<div class="reveal-title-mask" aria-hidden="true">
+				<h2 class="reveal-title reveal-title-filled">
+					<span class="reveal-title-line">look</span>
+					<span class="reveal-title-line reveal-title-line-b">closer.</span>
+				</h2>
+			</div>
+
+			<!-- custom pointer at the center of the light -->
+			<div class="reveal-pointer" aria-hidden="true">
+				<span class="reveal-pointer-ring"></span>
+				<span class="reveal-pointer-dot"></span>
+			</div>
+
+			<header class="reveal-nav">
+				<a class="reveal-mark" href="#" data-hover>
+					<span class="reveal-mark-glyph" aria-hidden="true">◐</span>
+					<span>lorem<span class="reveal-mark-slash">/</span>ipsum</span>
+				</a>
+				<nav class="reveal-links" aria-label="Primary">
+					<a href="#" data-hover>lorem</a>
+					<a href="#" data-hover>ipsum</a>
+					<a href="#" data-hover>dolor</a>
+					<a href="#" data-hover>amet</a>
+				</nav>
+				<div class="reveal-themes" role="group" aria-label="Reveal accent">
+					<button class="reveal-theme reveal-theme-ivory is-active" type="button" data-theme="ivory" aria-label="Ivory" data-hover></button>
+					<button class="reveal-theme reveal-theme-flame" type="button" data-theme="flame" aria-label="Flame" data-hover></button>
+					<button class="reveal-theme reveal-theme-acid" type="button" data-theme="acid" aria-label="Acid" data-hover></button>
+					<button class="reveal-theme reveal-theme-tide" type="button" data-theme="tide" aria-label="Tide" data-hover></button>
+					<button class="reveal-theme reveal-theme-rose" type="button" data-theme="rose" aria-label="Rose" data-hover></button>
+				</div>
+			</header>
+
+			<footer class="reveal-foot">
+				<span class="reveal-foot-tag">// MOVE TO REVEAL</span>
+				<span class="reveal-foot-rule" aria-hidden="true"></span>
+				<span data-coords>x · y</span>
+				<span class="reveal-foot-rule" aria-hidden="true"></span>
+				<span>vol 15 · final entry</span>
+			</footer>
+		</main>
+		<script src="script.js" defer></script>
+	</body>
+</html>

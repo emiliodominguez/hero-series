@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quote Section</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ffd03d; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 6vw, 96px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 36px; max-width: 1100px; margin: 0 auto; justify-content: center; align-items: center; text-align: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.eyebrow::before, .eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
+.quote { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(36px, 5.5vw, 72px); line-height: 1.2; letter-spacing: -0.01em; max-width: 880px; }
+.quote::before { content: "\201C"; color: var(--accent); }
+.quote::after { content: "\201D"; color: var(--accent); }
+.quote em { color: var(--accent); }
+.attr { display: flex; flex-direction: column; gap: 4px; align-items: center; padding-top: 24px; border-top: 1px solid var(--rule); }
+.attr-name { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+.attr-role { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.logos { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; justify-content: center; padding-top: 18px; border-top: 1px dashed var(--rule); width: 100%; max-width: 720px; }
+.logo { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 18px; color: var(--ink-soft); }
+.logo:nth-child(odd) { font-family: "Hanken Grotesk", sans-serif; font-style: normal; font-weight: 800; }
+</style>
+</head>
+<body>
+<p class="eyebrow">a kind word</p>
+<blockquote class="quote">It felt less like working with a freelancer and more like having a <em>quiet co-founder</em> for the visual side of the product.</blockquote>
+<div class="attr">
+  <span class="attr-name">Hugo Renner</span>
+  <span class="attr-role">CEO · Halo Labs · 38 employees</span>
+</div>
+<div class="logos">
+  <span class="logo">◆ Halo</span>
+  <span class="logo">Periodical</span>
+  <span class="logo">★ Northstar</span>
+  <span class="logo">Atelier 04</span>
+  <span class="logo">● Kettle &amp; Co</span>
+  <span class="logo">Soft Press</span>
+</div>
+</body>
+</html>

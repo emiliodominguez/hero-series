@@ -1,0 +1,709 @@
+// -----------------------------------------------------------------------------
+// Animatable theme tokens (registered so gradients can interpolate)
+// -----------------------------------------------------------------------------
+
+@property --sky-top {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #ffd0a8;
+}
+
+@property --sky-bot {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #ffaa6a;
+}
+
+@property --sun {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #fff5d8;
+}
+
+@property --sun-glow {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #ff8a3a;
+}
+
+@property --mountain-back {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #a04a3a;
+}
+
+@property --mountain-mid {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #6a2a2e;
+}
+
+@property --mountain-front {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #2a0a14;
+}
+
+@property --ink {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #2a0a14;
+}
+
+@property --ink-soft {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #6a2a2e;
+}
+
+@property --text-on-sky {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #2a0a14;
+}
+
+@property --text-on-front {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #ffd0a8;
+}
+
+@property --accent {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #ff5a3d;
+}
+
+@property --show-stars {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+}
+
+@property --show-clouds {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 1;
+}
+
+// -----------------------------------------------------------------------------
+// Theme tokens — sky + mountain palettes
+// -----------------------------------------------------------------------------
+
+:root {
+	transition:
+		--sky-top 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--sky-bot 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--sun 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--sun-glow 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--mountain-back 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--mountain-mid 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--mountain-front 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--ink 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--ink-soft 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--text-on-sky 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--text-on-front 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--accent 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--show-stars 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		--show-clouds 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+	--sky-top: #ffd0a8;
+	--sky-bot: #ffaa6a;
+	--sun: #fff5d8;
+	--sun-glow: #ff8a3a;
+	--mountain-back: #a04a3a;
+	--mountain-mid: #6a2a2e;
+	--mountain-front: #2a0a14;
+	--ink: #2a0a14;
+	--ink-soft: #6a2a2e;
+	--text-on-sky: #2a0a14;
+	--text-on-front: #ffd0a8;
+	--accent: #ff5a3d;
+	--star-color: rgba(255, 245, 216, 0);
+	--show-stars: 0;
+	--show-clouds: 1;
+	--rule: rgba(42, 10, 20, 0.25);
+
+	&[data-theme="dusk"] {
+		--sky-top: #f4a8c8;
+		--sky-bot: #6a3aaf;
+		--sun: #ffd8aa;
+		--sun-glow: #ff5aaf;
+		--mountain-back: #4a2a6a;
+		--mountain-mid: #2a1a4a;
+		--mountain-front: #100a28;
+		--ink: #100a28;
+		--ink-soft: #4a2a6a;
+		--text-on-sky: #100a28;
+		--text-on-front: #f4a8c8;
+		--accent: #ff5aaf;
+		--star-color: rgba(255, 240, 200, 0);
+		--show-stars: 0;
+		--show-clouds: 1;
+		--rule: rgba(16, 10, 40, 0.3);
+	}
+
+	&[data-theme="alpine"] {
+		--sky-top: #c8e0f4;
+		--sky-bot: #6aa0d8;
+		--sun: #ffffff;
+		--sun-glow: #d8e8f4;
+		--mountain-back: #6a8aaa;
+		--mountain-mid: #2a4a6a;
+		--mountain-front: #f0f4f8;
+		--ink: #0a1828;
+		--ink-soft: #2a4a6a;
+		--text-on-sky: #0a1828;
+		--text-on-front: #0a1828;
+		--accent: #ff5a3d;
+		--star-color: rgba(255, 255, 255, 0);
+		--show-stars: 0;
+		--show-clouds: 1;
+		--rule: rgba(10, 24, 40, 0.25);
+	}
+
+	&[data-theme="midnight"] {
+		--sky-top: #060a24;
+		--sky-bot: #14082e;
+		--sun: #f8f2dc;
+		--sun-glow: #7aa0d4;
+		--mountain-back: #2e3464;
+		--mountain-mid: #14163a;
+		--mountain-front: #04040c;
+		--ink: #f4eeff;
+		--ink-soft: #c4bce0;
+		--text-on-sky: #f8f2ff;
+		--text-on-front: #f8f2ff;
+		--accent: #cab8ff;
+		--star-color: rgba(248, 242, 220, 0.95);
+		--show-stars: 1;
+		--show-clouds: 0;
+		--rule: rgba(248, 242, 255, 0.22);
+	}
+
+	&[data-theme="mars"] {
+		--sky-top: #ffd0aa;
+		--sky-bot: #c44a2a;
+		--sun: #ffeec0;
+		--sun-glow: #ff8a3a;
+		--mountain-back: #8a3a2a;
+		--mountain-mid: #5a2418;
+		--mountain-front: #2a0e08;
+		--ink: #2a0e08;
+		--ink-soft: #5a2418;
+		--text-on-sky: #2a0e08;
+		--text-on-front: #ffd0aa;
+		--accent: #ffae3d;
+		--star-color: rgba(255, 240, 200, 0);
+		--show-stars: 0;
+		--show-clouds: 0;
+		--rule: rgba(42, 14, 8, 0.3);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Reset
+// -----------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	background-color: var(--sky-bot);
+	color: var(--ink);
+	font-family: "Inter", system-ui, -apple-system, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+	overflow: hidden;
+	transition:
+		background-color 1.4s cubic-bezier(0.4, 0, 0.2, 1),
+		color 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::selection {
+	background-color: var(--ink);
+	color: var(--sky-top);
+}
+
+button,
+a {
+	font: inherit;
+	color: inherit;
+}
+
+// -----------------------------------------------------------------------------
+// Stage
+// -----------------------------------------------------------------------------
+
+.vista {
+	position: relative;
+	width: 100%;
+	height: 100svh;
+	overflow: hidden;
+	isolation: isolate;
+	cursor: crosshair;
+}
+
+// -----------------------------------------------------------------------------
+// Sky background
+// -----------------------------------------------------------------------------
+
+.vista-sky {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background-image: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bot) 100%);
+	overflow: hidden;
+}
+
+.vista-sun {
+	position: absolute;
+	left: 50%;
+	top: 32%;
+	transform: translateX(-50%);
+	width: clamp(260px, 30vw, 420px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-image: radial-gradient(circle at 50% 45%, var(--sun) 0%, var(--sun) 50%, var(--sun-glow) 100%);
+	box-shadow:
+		0 0 80px color-mix(in srgb, var(--sun-glow) 60%, transparent),
+		0 0 160px color-mix(in srgb, var(--sun-glow) 35%, transparent);
+}
+
+.vista-stars {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	opacity: var(--show-stars, 0);
+
+	span {
+		position: absolute;
+		width: 2px;
+		height: 2px;
+		border-radius: 50%;
+		background-color: var(--star-color);
+		box-shadow: 0 0 4px var(--star-color);
+
+		&:nth-child(1) {
+			top: 10%;
+			left: 8%;
+		}
+		&:nth-child(2) {
+			top: 18%;
+			left: 22%;
+			width: 1.5px;
+			height: 1.5px;
+		}
+		&:nth-child(3) {
+			top: 6%;
+			left: 38%;
+			width: 3px;
+			height: 3px;
+		}
+		&:nth-child(4) {
+			top: 22%;
+			left: 56%;
+		}
+		&:nth-child(5) {
+			top: 8%;
+			left: 72%;
+			width: 2.5px;
+			height: 2.5px;
+		}
+		&:nth-child(6) {
+			top: 16%;
+			left: 84%;
+		}
+		&:nth-child(7) {
+			top: 28%;
+			left: 14%;
+			width: 1.5px;
+			height: 1.5px;
+		}
+		&:nth-child(8) {
+			top: 30%;
+			left: 90%;
+		}
+		&:nth-child(9) {
+			top: 4%;
+			left: 60%;
+			width: 1.5px;
+			height: 1.5px;
+		}
+		&:nth-child(10) {
+			top: 12%;
+			left: 50%;
+		}
+	}
+}
+
+.vista-cloud {
+	position: absolute;
+	height: 24px;
+	border-radius: 999px;
+	background-color: rgba(255, 255, 255, 0.45);
+	opacity: var(--show-clouds, 1);
+	filter: blur(2px);
+}
+
+.vista-cloud-1 {
+	left: 10%;
+	top: 20%;
+	width: 220px;
+	animation: vista-cloud-drift-1 60s linear infinite;
+}
+
+.vista-cloud-2 {
+	right: 14%;
+	top: 12%;
+	width: 160px;
+	height: 18px;
+	animation: vista-cloud-drift-2 80s linear infinite -20s;
+}
+
+@keyframes vista-cloud-drift-1 {
+	from {
+		transform: translateX(-10vw);
+	}
+	to {
+		transform: translateX(20vw);
+	}
+}
+
+@keyframes vista-cloud-drift-2 {
+	from {
+		transform: translateX(10vw);
+	}
+	to {
+		transform: translateX(-25vw);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Top nav
+// -----------------------------------------------------------------------------
+
+.vista-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 8;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: clamp(18px, 2.4vw, 28px) clamp(20px, 4vw, 56px);
+}
+
+.vista-mark {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--text-on-sky);
+	text-decoration: none;
+	font-family: "JetBrains Mono", monospace;
+	font-weight: 500;
+	font-size: 13px;
+	letter-spacing: 0.04em;
+
+	.vista-mark-glyph {
+		color: var(--accent);
+		font-size: 14px;
+	}
+
+	.vista-mark-slash {
+		color: var(--accent);
+		margin: 0 1px;
+	}
+}
+
+.vista-links {
+	display: inline-flex;
+	gap: clamp(14px, 2.4vw, 28px);
+
+	a {
+		color: var(--text-on-sky);
+		text-decoration: none;
+		font-family: "JetBrains Mono", monospace;
+		font-size: 12px;
+		letter-spacing: 0.04em;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: var(--accent);
+		}
+	}
+}
+
+.vista-themes {
+	display: inline-flex;
+	gap: 10px;
+	padding: 5px 7px;
+	border: 1px solid var(--rule);
+	border-radius: 999px;
+	background-color: color-mix(in srgb, var(--sky-top) 40%, transparent);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+}
+
+.vista-theme {
+	width: 14px;
+	height: 14px;
+	border: 1px solid var(--rule);
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 0;
+	background-color: transparent;
+	outline: 1.5px solid transparent;
+	outline-offset: 2px;
+	transition:
+		transform 0.15s ease,
+		outline-color 0.15s ease;
+
+	&.vista-theme-dawn {
+		background-image: conic-gradient(from 225deg, #ffd0a8 0 180deg, #ff5a3d 180deg 360deg);
+	}
+
+	&.vista-theme-dusk {
+		background-image: conic-gradient(from 225deg, #f4a8c8 0 180deg, #6a3aaf 180deg 360deg);
+	}
+
+	&.vista-theme-alpine {
+		background-image: conic-gradient(from 225deg, #c8e0f4 0 180deg, #2a4a6a 180deg 360deg);
+	}
+
+	&.vista-theme-midnight {
+		background-image: conic-gradient(from 225deg, #0a1230 0 180deg, #b8a8ff 180deg 360deg);
+	}
+
+	&.vista-theme-mars {
+		background-image: conic-gradient(from 225deg, #ffd0aa 0 180deg, #c44a2a 180deg 360deg);
+	}
+
+	&:hover {
+		transform: scale(1.15);
+	}
+
+	&.is-active {
+		outline-color: var(--text-on-sky);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Parallax layers (mountains)
+// -----------------------------------------------------------------------------
+
+.vista-layer {
+	position: absolute;
+	left: -8%;
+	right: -8%;
+	bottom: 0;
+	pointer-events: none;
+	transform: translate3d(
+		calc(var(--mouse-x, 0) * var(--rate-x, 0) * 1px),
+		calc(var(--mouse-y, 0) * var(--rate-y, 0) * 1px),
+		0
+	);
+	transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+	will-change: transform;
+
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		height: 60px;
+		background-color: var(--layer-color);
+	}
+}
+
+.vista-layer-back {
+	z-index: 2;
+	height: 50%;
+	--layer-color: var(--mountain-back);
+
+	svg polygon {
+		fill: var(--mountain-back);
+	}
+}
+
+.vista-layer-mid {
+	z-index: 4;
+	height: 38%;
+	--layer-color: var(--mountain-mid);
+
+	svg polygon {
+		fill: var(--mountain-mid);
+	}
+}
+
+.vista-layer-front {
+	z-index: 6;
+	height: 28%;
+	--layer-color: var(--mountain-front);
+
+	svg polygon {
+		fill: var(--mountain-front);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Title — sits between back and mid mountains so its lower half is hidden
+// -----------------------------------------------------------------------------
+
+.vista-title {
+	position: absolute;
+	left: 50%;
+	bottom: 20%;
+	z-index: 3;
+	transform: translate3d(
+		calc(-50% + var(--mouse-x, 0) * var(--rate-x, 0) * 1px),
+		calc(var(--mouse-y, 0) * var(--rate-y, 0) * 1px),
+		0
+	);
+	transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+	font-family: "Boldonse", "Archivo Black", system-ui, sans-serif;
+	font-weight: 400;
+	font-size: clamp(120px, 22vw, 360px);
+	line-height: 0.86;
+	letter-spacing: -0.04em;
+	color: var(--text-on-sky);
+	text-transform: lowercase;
+	margin: 0;
+	white-space: nowrap;
+	text-align: center;
+	pointer-events: none;
+	will-change: transform;
+}
+
+.vista-title-line {
+	display: block;
+
+	&.vista-title-line-b {
+		color: var(--accent);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Cursor hint
+// -----------------------------------------------------------------------------
+
+.vista-meta {
+	position: absolute;
+	left: 50%;
+	bottom: 90px;
+	z-index: 7;
+	transform: translateX(-50%);
+	font-family: "JetBrains Mono", monospace;
+	font-size: 10px;
+	letter-spacing: 0.24em;
+	color: var(--text-on-front);
+	pointer-events: none;
+	opacity: 0.7;
+	animation: vista-meta-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes vista-meta-bob {
+	0%,
+	100% {
+		transform: translate(-50%, 0);
+		opacity: 0.7;
+	}
+	50% {
+		transform: translate(-50%, 4px);
+		opacity: 0.4;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Foot
+// -----------------------------------------------------------------------------
+
+.vista-foot {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 8;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 16px clamp(20px, 4vw, 56px);
+	font-family: "JetBrains Mono", monospace;
+	font-size: 11px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--text-on-front);
+}
+
+.vista-foot-tag {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.vista-foot-rule {
+	flex: 0 0 14px;
+	height: 1px;
+	background-color: color-mix(in srgb, var(--text-on-front) 30%, transparent);
+
+	&:last-of-type {
+		flex: 1;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Responsive
+// -----------------------------------------------------------------------------
+
+@media (max-width: 900px) {
+	.vista-links {
+		display: none;
+	}
+}
+
+@media (max-width: 720px) {
+	.vista-foot {
+		font-size: 9px;
+		flex-wrap: wrap;
+	}
+
+	.vista-foot-rule {
+		flex: 0 0 8px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.vista-layer,
+	.vista-title {
+		transition: none !important;
+		transform: translate3d(0, 0, 0) !important;
+	}
+
+	.vista-title {
+		transform: translate3d(-50%, 0, 0) !important;
+	}
+
+	.vista-cloud,
+	.vista-meta {
+		animation: none !important;
+	}
+}

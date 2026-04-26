@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Repo Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #c0ff3a; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 14px; max-width: 720px; margin: 0 auto; justify-content: center; }
+h1 { font-weight: 800; font-size: 24px; letter-spacing: -0.02em; margin-bottom: 6px; }
+.repo { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+.repo:hover { border-color: var(--accent); transform: translateY(-2px); }
+.head { display: flex; gap: 12px; align-items: center; }
+.head-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--bg); border: 1px solid var(--rule); display: grid; place-items: center; font-family: "JetBrains Mono", monospace; font-weight: 700; color: var(--accent); }
+.head-name { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+.repo-path { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-soft); }
+.repo-path strong { color: var(--ink); font-weight: 700; }
+.repo-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { padding: 3px 10px; border-radius: 999px; background: rgba(192, 255, 58, 0.12); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.foot { display: flex; gap: 14px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-soft); }
+.foot span { display: inline-flex; align-items: center; gap: 4px; }
+.foot strong { color: var(--ink); font-weight: 700; }
+.lang { display: inline-flex; align-items: center; gap: 6px; }
+.lang::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.repo.featured { border-color: var(--accent); background: linear-gradient(135deg, var(--surface), rgba(192, 255, 58, 0.06)); }
+.star-btn { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--ink); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; cursor: pointer; transition: background 0.15s, color 0.15s; margin-left: auto; }
+.star-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.star-btn.starred { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<h1>Open source · projects</h1>
+<a class="repo featured" href="#">
+  <div class="head">
+    <div class="head-icon">{ }</div>
+    <div class="head-name"><span class="repo-path">@studio / <strong>hero-series</strong></span><span class="lang"><span style="font-size: 10px">CSS · 78%</span></span></div>
+    <button class="star-btn starred">★ 2.4k</button>
+  </div>
+  <p class="repo-desc">A growing collection of self-contained hero banners and drop-in blocks. Each one is single-file, dependency-free, and ready to copy.</p>
+  <div class="tags"><span class="tag">design-system</span><span class="tag">css</span><span class="tag">heroes</span><span class="tag">snippets</span></div>
+  <div class="foot"><span class="lang">CSS</span><span><strong>2,412</strong> stars</span><span><strong>184</strong> forks</span><span>updated 2d ago</span></div>
+</a>
+<a class="repo" href="#">
+  <div class="head">
+    <div class="head-icon">▲</div>
+    <div class="head-name"><span class="repo-path">@studio / <strong>blocks-cli</strong></span><span class="lang"><span style="font-size: 10px">TypeScript · 92%</span></span></div>
+    <button class="star-btn">★ 481</button>
+  </div>
+  <p class="repo-desc">A tiny CLI to scaffold any block from the library into your Next.js or Astro project, with theme tokens.</p>
+  <div class="tags"><span class="tag">cli</span><span class="tag">typescript</span><span class="tag">scaffold</span></div>
+  <div class="foot"><span class="lang">TS</span><span><strong>481</strong> stars</span><span><strong>32</strong> forks</span><span>updated 6h ago</span></div>
+</a>
+</body>
+</html>

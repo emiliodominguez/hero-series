@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Big Type Footer</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #807a70; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; display: flex; flex-direction: column; justify-content: end; padding: clamp(28px, 4vw, 56px); gap: clamp(40px, 6vh, 80px); }
+.cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; padding-bottom: 32px; border-bottom: 1px solid var(--rule); }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.col-head { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
+.col a { color: var(--ink); text-decoration: none; font-weight: 500; transition: color 0.2s; padding: 2px 0; }
+.col a:hover { color: var(--accent); }
+.brand { display: flex; flex-direction: column; gap: 12px; max-width: 280px; }
+.brand-mark { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 17px; }
+.brand-glyph { color: var(--accent); }
+.brand-bio { color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+.brand-bio em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); }
+.big { font-weight: 900; font-size: clamp(80px, 16vw, 240px); line-height: 0.86; letter-spacing: -0.05em; word-break: break-all; }
+.big em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.bottom { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.bottom .right { display: inline-flex; gap: 18px; }
+.bottom .right a { color: var(--ink-soft); text-decoration: none; transition: color 0.15s; }
+.bottom .right a:hover { color: var(--accent); }
+@media (max-width: 800px) { .cols { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<section class="cols">
+  <div class="brand">
+    <span class="brand-mark"><span class="brand-glyph">◆</span>lorem<span style="color: var(--accent)">/</span>ipsum</span>
+    <p class="brand-bio">Independent design + frontend studio. We make <em>quiet objects</em> for the web. Working from Lisbon, mostly.</p>
+  </div>
+  <nav class="col"><span class="col-head">Studio</span><a href="#">About</a><a href="#">Manifesto</a><a href="#">Process</a><a href="#">Press</a></nav>
+  <nav class="col"><span class="col-head">Work</span><a href="#">Selected</a><a href="#">Case studies</a><a href="#">Archive</a><a href="#">Awards</a></nav>
+  <nav class="col"><span class="col-head">Reach</span><a href="#">hello@studio.com</a><a href="#">Twitter / X</a><a href="#">Read.cv</a><a href="#">Are.na</a></nav>
+</section>
+<h1 class="big">studio<em>·</em>2026</h1>
+<footer class="bottom">
+  <span>© 2026 Studio Lorem · all rights reserved</span>
+  <span class="right"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#">Status</a></span>
+</footer>
+</body>
+</html>

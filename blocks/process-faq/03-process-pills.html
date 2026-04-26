@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Process Pills</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #6a3aff; --surface: #ffffff; --rule: rgba(20, 17, 10, 0.16); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 64px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(28px, 4vh, 48px); max-width: 980px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; max-width: 600px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.pills { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; background: var(--surface); border: 1px solid var(--rule); font-weight: 600; font-size: 14px; }
+.pill-num { font-family: "Newsreader", serif; font-style: italic; color: var(--accent); font-size: 16px; }
+.pill.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pill.active .pill-num { color: var(--accent); }
+.arrow { color: var(--ink-soft); font-family: "JetBrains Mono", monospace; }
+.detail { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 32px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+.detail-content { display: flex; flex-direction: column; gap: 10px; }
+.detail-tag { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.detail-title { font-weight: 800; font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.02em; line-height: 1.15; }
+.detail-body { color: var(--ink-soft); font-size: 14px; line-height: 1.55; max-width: 480px; }
+.detail-meta { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: flex; flex-direction: column; gap: 6px; align-items: end; text-align: right; }
+.detail-meta strong { color: var(--accent); font-weight: 700; }
+@media (max-width: 700px) { .detail { grid-template-columns: 1fr; } .detail-meta { align-items: start; text-align: left; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ how we work · 5 phases</p>
+  <h2 class="title">a <em>simple</em> way to ship together.</h2>
+</header>
+<nav class="pills">
+  <span class="pill"><span class="pill-num">i.</span>Brief</span>
+  <span class="arrow">→</span>
+  <span class="pill"><span class="pill-num">ii.</span>Discovery</span>
+  <span class="arrow">→</span>
+  <span class="pill active"><span class="pill-num">iii.</span>Direction</span>
+  <span class="arrow">→</span>
+  <span class="pill"><span class="pill-num">iv.</span>Build</span>
+  <span class="arrow">→</span>
+  <span class="pill"><span class="pill-num">v.</span>Hand-off</span>
+</nav>
+<div class="detail">
+  <div class="detail-content">
+    <span class="detail-tag">/ currently · phase iii</span>
+    <h3 class="detail-title">Direction — two routes, one chosen.</h3>
+    <p class="detail-body">We sketch two distinct creative directions, present both with rationale, and pick the one that fits the brief best. From there, the rest of the work compounds quickly.</p>
+  </div>
+  <div class="detail-meta"><span>duration</span><span><strong>~ 8 days</strong></span><span>deliverables</span><span><strong>2 routes + brief</strong></span></div>
+</div>
+</body>
+</html>

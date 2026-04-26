@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mini About Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0a0a0c; --ink: #f4f0e8; --ink-soft: #b8b0a4; --muted: #807a70; --accent: #c0ff3a; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(20px, 3vw, 40px); display: grid; place-items: center; }
+.card { width: min(620px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 24px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 20px; }
+.head { display: flex; align-items: center; gap: 16px; }
+.avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), #5af0ff); flex-shrink: 0; position: relative; }
+.avatar::after { content: ""; position: absolute; right: 4px; bottom: 4px; width: 16px; height: 16px; border-radius: 50%; background: #2eff7a; border: 3px solid var(--surface); }
+.who { display: flex; flex-direction: column; gap: 2px; }
+.name { font-weight: 800; font-size: 22px; letter-spacing: -0.01em; }
+.role { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.bio { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+.bio em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); font-size: 17px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding-top: 16px; border-top: 1px solid var(--rule); }
+.stat { display: flex; flex-direction: column; gap: 4px; padding: 0 14px; border-right: 1px solid var(--rule); }
+.stat:first-child { padding-left: 0; }
+.stat:last-child { border-right: 0; padding-right: 0; }
+.stat-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.stat-num { font-weight: 800; font-size: 24px; letter-spacing: -0.02em; }
+.stat-num em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.actions { display: inline-flex; gap: 8px; margin-top: 4px; }
+.cta { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 600; font-size: 13px; text-decoration: none; transition: background 0.2s; }
+.cta:hover { background: var(--accent); color: var(--bg); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.cta.ghost:hover { background: var(--ink); color: var(--bg); }
+</style>
+</head>
+<body>
+<article class="card">
+  <header class="head">
+    <div class="avatar"></div>
+    <div class="who">
+      <span class="name">Emilio Domínguez</span>
+      <span class="role">Designer · Frontend · 2026</span>
+    </div>
+  </header>
+  <p class="bio">Independent designer and developer based in <em>somewhere quiet</em>. I build editorial websites, kinetic identities, and small tools that feel handmade. Available for select projects this season.</p>
+  <div class="stats">
+    <div class="stat"><span class="stat-label">Years</span><span class="stat-num">8<em>+</em></span></div>
+    <div class="stat"><span class="stat-label">Shipped</span><span class="stat-num">42</span></div>
+    <div class="stat"><span class="stat-label">Awards</span><span class="stat-num"><em>5</em></span></div>
+  </div>
+  <div class="actions">
+    <a class="cta" href="#">say hello →</a>
+    <a class="cta ghost" href="#">see work</a>
+  </div>
+</article>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brutalist CTA</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f3eee5; --ink: #0a0a0a; --accent: #d4321e; }
+body { background: var(--bg); color: var(--ink); font-family: "IBM Plex Mono", monospace; min-height: 100svh; padding: 0; display: flex; flex-direction: column; justify-content: center; }
+.bar { display: flex; justify-content: space-between; align-items: center; padding: 8px clamp(20px, 4vw, 56px); border-block: 1.5px solid var(--ink); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+.bar.thick { border-bottom: 3px solid var(--ink); }
+.spread { color: var(--accent); }
+.stage { padding: clamp(40px, 8vh, 80px) clamp(20px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: clamp(24px, 4vw, 56px); align-items: end; }
+.title-block { display: flex; flex-direction: column; gap: 18px; }
+.eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; border-left: 3px solid var(--accent); padding-left: 12px; }
+.title { font-family: "DM Serif Display", serif; font-weight: 400; font-size: clamp(64px, 10vw, 160px); line-height: 0.9; letter-spacing: -0.02em; text-transform: lowercase; }
+.title em { font-style: italic; color: var(--accent); }
+.actions { display: flex; flex-direction: column; gap: 0; }
+.cta { display: inline-flex; align-items: center; gap: 12px; padding: 16px 22px; border: 1.5px solid var(--ink); background: var(--ink); color: var(--bg); font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.15s, color 0.15s; }
+.cta + .cta { border-top: 0; }
+.cta:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.cta.ghost { background: transparent; color: var(--ink); }
+.cta.ghost:hover { background: var(--ink); color: var(--bg); }
+.stamp { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 2px solid var(--accent); color: var(--accent); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; transform: rotate(-4deg); align-self: start; margin-bottom: 8px; font-weight: 700; }
+@media (max-width: 800px) { .stage { grid-template-columns: 1fr; } .title { font-size: 56px; } }
+</style>
+</head>
+<body>
+<div class="bar"><span>ISSUE 042</span><span>VOL IV</span><span>26.04.2026</span><span class="spread">PRICE · ¢00</span></div>
+<section class="stage">
+  <div class="title-block">
+    <div class="stamp">★ Notice</div>
+    <p class="eyebrow">/ open for commissions · April–July</p>
+    <h1 class="title">we're <em>open.</em></h1>
+  </div>
+  <div class="actions">
+    <a class="cta" href="#">commission a project →</a>
+    <a class="cta ghost" href="#">view manifesto</a>
+  </div>
+</section>
+<div class="bar thick"><span>[ NEWSWIRE ]</span><span>limited bookings — 4 slots remain</span><span class="spread">→ start now</span></div>
+</body>
+</html>

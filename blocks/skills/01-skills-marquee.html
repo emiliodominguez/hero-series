@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skills Marquee Stack</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #807a70; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.14); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; overflow-x: hidden; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; grid-template-rows: auto 1fr auto; gap: clamp(28px, 4vh, 56px); }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.title { font-weight: 800; font-size: clamp(48px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.marquee { display: flex; flex-direction: column; gap: clamp(8px, 1.4vw, 18px); border-block: 1px solid var(--rule); padding-block: clamp(14px, 2.4vw, 28px); margin: clamp(28px, 4vh, 56px) calc(clamp(28px, 4vw, 56px) * -1); }
+.row { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.track { display: flex; width: max-content; animation: scroll 28s linear infinite; }
+.row.right .track { animation-direction: reverse; }
+.row.italic .track { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; }
+.group { display: inline-flex; align-items: center; gap: clamp(20px, 3vw, 36px); padding-inline-end: clamp(20px, 3vw, 36px); list-style: none; flex-shrink: 0; white-space: nowrap; font-size: clamp(48px, 7vw, 96px); font-weight: 900; letter-spacing: -0.04em; }
+.row.italic .group { font-weight: 400; }
+.sep { color: var(--accent); font-style: normal; font-family: "Hanken Grotesk", sans-serif; font-weight: 700; }
+@keyframes scroll { to { transform: translateX(calc(-100% / 3)); } }
+.foot { display: flex; align-items: center; gap: 14px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.foot-rule { flex: 1; height: 1px; background: var(--rule); }
+.tag { color: var(--accent); font-weight: 600; }
+@media (max-width: 720px) { .group { font-size: 40px; } .title { font-size: 44px; } }
+@media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ what i do — vol 01</p>
+  <span class="eyebrow"><span style="background:none;width:auto;height:auto;border-radius:0">available · q3 ’26</span></span>
+</header>
+<section>
+  <h1 class="title">things i <em>make.</em></h1>
+  <div class="marquee">
+    <div class="row"><div class="track">
+      <ul class="group"><li>Design</li><li class="sep">✦</li><li>Branding</li><li class="sep">✦</li><li>Identity</li><li class="sep">✦</li><li>Typography</li><li class="sep">✦</li><li>Art Direction</li><li class="sep">✦</li><li>Editorial</li><li class="sep">✦</li></ul>
+      <ul class="group" aria-hidden="true"><li>Design</li><li class="sep">✦</li><li>Branding</li><li class="sep">✦</li><li>Identity</li><li class="sep">✦</li><li>Typography</li><li class="sep">✦</li><li>Art Direction</li><li class="sep">✦</li><li>Editorial</li><li class="sep">✦</li></ul>
+      <ul class="group" aria-hidden="true"><li>Design</li><li class="sep">✦</li><li>Branding</li><li class="sep">✦</li><li>Identity</li><li class="sep">✦</li><li>Typography</li><li class="sep">✦</li><li>Art Direction</li><li class="sep">✦</li><li>Editorial</li><li class="sep">✦</li></ul>
+    </div></div>
+    <div class="row right italic"><div class="track">
+      <ul class="group"><li>Motion</li><li class="sep">/</li><li>Animation</li><li class="sep">/</li><li>Interaction</li><li class="sep">/</li><li>WebGL</li><li class="sep">/</li><li>3D</li><li class="sep">/</li><li>Microinteractions</li><li class="sep">/</li></ul>
+      <ul class="group" aria-hidden="true"><li>Motion</li><li class="sep">/</li><li>Animation</li><li class="sep">/</li><li>Interaction</li><li class="sep">/</li><li>WebGL</li><li class="sep">/</li><li>3D</li><li class="sep">/</li><li>Microinteractions</li><li class="sep">/</li></ul>
+      <ul class="group" aria-hidden="true"><li>Motion</li><li class="sep">/</li><li>Animation</li><li class="sep">/</li><li>Interaction</li><li class="sep">/</li><li>WebGL</li><li class="sep">/</li><li>3D</li><li class="sep">/</li><li>Microinteractions</li><li class="sep">/</li></ul>
+    </div></div>
+    <div class="row"><div class="track">
+      <ul class="group"><li>Frontend</li><li class="sep">●</li><li>HTML</li><li class="sep">●</li><li>CSS</li><li class="sep">●</li><li>JavaScript</li><li class="sep">●</li><li>React</li><li class="sep">●</li><li>Next.js</li><li class="sep">●</li></ul>
+      <ul class="group" aria-hidden="true"><li>Frontend</li><li class="sep">●</li><li>HTML</li><li class="sep">●</li><li>CSS</li><li class="sep">●</li><li>JavaScript</li><li class="sep">●</li><li>React</li><li class="sep">●</li><li>Next.js</li><li class="sep">●</li></ul>
+      <ul class="group" aria-hidden="true"><li>Frontend</li><li class="sep">●</li><li>HTML</li><li class="sep">●</li><li>CSS</li><li class="sep">●</li><li>JavaScript</li><li class="sep">●</li><li>React</li><li class="sep">●</li><li>Next.js</li><li class="sep">●</li></ul>
+    </div></div>
+  </div>
+</section>
+<footer class="foot"><span class="tag">// available for work</span><span class="foot-rule"></span><span>say hi → hello@example.com</span></footer>
+</body>
+</html>

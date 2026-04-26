@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pricing Toggle</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --surface: #18181b; --rule: rgba(244, 240, 232, 0.14); --accent: #c0ff3a; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(28px, 4vh, 48px); align-items: center; max-width: 1100px; margin: 0 auto; }
+.head { text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.toggle { display: inline-flex; padding: 4px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; gap: 0; }
+.toggle button { padding: 10px 22px; border-radius: 999px; border: 0; background: transparent; color: var(--ink-soft); font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.toggle button.active { background: var(--accent); color: var(--bg); }
+.toggle .save { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.16em; vertical-align: 2px; margin-left: 4px; opacity: 0.7; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.card.featured { background: var(--accent); color: var(--bg); }
+.card.featured .label { color: rgba(14, 14, 16, 0.6); }
+.card.featured .features li { border-color: rgba(14, 14, 16, 0.18); }
+.label { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.tier { font-weight: 800; font-size: 20px; }
+.price { font-weight: 800; font-size: clamp(40px, 5vw, 60px); line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.price small { font-size: 13px; font-weight: 400; opacity: 0.7; margin-left: 4px; vertical-align: 0.6em; }
+.features { list-style: none; display: flex; flex-direction: column; }
+.features li { padding: 10px 0; border-bottom: 1px dashed var(--rule); display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.features li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+.card.featured .features li::before { color: var(--bg); }
+.cta { padding: 12px 18px; border-radius: 12px; background: var(--ink); color: var(--bg); border: 0; font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; margin-top: auto; transition: transform 0.2s; }
+.cta:hover { transform: translateY(-2px); }
+.card.featured .cta { background: var(--bg); color: var(--accent); }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ pricing · billed simply</p>
+  <h2 class="title">simple plans, <em>no surprises.</em></h2>
+  <div class="toggle">
+    <button class="active" onclick="setBilling('mo', this)">Monthly</button>
+    <button onclick="setBilling('yr', this)">Yearly<span class="save">−20%</span></button>
+  </div>
+</header>
+<div class="grid">
+  <div class="card"><span class="label">Starter</span><span class="tier">For freelancers</span><span class="price"><span data-mo="$12" data-yr="$9.60">$12</span><small>/mo</small></span><ul class="features"><li>1 project</li><li>Unlimited drafts</li><li>Email support</li></ul><button class="cta">Start Starter →</button></div>
+  <div class="card featured"><span class="label">Studio</span><span class="tier">Most chosen</span><span class="price"><span data-mo="$48" data-yr="$38.40">$48</span><small>/mo</small></span><ul class="features"><li>10 active projects</li><li>Team seats — 5</li><li>Priority support</li><li>Advanced exports</li></ul><button class="cta">Start Studio →</button></div>
+  <div class="card"><span class="label">Atelier</span><span class="tier">Bigger teams</span><span class="price"><span data-mo="$148" data-yr="$118">$148</span><small>/mo</small></span><ul class="features"><li>Unlimited projects</li><li>Unlimited seats</li><li>SSO + audit log</li><li>Dedicated manager</li></ul><button class="cta">Talk to us →</button></div>
+</div>
+<script>
+function setBilling(mode, btn) {
+  document.querySelectorAll(".toggle button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll("[data-mo]").forEach(p => p.textContent = mode === "yr" ? p.dataset.yr : p.dataset.mo);
+  document.querySelectorAll(".price small").forEach(s => s.textContent = mode === "yr" ? "/mo · billed yearly" : "/mo");
+}
+</script>
+</body>
+</html>

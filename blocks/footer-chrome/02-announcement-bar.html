@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Announcement Bar</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --accent: #b03a1e; --ink-soft: #5a554a; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: 0; display: flex; flex-direction: column; }
+.bar { background: var(--ink); color: var(--bg); display: flex; align-items: stretch; overflow: hidden; }
+.bar-label { display: inline-flex; align-items: center; padding: 10px 16px; background: var(--accent); color: white; font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; white-space: nowrap; }
+.bar-label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: white; margin-right: 8px; animation: pulse 1.6s infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+.bar-track { flex: 1; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.track { display: flex; width: max-content; animation: scroll 28s linear infinite; padding: 10px 0; }
+.group { display: inline-flex; align-items: center; gap: 28px; padding-inline-end: 28px; list-style: none; flex-shrink: 0; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+.group .sep { color: var(--accent); }
+.group .strong { font-weight: 700; color: white; }
+.bar-close { display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; background: transparent; color: var(--bg); border: 0; border-left: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; font-family: "JetBrains Mono", monospace; font-size: 16px; transition: background 0.15s; }
+.bar-close:hover { background: rgba(255, 255, 255, 0.08); }
+@keyframes scroll { to { transform: translateX(calc(-100% / 3)); } }
+.body-content { padding: 64px clamp(20px, 4vw, 56px); max-width: 980px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+.body-content h1 { font-weight: 800; font-size: 48px; letter-spacing: -0.03em; }
+.body-content p { color: var(--ink-soft); line-height: 1.55; max-width: 520px; }
+@media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="bar-label">▲ ANNOUNCING</span>
+  <div class="bar-track"><div class="track">
+    <ul class="group"><li class="strong">Vol XV is here</li><li class="sep">★</li><li>15 hero banners + bonus</li><li class="sep">★</li><li>Free for members</li><li class="sep">★</li><li class="strong">Limited drop · 100 copies</li><li class="sep">★</li></ul>
+    <ul class="group" aria-hidden="true"><li class="strong">Vol XV is here</li><li class="sep">★</li><li>15 hero banners + bonus</li><li class="sep">★</li><li>Free for members</li><li class="sep">★</li><li class="strong">Limited drop · 100 copies</li><li class="sep">★</li></ul>
+    <ul class="group" aria-hidden="true"><li class="strong">Vol XV is here</li><li class="sep">★</li><li>15 hero banners + bonus</li><li class="sep">★</li><li>Free for members</li><li class="sep">★</li><li class="strong">Limited drop · 100 copies</li><li class="sep">★</li></ul>
+  </div></div>
+  <button class="bar-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">×</button>
+</div>
+<main class="body-content">
+  <h1>Your page goes here.</h1>
+  <p>The announcement bar above is a sticky-friendly drop-in. Add it as the first child of your <code>&lt;body&gt;</code>, swap the copy, ship.</p>
+</main>
+</body>
+</html>

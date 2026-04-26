@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="theme-color" content="#0a0a0c" />
+		<title>Hero 02 - Signal Lost</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=VT323&family=Anton&family=JetBrains+Mono:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<main class="vhs">
+			<div class="vhs-noise" aria-hidden="true"></div>
+			<div class="vhs-scanlines" aria-hidden="true"></div>
+			<div class="vhs-tracking" aria-hidden="true"></div>
+			<div class="vhs-vignette" aria-hidden="true"></div>
+
+			<div class="vhs-osd vhs-osd-top">
+				<div class="vhs-osd-row">
+					<span class="vhs-rec">
+						<span class="vhs-rec-dot" aria-hidden="true"></span>
+						REC
+					</span>
+					<span class="vhs-meta">SP</span>
+					<span class="vhs-meta">CH 02</span>
+					<span class="vhs-meta">NTSC</span>
+				</div>
+				<div class="vhs-osd-row vhs-osd-right">
+					<div class="vhs-themes" role="group" aria-label="Theme">
+						<button class="vhs-theme vhs-theme-phosphor is-active" type="button" data-theme="phosphor" aria-label="Phosphor"></button>
+						<button class="vhs-theme vhs-theme-amber" type="button" data-theme="amber" aria-label="Amber"></button>
+						<button class="vhs-theme vhs-theme-ice" type="button" data-theme="ice" aria-label="Ice"></button>
+						<button class="vhs-theme vhs-theme-hellfire" type="button" data-theme="hellfire" aria-label="Hellfire"></button>
+						<button class="vhs-theme vhs-theme-toxic" type="button" data-theme="toxic" aria-label="Toxic"></button>
+					</div>
+					<span class="vhs-meta" data-tc>00:00:00:00</span>
+				</div>
+			</div>
+
+			<div class="vhs-side vhs-side-left" aria-hidden="true">
+				LOREM IPSUM · DOLOR SIT AMET · CONSECTETUR ADIPISCING · LOREM IPSUM · DOLOR SIT AMET
+			</div>
+			<div class="vhs-side vhs-side-right" aria-hidden="true">
+				TAPE 042 · LOREM IPSUM · DOLOR SIT · ADIPISCING ELIT · TAPE 042 · LOREM IPSUM
+			</div>
+
+			<div class="vhs-stage">
+				<p class="vhs-eyebrow">
+					<span class="vhs-eyebrow-bar" aria-hidden="true"></span>
+					Lorem ipsum dolor sit amet - analog feed 042
+				</p>
+
+				<h1 class="vhs-title">
+					<span class="vhs-title-line" data-text="signal">signal</span>
+					<span class="vhs-title-line vhs-title-line-b" data-text="lost.">lost.</span>
+				</h1>
+
+				<p class="vhs-blurb">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+					incididunt - please stand by.
+				</p>
+
+				<div class="vhs-actions">
+					<button class="vhs-cta" type="button">
+						<span class="vhs-cta-icon" aria-hidden="true">▶</span>
+						<span>play tape</span>
+					</button>
+					<button class="vhs-cta vhs-cta-ghost" type="button">
+						<span class="vhs-cta-icon" aria-hidden="true">⏏</span>
+						<span>eject</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="vhs-osd vhs-osd-bottom">
+				<div class="vhs-osd-row">
+					<span class="vhs-meta">▶ PLAY</span>
+					<span class="vhs-bar" aria-hidden="true">
+						<span class="vhs-bar-fill"></span>
+					</span>
+					<span class="vhs-meta">02:14 / 47:32</span>
+				</div>
+				<div class="vhs-osd-row vhs-osd-right">
+					<span class="vhs-meta">HiFi · STEREO</span>
+				</div>
+			</div>
+		</main>
+		<script src="script.js" defer></script>
+	</body>
+</html>

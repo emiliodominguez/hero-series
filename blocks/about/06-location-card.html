@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Location Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: grid; place-items: center; }
+.card { width: min(640px, 100%); background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; overflow: hidden; box-shadow: 0 14px 30px rgba(20, 17, 10, 0.06); }
+.map { aspect-ratio: 16/9; background: var(--ink); position: relative; overflow: hidden; }
+.map-grid { position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(244, 239, 230, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(244, 239, 230, 0.08) 1px, transparent 1px); background-size: 32px 32px; }
+.map-streets { position: absolute; inset: 0; }
+.map-streets div { position: absolute; background: rgba(244, 239, 230, 0.18); }
+.map-streets div:nth-child(1) { top: 30%; left: 0; right: 0; height: 4px; }
+.map-streets div:nth-child(2) { top: 65%; left: 0; right: 0; height: 6px; }
+.map-streets div:nth-child(3) { left: 25%; top: 0; bottom: 0; width: 3px; }
+.map-streets div:nth-child(4) { left: 70%; top: 0; bottom: 0; width: 5px; }
+.pin { position: absolute; left: 50%; top: 48%; transform: translate(-50%, -100%); }
+.pin-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); border: 3px solid white; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+.pin-pulse { position: absolute; inset: -10px; border-radius: 50%; border: 2px solid var(--accent); opacity: 0.4; animation: ping 2s infinite; }
+@keyframes ping { to { transform: scale(2); opacity: 0; } }
+.body { padding: 22px 24px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; }
+.l { display: flex; flex-direction: column; gap: 4px; }
+.tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.addr { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 4px; }
+.cta { padding: 10px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-decoration: none; transition: background 0.15s; }
+.cta:hover { background: var(--accent); }
+.foot { display: flex; justify-content: space-between; gap: 12px; padding: 14px 24px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.foot strong { color: var(--accent); }
+</style>
+</head>
+<body>
+<article class="card">
+  <div class="map"><div class="map-grid"></div><div class="map-streets"><div></div><div></div><div></div><div></div></div><div class="pin"><div class="pin-pulse"></div><div class="pin-dot"></div></div></div>
+  <div class="body">
+    <div class="l"><span class="tag">studio · Lisbon</span><h2 class="title">find <em>us</em>.</h2><span class="addr">Rua da Boavista 042, 1200-066 Lisboa</span></div>
+    <a class="cta" href="#">get directions →</a>
+  </div>
+  <footer class="foot"><span>open · Mon–Thu</span><span>10:00 — 18:00 WET</span><span><strong>★ 4.9 / 132 reviews</strong></span></footer>
+</article>
+</body>
+</html>

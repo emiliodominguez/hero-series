@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services List</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #c0ff3a; --rule: rgba(244, 240, 232, 0.16); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(40px, 5vh, 64px); max-width: 1240px; margin: 0 auto; justify-content: center; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.04em; max-width: 560px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.list { display: flex; flex-direction: column; border-top: 1px solid var(--rule); }
+.row { display: grid; grid-template-columns: 80px minmax(0, 1.4fr) minmax(0, 1fr) 100px; gap: 24px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--rule); cursor: pointer; transition: background 0.2s, padding 0.2s; }
+.row:hover { background: rgba(244, 240, 232, 0.03); padding-left: 16px; padding-right: 16px; }
+.num { font-family: "Newsreader", serif; font-style: italic; font-size: 28px; color: var(--accent); }
+.name { font-weight: 800; font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.03em; line-height: 1; }
+.name em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.desc { color: var(--ink-soft); font-size: 14px; line-height: 1.5; }
+.tag { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); justify-self: end; }
+.tag::after { content: " →"; color: var(--accent); transition: transform 0.2s; }
+.row:hover .tag::after { transform: translateX(3px); }
+@media (max-width: 800px) { .row { grid-template-columns: 60px 1fr; } .desc, .tag { grid-column: 2; padding-top: 6px; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div><p class="eyebrow">/ what i offer</p><h2 class="title">five things i'll <em>do well</em>.</h2></div>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)">2026 · open · 2 of 4 slots</p>
+</header>
+<div class="list">
+  <div class="row"><span class="num">i.</span><h3 class="name">Brand <em>identity</em></h3><p class="desc">Wordmarks, logos, color systems, typography that holds up at all sizes.</p><span class="tag">2—4 wks</span></div>
+  <div class="row"><span class="num">ii.</span><h3 class="name">Editorial sites</h3><p class="desc">Long-read first. Articles, lookbooks, manifestos, microsites.</p><span class="tag">3—5 wks</span></div>
+  <div class="row"><span class="num">iii.</span><h3 class="name">Product UI</h3><p class="desc">Component libraries, dashboards, settings flows, design systems.</p><span class="tag">4—8 wks</span></div>
+  <div class="row"><span class="num">iv.</span><h3 class="name">Motion <em>kits</em></h3><p class="desc">Page transitions, micro-interactions, hover states, scroll-tied storytelling.</p><span class="tag">2—3 wks</span></div>
+  <div class="row"><span class="num">v.</span><h3 class="name">Workshops</h3><p class="desc">Two-day in-house critiques and design system kickstarts. On-site or async.</p><span class="tag">2 days</span></div>
+</div>
+</body>
+</html>

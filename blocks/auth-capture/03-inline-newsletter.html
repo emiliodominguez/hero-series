@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inline Newsletter</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.18); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(32px, 4vw, 64px) clamp(20px, 4vw, 56px); max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+.fake { color: var(--ink-soft); line-height: 1.7; font-size: 17px; font-family: "Cormorant Garamond", serif; }
+.fake p { margin-bottom: 18px; }
+.signup { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 22px; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin: 24px 0; background: linear-gradient(135deg, transparent, rgba(176, 58, 30, 0.04)); }
+.signup-l { display: flex; flex-direction: column; gap: 4px; }
+.signup-tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.signup-title { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 22px; line-height: 1.2; color: var(--ink); }
+.signup-title em { font-style: normal; color: var(--accent); }
+.signup-form { display: flex; gap: 6px; padding: 4px; background: var(--bg); border: 1px solid var(--rule); border-radius: 999px; min-width: 280px; }
+.signup-form input { flex: 1; background: transparent; border: 0; outline: 0; padding: 8px 14px; font-family: inherit; font-size: 14px; color: var(--ink); }
+.signup-form button { padding: 8px 16px; background: var(--ink); color: var(--bg); border: 0; border-radius: 999px; font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; cursor: pointer; transition: background 0.15s; }
+.signup-form button:hover { background: var(--accent); }
+@media (max-width: 600px) { .signup { grid-template-columns: 1fr; } .signup-form { min-width: 0; } }
+</style>
+</head>
+<body>
+<section class="fake">
+  <p>The piece I want to tell you about today started as a notebook scribble — three lines about how a quiet identity beats a loud one. I sat with it for a week before turning it into anything anyone would call a brief.</p>
+  <p>That patience is uncomfortable, and it's also <em>where the work gets good.</em> Most of the time, what feels like loitering is actually editing.</p>
+</section>
+<aside class="signup">
+  <div class="signup-l">
+    <span class="signup-tag">→ subscribe to keep reading</span>
+    <p class="signup-title">a short letter, <em>once a fortnight.</em></p>
+  </div>
+  <form class="signup-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='✓ thanks'">
+    <input type="email" placeholder="hello@…" required />
+    <button type="submit">Subscribe →</button>
+  </form>
+</aside>
+<section class="fake">
+  <p>If you're reading this somewhere quiet — late at night, between meetings, on a train — that's the right way to read it. Hit reply if you've got something to share. I read every one.</p>
+</section>
+</body>
+</html>

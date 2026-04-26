@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Press Quote Strip</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Hanken+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: 0; display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+.strip { background: var(--ink); color: var(--bg); padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 24px; }
+.head { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 1px solid rgba(244, 239, 230, 0.18); }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.label { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244, 239, 230, 0.55); }
+.quote { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: clamp(28px, 4vw, 44px); line-height: 1.25; letter-spacing: -0.01em; max-width: 1000px; }
+.quote::before { content: "\201C"; color: var(--accent); margin-right: 4px; }
+.quote::after { content: "\201D"; color: var(--accent); }
+.quote em { color: var(--accent); }
+.row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: end; }
+.byline { font-size: 14px; opacity: 0.85; }
+.byline strong { font-weight: 700; }
+.dots { display: flex; gap: 6px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(244, 239, 230, 0.25); cursor: pointer; }
+.dot.active { background: var(--accent); }
+</style>
+</head>
+<body>
+<aside class="strip">
+  <header class="head"><span class="eyebrow">★★★★★ · 38 reviews</span><span class="label">2 of 4 — by Awwwards</span></header>
+  <blockquote class="quote">A quiet masterclass in editorial pacing — restraint that lets the work <em>breathe</em>. Every detail considered, none of them shouted.</blockquote>
+  <div class="row"><span class="byline"><strong>Awwwards · SOTD</strong> · April 2026</span><div class="dots"><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div></div>
+</aside>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stat Pills</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800;900&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #c0ff3a; --rule: rgba(244, 240, 232, 0.16); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 28px; max-width: 1100px; margin: 0 auto; justify-content: center; }
+.head { display: flex; flex-direction: column; gap: 10px; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 5vw, 56px); line-height: 1; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { display: inline-flex; align-items: baseline; gap: 8px; padding: 12px 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; font-size: 14px; }
+.pill strong { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.pill em { font-family: "Newsreader", serif; font-style: italic; color: var(--accent); font-weight: 400; }
+.pill .label { color: var(--ink-soft); }
+.pill.accent { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.pill.accent .label { color: rgba(14, 14, 16, 0.65); }
+.pill .delta { color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.06em; }
+.pill.accent .delta { color: var(--bg); opacity: 0.7; }
+.foot { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.foot strong { color: var(--accent); }
+</style>
+</head>
+<body>
+<header class="head">
+  <p class="eyebrow">/ at a glance · q2 2026</p>
+  <h2 class="title">a quarter, <em>numbered.</em></h2>
+</header>
+<div class="pills">
+  <span class="pill accent"><strong>2,041</strong><span class="label">readers</span><span class="delta">+412</span></span>
+  <span class="pill"><strong>42</strong><span class="label">essays</span></span>
+  <span class="pill"><strong>$84k</strong><span class="label">MRR</span><span class="delta">+12%</span></span>
+  <span class="pill"><strong>9.6</strong><span class="label">NPS</span></span>
+  <span class="pill"><strong>14<em>+</em></strong><span class="label">talks</span></span>
+  <span class="pill"><strong>7</strong><span class="label">teammates</span></span>
+  <span class="pill"><strong>99.9%</strong><span class="label">uptime</span></span>
+  <span class="pill"><strong>0</strong><span class="label">cookie banners</span></span>
+</div>
+<footer class="foot"><span>data through 26 · 04 · 26</span><span><strong>full report →</strong></span></footer>
+</body>
+</html>

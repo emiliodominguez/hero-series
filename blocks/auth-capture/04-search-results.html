@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Search Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 24px; max-width: 720px; margin: 0 auto; }
+.search { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border: 1.5px solid var(--ink); border-radius: 16px; background: var(--surface); }
+.search-icon { color: var(--ink-soft); }
+.search input { flex: 1; background: transparent; border: 0; outline: 0; font-family: inherit; font-size: 15px; color: var(--ink); font-weight: 500; }
+.search-clear { color: var(--ink-soft); cursor: pointer; }
+.summary { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+.summary strong { color: var(--accent); }
+.results { display: flex; flex-direction: column; gap: 6px; }
+.result { display: block; padding: 16px 14px; border-radius: 12px; transition: background 0.15s; text-decoration: none; color: inherit; cursor: pointer; }
+.result:hover, .result.active { background: var(--surface); }
+.result-meta { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.result-meta .type { padding: 2px 8px; border-radius: 999px; background: var(--accent); color: white; font-weight: 700; }
+.result-title { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+.result-title mark { background: rgba(176, 58, 30, 0.2); color: var(--ink); padding: 0 2px; border-radius: 3px; }
+.result-snippet { font-size: 13px; color: var(--ink-soft); line-height: 1.5; margin-top: 4px; max-width: 580px; }
+.result-snippet mark { background: rgba(176, 58, 30, 0.2); color: var(--ink); padding: 0 2px; border-radius: 3px; }
+.result-url { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--accent); margin-top: 6px; letter-spacing: 0.06em; }
+.foot { display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--rule); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.foot kbd { background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; padding: 2px 6px; font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="search">
+  <span class="search-icon">⌕</span>
+  <input type="text" value="design system" />
+  <span class="search-clear">×</span>
+</div>
+<div class="summary"><span><strong>14 results</strong> for "design system"</span><span>0.04 s</span></div>
+<div class="results">
+  <a class="result active"><div class="result-meta"><span class="type">essay</span><span>26.04.2026 · 12 min read</span></div><h3 class="result-title">Building a quiet <mark>design system</mark> in two months</h3><p class="result-snippet">Most teams don't need 200 components. They need 12 well-considered patterns and a shared language. Here's how we shipped a tiny <mark>design system</mark> at Halo Labs without spending a quarter on it…</p><span class="result-url">studio.com / journal / quiet-design-system</span></a>
+  <a class="result"><div class="result-meta"><span class="type">case study</span><span>14.03.2026</span></div><h3 class="result-title">Halo Labs · brand &amp; <mark>design system</mark></h3><p class="result-snippet">A 12-week embedded engagement to relaunch identity, marketing site, and component library. Built around tokens, themed for product surfaces, and shipped to <mark>design</mark>+code parity in Storybook…</p><span class="result-url">studio.com / work / halo-labs</span></a>
+  <a class="result"><div class="result-meta"><span class="type">tutorial</span><span>02.02.2026 · 8 min read</span></div><h3 class="result-title">A small type <mark>system</mark>, written in CSS variables</h3><p class="result-snippet">Variable fonts + custom properties + a single ratio gives you a typographic <mark>system</mark> that scales by clamp() and themes by data-attribute. Here's the whole thing in 40 lines…</p><span class="result-url">studio.com / journal / type-system-css</span></a>
+  <a class="result"><div class="result-meta"><span class="type">talk</span><span>22.01.2026</span></div><h3 class="result-title">Design tokens that aren't terrible</h3><p class="result-snippet">A 25-minute talk from Config '26 on building <mark>design systems</mark> that respect both designers and engineers, with practical patterns from Halo's component library…</p><span class="result-url">studio.com / talks / tokens-not-terrible</span></a>
+</div>
+<footer class="foot"><span><kbd>↑</kbd><kbd>↓</kbd> navigate · <kbd>↵</kbd> open · <kbd>esc</kbd> close</span><span>page 1 of 4</span></footer>
+</body>
+</html>

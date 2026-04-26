@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0e0e10" />
+		<title>Hero Series · Index</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			* { box-sizing: border-box; margin: 0; padding: 0; }
+			:root {
+				--bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --muted: #908a7a;
+				--accent: #b03a1e; --rule: rgba(20, 17, 10, 0.14); --rule-strong: rgba(20, 17, 10, 0.32);
+				--surface: rgba(255, 255, 255, 0.55); --surface-strong: rgba(255, 255, 255, 0.85);
+			}
+			body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100vh; padding: clamp(40px, 6vw, 80px); -webkit-font-smoothing: antialiased; }
+			.wrap { max-width: 1280px; margin: 0 auto; }
+			.kicker { display: inline-flex; align-items: center; gap: 10px; font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 18px; }
+			.kicker::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+			h1 { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; font-size: clamp(48px, 7vw, 96px); line-height: 1; letter-spacing: -0.02em; margin-bottom: 12px; }
+			.lede { max-width: 580px; color: var(--ink-soft); font-size: 16px; line-height: 1.55; margin-bottom: 28px; }
+			.lede em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); }
+			.totals { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+			.totals span { padding: 6px 12px; background: var(--ink); color: var(--bg); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px; font-weight: 700; }
+			.totals span.accent { background: var(--accent); }
+			.toc { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 60px; padding: 14px 0; border-block: 1px solid var(--rule); }
+			.toc a { padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: background 0.15s; }
+			.toc a:hover { background: var(--ink); color: var(--bg); }
+			.toc a.accent { background: var(--accent); color: white; border-color: var(--accent); }
+			.section { margin-top: clamp(56px, 8vh, 96px); }
+			.section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1.5px solid var(--ink); margin-bottom: 24px; }
+			.section-title { font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.05; letter-spacing: -0.03em; }
+			.section-title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+			.section-meta { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+			.subgroup { margin-top: 32px; }
+			.subgroup-head { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; padding-bottom: 8px; margin-bottom: 14px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; }
+			.subgroup-head span { color: var(--ink-soft); font-weight: 400; }
+			.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+			.card { display: flex; flex-direction: column; justify-content: space-between; min-height: 160px; border: 1px solid var(--rule); border-radius: 12px; padding: 16px; color: inherit; text-decoration: none; background: var(--surface); transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1), border-color 0.3s, background 0.3s; }
+			.card:hover { transform: translateY(-3px); border-color: var(--rule-strong); background: var(--surface-strong); }
+			.card-num { font-family: "Newsreader", serif; font-style: italic; font-size: 18px; color: var(--accent); }
+			.card-title { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin-top: 6px; }
+			.card-desc { margin-top: 4px; font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
+			.card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; }
+			.card-status { color: var(--accent); font-weight: 700; }
+			.card-themes { color: var(--ink-soft); font-size: 9px; }
+			.card.featured { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+			.card.featured:hover { background: var(--accent); border-color: var(--accent); }
+			.card.featured .card-num { color: white; }
+			.card.featured .card-desc { color: rgba(244, 239, 230, 0.78); }
+			.card.featured .card-status { color: white; }
+			.card.featured .card-themes { color: rgba(244, 239, 230, 0.6); }
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<p class="kicker">Hero Series · 2026 — Vol XV</p>
+			<h1>An index of <em>moving parts.</em></h1>
+			<p class="lede">A growing collection of <em>self-contained</em> visual experiments — full-page heroes plus drop-in blocks. Each one is single-file or near it, ready to copy into a fresh CodePen and iterate from.</p>
+			<div class="totals">
+				<span class="accent">15 heroes</span><span>80 blocks</span><span>20 categories</span><span>vol XV — 2026</span>
+			</div>
+			<nav class="toc">
+				<a href="#heroes" class="accent">Heroes</a>
+				<a href="#skills">Skills</a>
+				<a href="#about">About / Profile</a>
+				<a href="#ctas">CTAs</a>
+				<a href="#stats">Stats</a>
+				<a href="#proof">Testimonials</a>
+				<a href="#pricing">Pricing</a>
+				<a href="#features">Features</a>
+				<a href="#logos">Social Proof</a>
+				<a href="#process">Process / FAQ</a>
+				<a href="#signup">Auth / Capture</a>
+				<a href="#footer">Footer / Chrome</a>
+				<a href="#util">Utility / States</a>
+				<a href="#media">Media / Team</a>
+				<a href="#content">Content / Events</a>
+				<a href="#commerce">Commerce</a>
+				<a href="#dashboard">Dashboard</a>
+				<a href="#dev">Dev / Tech</a>
+				<a href="#promo">Promo</a>
+			</nav>
+
+			<section class="section" id="heroes">
+				<header class="section-head"><h2 class="section-title">Hero <em>banners</em></h2><span class="section-meta">15 entries · full-page</span></header>
+				<div class="grid">
+					<a class="card featured" href="heroes/hero-15/index.html"><div><div class="card-num">/ 15 — featured</div><div class="card-title">Look Closer</div><div class="card-desc">Cursor spotlight reveal — outline title becomes filled accent inside the cursor's mask.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-01/index.html"><div><div class="card-num">/ 01</div><div class="card-title">Design in Motion</div><div class="card-desc">Editorial Dribbble-style with rotating seal + marquee.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">7 themes</span></div></a>
+					<a class="card" href="heroes/hero-02/index.html"><div><div class="card-num">/ 02</div><div class="card-title">Signal Lost</div><div class="card-desc">CRT/VHS glitch + chromatic aberration + SMPTE timecode.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-03/index.html"><div><div class="card-num">/ 03</div><div class="card-title">Floating Worlds</div><div class="card-desc">3D parallax — cards at depth + glossy sphere.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-04/index.html"><div><div class="card-num">/ 04</div><div class="card-title">Soft Matter</div><div class="card-desc">Liquid blobs fused with SVG goo filter.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-05/index.html"><div><div class="card-num">/ 05</div><div class="card-title">Form Follows</div><div class="card-desc">Brutalist editorial — rotated stamp + ticker.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-06/index.html"><div><div class="card-num">/ 06</div><div class="card-title">After Hours</div><div class="card-desc">Synthwave grid floor + glowing sun + neon outline.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-07/index.html"><div><div class="card-num">/ 07</div><div class="card-title">Slow Forms</div><div class="card-desc">Editorial magazine — drop cap + image collage + pull quote.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">8 themes</span></div></a>
+					<a class="card" href="heroes/hero-08/index.html"><div><div class="card-num">/ 08</div><div class="card-title">Look Through</div><div class="card-desc">Glassmorphic cards over vivid blurred orbs.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-09/index.html"><div><div class="card-num">/ 09</div><div class="card-title">Internet Forever</div><div class="card-desc">Y2K Aero with sky gradient + chrome bevels.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">8 themes</span></div></a>
+					<a class="card" href="heroes/hero-10/index.html"><div><div class="card-num">/ 10</div><div class="card-title">Tools for Makers</div><div class="card-desc">Modern bento dashboard with 6 mixed cells.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-11/index.html"><div><div class="card-num">/ 11</div><div class="card-title">Big News</div><div class="card-desc">Pop-art comic with halftone + burst star.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">8 themes</span></div></a>
+					<a class="card" href="heroes/hero-12/index.html"><div><div class="card-num">/ 12</div><div class="card-title">Quiet Hours</div><div class="card-desc">Sober minimal — Source Serif and breathing room.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">8 themes</span></div></a>
+					<a class="card" href="heroes/hero-13/index.html"><div><div class="card-num">/ 13</div><div class="card-title">Out There</div><div class="card-desc">Cursor parallax landscape behind mountains.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">5 themes</span></div></a>
+					<a class="card" href="heroes/hero-14/index.html"><div><div class="card-num">/ 14</div><div class="card-title">Rare Drop</div><div class="card-desc">Holographic trading card with iridescent foil.</div></div><div class="card-foot"><span class="card-status">Live →</span><span class="card-themes">6 themes</span></div></a>
+				</div>
+			</section>
+
+			<section class="section">
+				<header class="section-head"><h2 class="section-title">Blocks <em>· drop-ins</em></h2><span class="section-meta">80 snippets · single file each</span></header>
+
+				<div class="subgroup" id="skills">
+					<h3 class="subgroup-head">/ skills <span>2 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/skills/01-skills-marquee.html"><div><div class="card-num">/ 01</div><div class="card-title">Skills Marquee Stack</div><div class="card-desc">Three rows of bold-type skills scrolling alternately.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/skills/02-skill-cloud.html"><div><div class="card-num">/ 02</div><div class="card-title">Skill Cloud</div><div class="card-desc">Tag-style chips at varied sizes.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="about">
+					<h3 class="subgroup-head">/ about &amp; profile <span>7 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/about/01-mini-about.html"><div><div class="card-num">/ 01</div><div class="card-title">Mini About Card</div><div class="card-desc">Avatar + bio + stats + dual CTAs.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/about/07-careers-card.html"><div><div class="card-num">/ 07</div><div class="card-title">Careers / Hiring</div><div class="card-desc">Open roles list with tags and apply CTA.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/about/05-contact-card.html"><div><div class="card-num">/ 05</div><div class="card-title">Contact Card</div><div class="card-desc">vCard with email/phone/hours + handles.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/about/04-link-tree.html"><div><div class="card-num">/ 04</div><div class="card-title">Link Tree</div><div class="card-desc">Linktree-style profile with featured top link.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/about/02-resume-mini.html"><div><div class="card-num">/ 02</div><div class="card-title">Resume Mini</div><div class="card-desc">Editorial CV with experience + skills bars.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/about/03-now-page.html"><div><div class="card-num">/ 03</div><div class="card-title">Now Page</div><div class="card-desc">"What I'm up to" public scratchpad.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/about/06-location-card.html"><div><div class="card-num">/ 06</div><div class="card-title">Location Card</div><div class="card-desc">CSS-drawn map with pin + studio info.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="ctas">
+					<h3 class="subgroup-head">/ ctas <span>7 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/ctas/01-big-type-cta.html"><div><div class="card-num">/ 01</div><div class="card-title">Big Type CTA</div><div class="card-desc">Massive headline + dual CTA, accent halo bg.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/ctas/02-glass-pill-cta.html"><div><div class="card-num">/ 02</div><div class="card-title">Glass Pill CTA</div><div class="card-desc">Frosted card on blurred orbs.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/ctas/03-brutalist-cta.html"><div><div class="card-num">/ 03</div><div class="card-title">Brutalist CTA</div><div class="card-desc">Newspaper layout with rotated stamp.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/ctas/04-hero-banner-mini.html"><div><div class="card-num">/ 04</div><div class="card-title">Mini Hero Banner</div><div class="card-desc">Mid-page horizontal hero between sections.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/ctas/05-cta-with-form.html"><div><div class="card-num">/ 05</div><div class="card-title">CTA with Form</div><div class="card-desc">Side-by-side pitch + project brief form.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/ctas/06-app-promo.html"><div><div class="card-num">/ 06</div><div class="card-title">App Promo</div><div class="card-desc">Glassy phone mockup + download CTAs.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/ctas/07-final-cta.html"><div><div class="card-num">/ 07</div><div class="card-title">Final CTA</div><div class="card-desc">Massive last-call section + trust stats.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="stats">
+					<h3 class="subgroup-head">/ stats <span>6 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/stats/01-big-numbers-stats.html"><div><div class="card-num">/ 01</div><div class="card-title">Big Numbers</div><div class="card-desc">3-cell row of editorial-scale metrics.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/stats/05-bento-stats.html"><div><div class="card-num">/ 05</div><div class="card-title">Bento Stats</div><div class="card-desc">Mixed-size dashboard cards with bar chart.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/stats/03-stat-ticker.html"><div><div class="card-num">/ 03</div><div class="card-title">Live Stat Ticker</div><div class="card-desc">Animated counters with sparkline charts.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/stats/02-stat-pills.html"><div><div class="card-num">/ 02</div><div class="card-title">Stat Pills</div><div class="card-desc">8 inline metric pills with deltas.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/stats/04-progress-stats.html"><div><div class="card-num">/ 04</div><div class="card-title">Progress Stats</div><div class="card-desc">Goal tracking with progress bars.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/stats/06-mini-bento-grid.html"><div><div class="card-num">/ 06</div><div class="card-title">Mini Bento</div><div class="card-desc">Compact 5-cell stats grid.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="proof">
+					<h3 class="subgroup-head">/ testimonials <span>6 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/testimonials/01-pull-quote.html"><div><div class="card-num">/ 01</div><div class="card-title">Pull Quote</div><div class="card-desc">Single oversized italic quote with byline.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/testimonials/02-testimonial-trio.html"><div><div class="card-num">/ 02</div><div class="card-title">Testimonial Trio</div><div class="card-desc">3 cards with featured middle quote.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/testimonials/04-quote-with-portrait.html"><div><div class="card-num">/ 04</div><div class="card-title">Quote with Portrait</div><div class="card-desc">Photo + oversized italic testimonial.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/testimonials/05-press-strip.html"><div><div class="card-num">/ 05</div><div class="card-title">Press &amp; Awards</div><div class="card-desc">Three publication quotes side-by-side.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/testimonials/06-press-quote-strip.html"><div><div class="card-num">/ 06</div><div class="card-title">Press Quote Strip</div><div class="card-desc">Dark-bg hero quote with carousel dots.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/testimonials/03-quote-section.html"><div><div class="card-num">/ 03</div><div class="card-title">Centered Quote Section</div><div class="card-desc">Massive serif quote with logo cloud.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="pricing">
+					<h3 class="subgroup-head">/ pricing <span>4 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/pricing/01-three-tier-pricing.html"><div><div class="card-num">/ 01</div><div class="card-title">3-Tier Pricing</div><div class="card-desc">Three plans with featured middle tier.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/pricing/02-pricing-toggle.html"><div><div class="card-num">/ 02</div><div class="card-title">Pricing Toggle</div><div class="card-desc">Monthly/yearly switch with live update.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/pricing/04-comparison-table.html"><div><div class="card-num">/ 04</div><div class="card-title">Comparison Table</div><div class="card-desc">Feature × tier matrix.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/pricing/03-pricing-card-single.html"><div><div class="card-num">/ 03</div><div class="card-title">Single Pricing Card</div><div class="card-desc">One-tier focused conversion card.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="features">
+					<h3 class="subgroup-head">/ features <span>9 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/features/01-feature-bento.html"><div><div class="card-num">/ 01</div><div class="card-title">Feature Bento</div><div class="card-desc">6-cell asymmetric grid with mixed treatments.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/02-feature-triptych.html"><div><div class="card-num">/ 02</div><div class="card-title">Feature Triptych</div><div class="card-desc">3 numbered columns with dashed dividers.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/03-services-list.html"><div><div class="card-num">/ 03</div><div class="card-title">Services List</div><div class="card-desc">5-row big-type service catalog.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/04-tabbed-features.html"><div><div class="card-num">/ 04</div><div class="card-title">Tabbed Features</div><div class="card-desc">Tab nav + animated panels with preview.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/05-feature-toggle-card.html"><div><div class="card-num">/ 05</div><div class="card-title">Feature Toggles</div><div class="card-desc">Settings card with switch toggles.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/07-feature-list-icons.html"><div><div class="card-num">/ 07</div><div class="card-title">Feature List · Icons</div><div class="card-desc">9-feature 3-col grid with serif numerals.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/08-feature-card-pair.html"><div><div class="card-num">/ 08</div><div class="card-title">Feature Card Pair</div><div class="card-desc">Two side-by-side feature cards with icons.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/09-feature-screenshot.html"><div><div class="card-num">/ 09</div><div class="card-title">Feature Screenshot</div><div class="card-desc">Centered app window mockup with sidebar.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/features/06-featured-project.html"><div><div class="card-num">/ 06</div><div class="card-title">Featured Project</div><div class="card-desc">Image + meta + tags + facts case study card.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="logos">
+					<h3 class="subgroup-head">/ social proof <span>4 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/social-proof/01-logo-marquee.html"><div><div class="card-num">/ 01</div><div class="card-title">Logo Marquee</div><div class="card-desc">Trusted-by infinite scroll typographic logos.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/social-proof/02-logo-grid.html"><div><div class="card-num">/ 02</div><div class="card-title">Logo Grid</div><div class="card-desc">5×2 static grid with hover-fill cells.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/social-proof/03-avatar-stack.html"><div><div class="card-num">/ 03</div><div class="card-title">Avatar Stacks</div><div class="card-desc">"Joined by N people" cards with avatars.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/social-proof/04-awards-row.html"><div><div class="card-num">/ 04</div><div class="card-title">Awards Row</div><div class="card-desc">5 medal-style award cards with stars.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="process">
+					<h3 class="subgroup-head">/ process &amp; faq <span>4 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/process-faq/01-faq-accordion.html"><div><div class="card-num">/ 01</div><div class="card-title">FAQ Accordion</div><div class="card-desc">Sticky lead column + expanding details.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/process-faq/02-numbered-steps.html"><div><div class="card-num">/ 02</div><div class="card-title">Numbered Steps</div><div class="card-desc">4-phase horizontal flow with current step.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/process-faq/04-vertical-timeline.html"><div><div class="card-num">/ 04</div><div class="card-title">Vertical Timeline</div><div class="card-desc">Career history with dotted line + accent.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/process-faq/03-process-pills.html"><div><div class="card-num">/ 03</div><div class="card-title">Process Pills</div><div class="card-desc">Pill-style step nav + active detail card.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="signup">
+					<h3 class="subgroup-head">/ auth &amp; capture <span>5 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/auth-capture/02-newsletter-signup.html"><div><div class="card-num">/ 02</div><div class="card-title">Newsletter Signup</div><div class="card-desc">Centered input pill with social proof.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/auth-capture/05-command-bar.html"><div><div class="card-num">/ 05</div><div class="card-title">Command Bar</div><div class="card-desc">⌘K-style search with shortcut hints.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/auth-capture/01-login-card.html"><div><div class="card-num">/ 01</div><div class="card-title">Login Card</div><div class="card-desc">OAuth + email form + brand mark.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/auth-capture/03-inline-newsletter.html"><div><div class="card-num">/ 03</div><div class="card-title">Inline Newsletter</div><div class="card-desc">Editorial inline subscription card.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/auth-capture/04-search-results.html"><div><div class="card-num">/ 04</div><div class="card-title">Search Results</div><div class="card-desc">Filtered query results with highlights.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="footer">
+					<h3 class="subgroup-head">/ footer &amp; chrome <span>3 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/footer-chrome/01-big-type-footer.html"><div><div class="card-num">/ 01</div><div class="card-title">Big Type Footer</div><div class="card-desc">Multi-column links + oversized brand.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/footer-chrome/02-announcement-bar.html"><div><div class="card-num">/ 02</div><div class="card-title">Announcement Bar</div><div class="card-desc">Top-of-page strip with marquee + dismiss.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/footer-chrome/03-cookie-banner.html"><div><div class="card-num">/ 03</div><div class="card-title">Cookie Banner</div><div class="card-desc">Bottom-pinned consent with primary action.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="util">
+					<h3 class="subgroup-head">/ utility &amp; states <span>5 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/utility-states/01-404-page.html"><div><div class="card-num">/ 01</div><div class="card-title">404 Page</div><div class="card-desc">Glitch 404 with chromatic aberration.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/utility-states/02-coming-soon.html"><div><div class="card-num">/ 02</div><div class="card-title">Coming Soon</div><div class="card-desc">Live JS countdown + email capture.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/utility-states/05-toast-notification.html"><div><div class="card-num">/ 05</div><div class="card-title">Toast Notifications</div><div class="card-desc">Four flavors: success/error/warn/info.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/utility-states/03-empty-state.html"><div><div class="card-num">/ 03</div><div class="card-title">Empty State</div><div class="card-desc">Friendly nothing-here yet card.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/utility-states/04-error-state.html"><div><div class="card-num">/ 04</div><div class="card-title">Error State</div><div class="card-desc">Server-error card with retry + details.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="media">
+					<h3 class="subgroup-head">/ media &amp; team <span>3 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/media-team/01-photo-gallery.html"><div><div class="card-num">/ 01</div><div class="card-title">Photo Gallery</div><div class="card-desc">Mixed-size masonry with hover captions.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/media-team/02-team-grid.html"><div><div class="card-num">/ 02</div><div class="card-title">Team Grid</div><div class="card-desc">Portrait cards + hover zoom + new badge.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/media-team/03-mini-player.html"><div><div class="card-num">/ 03</div><div class="card-title">Mini Audio Player</div><div class="card-desc">Compact player card with EQ animation.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="content">
+					<h3 class="subgroup-head">/ content &amp; events <span>4 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/content-events/01-article-header.html"><div><div class="card-num">/ 01</div><div class="card-title">Article Header</div><div class="card-desc">Editorial breadcrumbs + tags + serif title.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/content-events/02-blog-feed.html"><div><div class="card-num">/ 02</div><div class="card-title">Blog Feed</div><div class="card-desc">Dated article rows with filter pills.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/content-events/03-event-card.html"><div><div class="card-num">/ 03</div><div class="card-title">Event Card</div><div class="card-desc">Date block + meta row + RSVP + capacity.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/content-events/04-changelog.html"><div><div class="card-num">/ 04</div><div class="card-title">Changelog</div><div class="card-desc">Versioned release notes with tagged items.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="commerce">
+					<h3 class="subgroup-head">/ commerce <span>2 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/commerce/01-product-card.html"><div><div class="card-num">/ 01</div><div class="card-title">Product Card Grid</div><div class="card-desc">Three e-commerce cards with rating + price.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/commerce/02-product-detail.html"><div><div class="card-num">/ 02</div><div class="card-title">Product Detail</div><div class="card-desc">Gallery + options + facts + cart actions.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="dashboard">
+					<h3 class="subgroup-head">/ dashboard <span>2 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/dashboard/01-status-board.html"><div><div class="card-num">/ 01</div><div class="card-title">Status Board</div><div class="card-desc">Live system status + uptime bars.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/dashboard/02-checklist.html"><div><div class="card-num">/ 02</div><div class="card-title">Checklist</div><div class="card-desc">Interactive launch checklist with progress.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="dev">
+					<h3 class="subgroup-head">/ dev &amp; tech <span>4 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/dev-tech/02-spec-sheet.html"><div><div class="card-num">/ 02</div><div class="card-title">Spec Sheet</div><div class="card-desc">Technical specs grouped by section.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/dev-tech/01-code-block.html"><div><div class="card-num">/ 01</div><div class="card-title">Code Block</div><div class="card-desc">Syntax-highlighted snippet + copy button.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/dev-tech/03-github-repo.html"><div><div class="card-num">/ 03</div><div class="card-title">Repo Card</div><div class="card-desc">GitHub-style open source listing.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/dev-tech/04-stack-list.html"><div><div class="card-num">/ 04</div><div class="card-title">Stack / Tools</div><div class="card-desc">3-column tools list with star favorites.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+
+				<div class="subgroup" id="promo">
+					<h3 class="subgroup-head">/ promo &amp; library <span>3 blocks</span></h3>
+					<div class="grid">
+						<a class="card" href="blocks/promo-library/01-promo-banner.html"><div><div class="card-num">/ 01</div><div class="card-title">Promo Banner</div><div class="card-desc">Vibrant gradient banner with code + timer.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/promo-library/03-resource-library.html"><div><div class="card-num">/ 03</div><div class="card-title">Resource Library</div><div class="card-desc">Searchable filterable resource grid.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+						<a class="card" href="blocks/promo-library/02-discount-reveal.html"><div><div class="card-num">/ 02</div><div class="card-title">Discount Reveal</div><div class="card-desc">Click-to-copy promo code with timer.</div></div><div class="card-foot"><span class="card-status">Live →</span></div></a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>

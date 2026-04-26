@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feature Triptych</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.18); --surface: #fffaef; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: clamp(40px, 5vh, 64px); max-width: 1240px; margin: 0 auto; justify-content: center; }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1.5px solid var(--ink); }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.title { font-weight: 800; font-size: clamp(36px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.04em; max-width: 560px; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.cell { padding: 28px; display: flex; flex-direction: column; gap: 16px; border-right: 1px dashed var(--rule); }
+.cell:last-child { border-right: 0; }
+.num { font-family: "Newsreader", serif; font-style: italic; font-size: 48px; color: var(--accent); line-height: 1; }
+.headline { font-weight: 800; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+.body { color: var(--ink-soft); line-height: 1.55; font-size: 14px; }
+.tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-top: auto; padding-top: 16px; border-top: 1px solid var(--rule); }
+.tag::before { content: "→ "; }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; } .cell { border-right: 0; border-bottom: 1px dashed var(--rule); } .cell:last-child { border-bottom: 0; } }
+</style>
+</head>
+<body>
+<header class="head">
+  <div><p class="eyebrow">/ what we do — vol III</p><h2 class="title">three things, <em>done well.</em></h2></div>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)">2026 · 042 / 088</p>
+</header>
+<div class="grid">
+  <div class="cell"><span class="num">i.</span><h3 class="headline">Brand systems</h3><p class="body">From wordmark to onboarding email — identities that stay consistent across product, marketing, and team. Built around a tight set of tokens.</p><span class="tag">case study</span></div>
+  <div class="cell"><span class="num">ii.</span><h3 class="headline">Editorial sites</h3><p class="body">Long-read first. Articles, manifestos, lookbooks — sites that read like a small press print run, but ship in a sprint.</p><span class="tag">case study</span></div>
+  <div class="cell"><span class="num">iii.</span><h3 class="headline">Product UI</h3><p class="body">Component libraries, dashboards, settings flows. Quiet interfaces that get out of the user's way without being boring.</p><span class="tag">case study</span></div>
+</div>
+</body>
+</html>

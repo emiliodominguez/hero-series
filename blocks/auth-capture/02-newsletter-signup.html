@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Newsletter Signup</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0e10; --ink: #f4f0e8; --ink-soft: #b0aaa0; --accent: #ff5a3d; --rule: rgba(244, 240, 232, 0.14); --surface: #18181b; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(40px, 5vw, 80px) clamp(20px, 4vw, 56px); display: flex; flex-direction: column; gap: 32px; align-items: center; justify-content: center; max-width: 720px; margin: 0 auto; text-align: center; }
+.eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; display: inline-flex; gap: 10px; align-items: center; }
+.eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.title { font-weight: 800; font-size: clamp(40px, 5.5vw, 64px); line-height: 1.05; letter-spacing: -0.04em; }
+.title em { font-family: "Newsreader", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.dek { color: var(--ink-soft); font-size: 16px; line-height: 1.55; max-width: 460px; }
+.dek em { font-family: "Newsreader", serif; font-style: italic; color: var(--ink); }
+.form { display: flex; gap: 8px; padding: 8px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; width: 100%; max-width: 480px; transition: border-color 0.2s; }
+.form:focus-within { border-color: var(--accent); }
+.form input { flex: 1; background: transparent; border: 0; outline: 0; padding: 12px 18px; color: var(--ink); font-family: inherit; font-size: 15px; }
+.form input::placeholder { color: var(--ink-soft); }
+.form button { padding: 12px 22px; border-radius: 999px; background: var(--accent); color: var(--bg); border: 0; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; cursor: pointer; transition: transform 0.2s; white-space: nowrap; }
+.form button:hover { transform: translateY(-1px); }
+.fine { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); display: flex; gap: 14px; }
+.fine span::before { content: "→ "; color: var(--accent); }
+.proof { display: inline-flex; gap: 8px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+.proof strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 600px) { .form { flex-direction: column; border-radius: 16px; } .form button { width: 100%; } }
+</style>
+</head>
+<body>
+<p class="eyebrow">/ once a fortnight</p>
+<h2 class="title">small notes on <em>quiet design.</em></h2>
+<p class="dek">A short letter on what I'm reading, what I'm building, and the occasional rant about <em>type rendering</em>. No tracking, easy to leave.</p>
+<form class="form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'">
+  <input type="email" placeholder="hello@yourdomain.com" required />
+  <button type="submit">Subscribe →</button>
+</form>
+<div class="fine"><span>no spam</span><span>unsubscribe anytime</span><span>1,420 readers</span></div>
+</body>
+</html>

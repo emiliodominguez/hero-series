@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Avatar Stack / Joined By</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f4efe6; --ink: #14110a; --ink-soft: #5a554a; --accent: #b03a1e; --rule: rgba(20, 17, 10, 0.16); --surface: #ffffff; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 28px; max-width: 720px; margin: 0 auto; justify-content: center; }
+h1 { font-weight: 800; font-size: 26px; letter-spacing: -0.02em; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+.card.feat { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+.card.feat .tag { color: #ffd03d; }
+.row { display: flex; align-items: center; gap: 14px; }
+.stack { display: flex; }
+.stack img, .stack .ph { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--surface); margin-left: -10px; object-fit: cover; }
+.stack img:first-child, .stack .ph:first-child { margin-left: 0; }
+.card.feat .stack img, .card.feat .stack .ph { border-color: var(--ink); }
+.stack .ph { background: linear-gradient(135deg, var(--accent), #ffd03d); display: grid; place-items: center; color: white; font-weight: 700; font-size: 11px; font-family: "JetBrains Mono", monospace; }
+.text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.text-main { font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
+.text-main em { font-family: "Newsreader", serif; font-style: italic; color: var(--accent); }
+.text-sub { font-size: 12px; color: var(--ink-soft); }
+.card.feat .text-sub { color: rgba(244, 239, 230, 0.6); }
+.btn { padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--bg); border: 0; font-family: inherit; font-weight: 700; font-size: 12px; cursor: pointer; transition: background 0.15s; }
+.card.feat .btn { background: var(--accent); color: white; }
+.btn:hover { background: var(--accent); color: white; }
+</style>
+</head>
+<body>
+<h1>Avatar stacks · social proof</h1>
+<div class="card feat"><span class="tag">★ trending</span><div class="row"><div class="stack"><img src="https://picsum.photos/seed/a1/80" /><img src="https://picsum.photos/seed/a2/80" /><img src="https://picsum.photos/seed/a3/80" /><img src="https://picsum.photos/seed/a4/80" /><span class="ph">+8</span></div><div class="text"><span class="text-main">12 makers joined <em>this week.</em></span><span class="text-sub">Including Mara, Hugo, Imani &amp; 9 more.</span></div><button class="btn">Join →</button></div></div>
+<div class="card"><span class="tag">/ team channel</span><div class="row"><div class="stack"><img src="https://picsum.photos/seed/b1/80" /><img src="https://picsum.photos/seed/b2/80" /><img src="https://picsum.photos/seed/b3/80" /></div><div class="text"><span class="text-main">3 designers <em>online now.</em></span><span class="text-sub">Reply within 5 minutes during work hours.</span></div><button class="btn">Chat</button></div></div>
+<div class="card"><span class="tag">/ event</span><div class="row"><div class="stack"><img src="https://picsum.photos/seed/c1/80" /><img src="https://picsum.photos/seed/c2/80" /><img src="https://picsum.photos/seed/c3/80" /><img src="https://picsum.photos/seed/c4/80" /><img src="https://picsum.photos/seed/c5/80" /><span class="ph">+24</span></div><div class="text"><span class="text-main">29 going to <em>type talk</em></span><span class="text-sub">Lisbon · Jun 04 · 12 spots left</span></div><button class="btn">RSVP</button></div></div>
+</body>
+</html>
