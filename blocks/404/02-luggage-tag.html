@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Lost Luggage</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&family=Special+Elite&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #2c2723; --paper: #f1e8d4; --paper-dim: #d4c8a8; --ink: #1a1410; --red: #c8351a; --rule: rgba(26, 20, 16, 0.22); }
+body { background: var(--bg); background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.04), transparent 60%), radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.4), transparent 50%); color: var(--paper); font-family: "Special Elite", "Courier New", monospace; min-height: 100svh; padding: clamp(40px, 6vw, 80px); display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.tag { width: min(420px, 92vw); background: var(--paper); color: var(--ink); padding: 22px 26px 20px; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 6px 18px rgba(0, 0, 0, 0.35); transform: rotate(-3.5deg); position: relative; }
+.tag::before { content: ""; position: absolute; left: 0; right: 0; top: 38px; height: 1px; background: repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 12px); }
+.tag-hole { position: absolute; left: 50%; top: 14px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); transform: translateX(-50%); box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6); }
+.tag-airline { display: flex; justify-content: space-between; align-items: center; padding-bottom: 28px; font-family: "Archivo Black", system-ui, sans-serif; font-size: 18px; letter-spacing: 0.06em; }
+.tag-airline span:last-child { font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; }
+.tag-route { display: flex; align-items: end; justify-content: space-between; gap: 10px; padding-top: 22px; }
+.iata { font-family: "Archivo Black", system-ui, sans-serif; font-size: 56px; line-height: 0.9; letter-spacing: 0.02em; }
+.iata small { display: block; font-family: "Special Elite", monospace; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; padding-top: 4px; opacity: 0.6; }
+.arrow { font-family: "Archivo Black", system-ui, sans-serif; font-size: 36px; line-height: 0.9; opacity: 0.4; }
+.iata.dest { color: var(--red); }
+.tag-block { margin-top: 22px; padding-top: 14px; border-top: 1px dashed var(--rule); display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.tag-block strong { display: block; font-family: "Archivo Black", system-ui, sans-serif; font-size: 14px; padding-top: 2px; letter-spacing: 0.04em; text-transform: none; }
+.tag-stamp { position: absolute; right: -10px; bottom: 80px; padding: 6px 10px; border: 2px solid var(--red); color: var(--red); font-family: "Archivo Black", system-ui, sans-serif; font-size: 16px; letter-spacing: 0.18em; text-transform: uppercase; transform: rotate(8deg); background: rgba(255, 255, 255, 0.4); }
+.barcode { display: flex; gap: 1px; padding-top: 18px; padding-bottom: 6px; }
+.barcode span { display: inline-block; height: 38px; background: var(--ink); }
+.barcode-num { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.32em; padding-top: 4px; opacity: 0.7; text-align: center; }
+.note { max-width: 320px; color: rgba(241, 232, 212, 0.78); }
+.note h2 { font-family: "Archivo Black", system-ui, sans-serif; font-size: 22px; line-height: 1.1; letter-spacing: -0.01em; color: var(--paper); padding-bottom: 12px; }
+.note p { line-height: 1.65; font-size: 14px; }
+.note a { color: var(--paper); border-bottom: 1px solid rgba(241, 232, 212, 0.5); padding-bottom: 1px; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="tag">
+  <span class="tag-hole"></span>
+  <div class="tag-airline"><span>SKYWAY 404</span><span>RUSH · PRIORITY</span></div>
+  <div class="tag-route">
+    <div class="iata">YOU<small>passenger</small></div>
+    <div class="arrow">→</div>
+    <div class="iata dest">404<small>destination unknown</small></div>
+  </div>
+  <div class="tag-stamp">missing</div>
+  <div class="tag-block"><div>Flight<strong>SKY 404</strong></div><div>Bag<strong>1 of 1</strong></div><div>Date<strong>26 APR 26</strong></div></div>
+  <div class="barcode">
+    <span style="width: 2px"></span><span style="width: 4px"></span><span style="width: 1px"></span><span style="width: 3px"></span><span style="width: 2px"></span><span style="width: 5px"></span><span style="width: 1px"></span><span style="width: 2px"></span><span style="width: 4px"></span><span style="width: 1px"></span><span style="width: 3px"></span><span style="width: 1px"></span><span style="width: 5px"></span><span style="width: 2px"></span><span style="width: 1px"></span><span style="width: 4px"></span><span style="width: 2px"></span><span style="width: 3px"></span><span style="width: 1px"></span><span style="width: 6px"></span><span style="width: 1px"></span><span style="width: 2px"></span><span style="width: 5px"></span><span style="width: 1px"></span><span style="width: 3px"></span><span style="width: 2px"></span><span style="width: 1px"></span><span style="width: 4px"></span><span style="width: 2px"></span><span style="width: 1px"></span><span style="width: 3px"></span><span style="width: 5px"></span><span style="width: 1px"></span><span style="width: 2px"></span><span style="width: 4px"></span><span style="width: 1px"></span><span style="width: 3px"></span><span style="width: 2px"></span>
+  </div>
+  <div class="barcode-num">SKY · 0404 · NF · 26AP</div>
+</div>
+<div class="note">
+  <h2>your bag has been mishandled.</h2>
+  <p>The page you requested didn't make the connection. Our handlers are searching three terminals and a baggage carousel that runs in a loop. <a href="/">File a report at the front desk →</a></p>
+</div>
+</body>
+</html>

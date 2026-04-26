@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Card Catalog</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #483528; --bg-2: #5b4231; --card: #f0e6cf; --card-line: #b8a986; --ink: #1f1812; --red: #a8311a; --shadow: rgba(0, 0, 0, 0.5); }
+body { background: linear-gradient(160deg, var(--bg-2), var(--bg)); background-image: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.03) 0 2px, transparent 2px 5px), repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0 2px, transparent 2px 7px); background-color: var(--bg); color: var(--card); font-family: "Special Elite", "Courier New", monospace; min-height: 100svh; padding: clamp(40px, 5vw, 80px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+.case { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.card { width: min(520px, 92vw); background: var(--card); color: var(--ink); padding: 24px 28px 22px; box-shadow: 0 24px 60px var(--shadow), 0 4px 0 #d4c8a8, 0 8px 0 var(--card-line), 0 8px 30px var(--shadow); position: relative; }
+.card::before, .card::after { content: ""; position: absolute; left: 26px; right: 26px; height: 1px; background: var(--card-line); }
+.card-lines { background-image: repeating-linear-gradient(0deg, transparent 0 22px, var(--card-line) 22px 23px); background-size: 100% 23px; padding-top: 4px; }
+.card-hole { position: absolute; left: 50%; bottom: 16px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg-2); transform: translateX(-50%); box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4); }
+.dewey { display: flex; justify-content: space-between; align-items: end; gap: 14px; padding-bottom: 14px; border-bottom: 1.5px solid var(--ink); margin-bottom: 12px; }
+.dewey-num { font-family: "Special Elite", monospace; font-size: 28px; font-weight: 400; letter-spacing: 0.04em; }
+.dewey-meta { text-align: right; font-size: 11px; line-height: 1.5; letter-spacing: 0.04em; }
+.title { font-family: "Cormorant Garamond", serif; font-weight: 500; font-style: italic; font-size: 32px; line-height: 1.05; letter-spacing: -0.01em; padding: 6px 0 2px; }
+.author { font-size: 13px; padding-bottom: 14px; opacity: 0.85; }
+.specs { font-size: 13px; line-height: 1.7; letter-spacing: 0.02em; padding-bottom: 30px; }
+.specs strong { font-weight: 400; opacity: 0.6; padding-right: 6px; }
+.subjects { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.65; padding-top: 16px; border-top: 1px dashed var(--card-line); }
+.stamp { position: absolute; top: 14px; right: 16px; transform: rotate(8deg); padding: 4px 12px; border: 2px solid var(--red); color: var(--red); font-family: "Special Elite", monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.86; }
+.classmark { position: absolute; left: 22px; top: 22px; font-family: "Special Elite", monospace; font-size: 10px; letter-spacing: 0.2em; opacity: 0.5; }
+.return { width: min(520px, 92vw); display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240, 230, 207, 0.55); padding: 0 4px; }
+.return a { color: var(--card); text-decoration: none; border-bottom: 1px solid rgba(240, 230, 207, 0.4); padding-bottom: 1px; }
+@media (max-width: 540px) { .title { font-size: 26px; } .dewey-num { font-size: 22px; } }
+</style>
+</head>
+<body>
+<div class="case">
+  <div class="card">
+    <span class="classmark">CARD · 404 · NF</span>
+    <span class="stamp">withdrawn</span>
+    <div class="dewey">
+      <span class="dewey-num">404 NF</span>
+      <span class="dewey-meta">acc. 0026 · vol. XV<br />— · — · — · — · —</span>
+    </div>
+    <h2 class="title">The Page That Wasn't Here</h2>
+    <p class="author">Anonymous, &amp; a forgotten editor — c. 2026.</p>
+    <div class="card-lines">
+      <p class="specs"><strong>Form:</strong> 1 leaf ; html, 8º.<br /><strong>Subj:</strong> Errors, web — Lost things — Hyperlinks, broken.<br /><strong>Note:</strong> Catalogued in error. Title slip not found in main file. The reader is referred to the homepage for further assistance.</p>
+    </div>
+    <p class="subjects">404. NF · Local Mythology · Web Errors · Broken Things, &amp; Their Repair</p>
+    <span class="card-hole"></span>
+  </div>
+  <div class="return"><span>Catalog · 26 Apr 26</span><a href="/">↩ return to the front desk</a></div>
+</div>
+</body>
+</html>

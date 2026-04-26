@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Off the Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=JetBrains+Mono:wght@400;500&family=Hanken+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #f1ead4; --bg-2: #e8e0c4; --ink: #2a2418; --rule: rgba(42, 36, 24, 0.22); --red: #b03a1e; }
+body { background: var(--bg); color: var(--ink); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 64px); display: grid; place-items: center; }
+.frame { width: min(1080px, 100%); aspect-ratio: 4 / 3; max-height: calc(100svh - 80px); background: var(--bg-2); border: 2px solid var(--ink); position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18); }
+.frame::before { content: ""; position: absolute; inset: 16px; border: 1px solid var(--ink); pointer-events: none; }
+.contour { position: absolute; inset: 0; border-radius: 50%; border: 1.5px solid rgba(42, 36, 24, 0.35); pointer-events: none; }
+.c1 { width: 1100px; height: 700px; left: -40%; top: -30%; transform: rotate(-12deg); border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+.c2 { width: 900px; height: 600px; left: 20%; top: 10%; border-radius: 55% 45% 60% 40% / 60% 40% 60% 40%; opacity: 0.7; }
+.c3 { width: 700px; height: 500px; left: 30%; top: 20%; border-radius: 50% 50% 60% 40% / 55% 45% 55% 45%; opacity: 0.55; }
+.c4 { width: 480px; height: 360px; left: 38%; top: 30%; border-radius: 50% 60% 50% 60% / 60% 40% 60% 40%; opacity: 0.45; }
+.c5 { width: 280px; height: 220px; left: 45%; top: 38%; border-radius: 55% 45% 60% 40% / 50% 60% 40% 60%; opacity: 0.32; }
+.c6 { width: 600px; height: 240px; right: -60px; bottom: -40px; transform: rotate(9deg); border-radius: 60% 40% 50% 50% / 60% 40% 60% 40%; opacity: 0.35; }
+.coords { position: absolute; top: 28px; left: 28px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.6; }
+.coords strong { display: block; padding-top: 2px; font-size: 14px; letter-spacing: 0.04em; text-transform: none; font-weight: 700; }
+.legend { position: absolute; top: 28px; right: 28px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-align: right; line-height: 1.7; }
+.legend .scale { display: flex; gap: 0; margin-top: 6px; justify-content: end; }
+.legend .scale span { width: 18px; height: 6px; border: 1px solid var(--ink); }
+.legend .scale span:nth-child(odd) { background: var(--ink); }
+.compass { position: absolute; bottom: 28px; right: 28px; width: 72px; height: 72px; border: 1.5px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font-family: "JetBrains Mono", monospace; font-weight: 700; font-size: 12px; }
+.compass::before { content: ""; position: absolute; left: 50%; top: 6px; bottom: 6px; width: 1px; background: var(--ink); transform: translateX(-50%); }
+.compass::after { content: ""; position: absolute; top: 50%; left: 6px; right: 6px; height: 1px; background: var(--ink); transform: translateY(-50%); }
+.compass span { background: var(--bg-2); padding: 0 4px; z-index: 1; }
+.x-mark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.x-mark .x { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 88px; line-height: 1; color: var(--red); transform: rotate(-6deg); }
+.x-mark .label { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 12px; background: var(--bg-2); border: 1px solid var(--ink); }
+.note { position: absolute; left: 28px; bottom: 28px; max-width: 360px; padding: 14px 16px; background: rgba(241, 234, 212, 0.9); border: 1px solid var(--ink); }
+.note h2 { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 32px; line-height: 1.05; padding-bottom: 6px; }
+.note p { font-size: 13px; line-height: 1.55; opacity: 0.85; }
+.note a { color: var(--red); text-decoration: none; border-bottom: 1px solid var(--red); padding-bottom: 1px; font-weight: 700; }
+@media (max-width: 720px) { .frame { aspect-ratio: 3 / 4; } .x-mark .x { font-size: 64px; } .note { left: 16px; right: 16px; bottom: 16px; max-width: none; } .coords, .legend { font-size: 9px; } .compass { width: 56px; height: 56px; bottom: 16px; right: 16px; } }
+</style>
+</head>
+<body>
+<div class="frame">
+  <span class="contour c1"></span>
+  <span class="contour c2"></span>
+  <span class="contour c3"></span>
+  <span class="contour c4"></span>
+  <span class="contour c5"></span>
+  <span class="contour c6"></span>
+  <div class="coords"><span>SHEET 404 · NORTH</span><strong>40°44′N · 0°00′W</strong></div>
+  <div class="legend"><span>1 : 50,000</span><div class="scale"><span></span><span></span><span></span><span></span><span></span></div><span>0 — 5 km</span></div>
+  <div class="compass"><span>N</span></div>
+  <div class="x-mark"><div class="x">×</div><span class="label">you are here · approx.</span></div>
+  <div class="note">
+    <h2>You're off the map.</h2>
+    <p>The trail you followed isn't on this sheet. Local rangers report no path here, no waypoint, and no signs of the page you came for. <a href="/">↩ back to the trailhead</a></p>
+  </div>
+</div>
+</body>
+</html>

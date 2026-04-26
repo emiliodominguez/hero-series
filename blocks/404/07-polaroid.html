@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · The Photo That Wasn't</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Hanken+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #1a1612; --bg-2: #2a231d; --polaroid: #f3eee0; --ink: #1a1410; --soft: rgba(241, 232, 212, 0.55); --red: #c8351a; }
+body { background: var(--bg); background-image: radial-gradient(circle at 20% 25%, rgba(255, 220, 170, 0.04), transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.6), transparent 50%); color: var(--polaroid); font-family: "Hanken Grotesk", system-ui, sans-serif; min-height: 100svh; padding: clamp(28px, 4vw, 72px); display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; perspective: 1200px; }
+.stack { position: relative; width: 320px; height: 380px; flex-shrink: 0; }
+.polaroid { position: absolute; inset: 0; background: var(--polaroid); padding: 16px 16px 70px; box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(0, 0, 0, 0.3); transition: transform 0.3s; }
+.polaroid.back { transform: rotate(-9deg) translateX(-22px); filter: brightness(0.94); }
+.polaroid.mid { transform: rotate(5deg) translate(12px, 6px); filter: brightness(0.97); }
+.polaroid.front { transform: rotate(-2deg); }
+.photo { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #c4b8a4, #a89f8a 50%, #8a7d6a); position: relative; overflow: hidden; }
+.photo.broken { background: repeating-linear-gradient(45deg, #c4b8a4 0, #c4b8a4 16px, #b8ad99 16px, #b8ad99 32px); display: grid; place-items: center; color: rgba(26, 20, 16, 0.6); }
+.photo.broken::before { content: "?"; font-family: "Hanken Grotesk", sans-serif; font-weight: 800; font-size: 110px; line-height: 1; color: rgba(26, 20, 16, 0.45); }
+.photo.broken::after { content: "image not found"; position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(26, 20, 16, 0.55); }
+.cap { padding-top: 10px; font-family: "Caveat", cursive; font-weight: 500; font-size: 22px; line-height: 1.2; color: var(--ink); transform: rotate(-1deg); padding-left: 4px; }
+.cap small { display: block; font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.18em; padding-top: 2px; opacity: 0.55; text-transform: uppercase; font-weight: 500; }
+.tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg); width: 90px; height: 28px; background: rgba(228, 217, 175, 0.7); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+.sticker { position: absolute; top: 12px; right: 8px; width: 56px; height: 56px; border-radius: 50%; background: var(--red); color: var(--polaroid); display: grid; place-items: center; font-family: "Hanken Grotesk", system-ui, sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; transform: rotate(12deg); border: 3px solid var(--polaroid); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35); }
+.aside { max-width: 320px; }
+.kicker { display: inline-flex; align-items: center; gap: 10px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); font-weight: 500; padding-bottom: 16px; }
+.kicker::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+h1 { font-family: "Caveat", cursive; font-weight: 700; font-size: 56px; line-height: 1; padding-bottom: 14px; color: var(--polaroid); transform: rotate(-1deg); }
+.aside p { font-size: 14px; line-height: 1.65; opacity: 0.78; padding-bottom: 18px; }
+.aside a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--polaroid); color: var(--ink); font-weight: 700; font-size: 13px; text-decoration: none; border-radius: 4px; transition: transform 0.2s; }
+.aside a:hover { transform: translateX(4px); }
+@media (max-width: 720px) { .stack { transform: scale(0.9); } h1 { font-size: 44px; } }
+</style>
+</head>
+<body>
+<div class="stack">
+  <div class="polaroid back"><div class="photo"></div><p class="cap">somewhere — last april<small>roll 03 · 14/24</small></p></div>
+  <div class="polaroid mid"><div class="photo"></div><p class="cap">the cafe on tuesday<small>roll 03 · 15/24</small></p></div>
+  <div class="polaroid front">
+    <span class="tape"></span>
+    <span class="sticker">404</span>
+    <div class="photo broken"></div>
+    <p class="cap">the page that wasn't here<small>roll ⌀ · this one didn't develop</small></p>
+  </div>
+</div>
+<div class="aside">
+  <p class="kicker">/ the photo that wasn't</p>
+  <h1>this one didn't<br />come out.</h1>
+  <p>The page you wanted was somewhere on this roll. By the time we got to the darkroom the frame was empty — just chemistry and light, no image. Sorry about that.</p>
+  <a href="/">↩ back to the album</a>
+</div>
+</body>
+</html>

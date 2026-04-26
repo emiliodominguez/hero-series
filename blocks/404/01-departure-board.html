@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Departure Board</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=VT323&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #0e0d0a; --panel: #18170f; --amber: #ffb733; --amber-dim: #6a4f13; --rule: rgba(255, 183, 51, 0.18); --paper: #f1ece0; }
+body { background: var(--bg); color: var(--amber); font-family: "VT323", monospace; min-height: 100svh; padding: clamp(28px, 4vw, 72px); display: flex; flex-direction: column; gap: clamp(20px, 3vh, 36px); justify-content: center; align-items: center; }
+.station { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 183, 51, 0.55); display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+.station strong { color: var(--amber); font-weight: 500; }
+.board { width: min(960px, 100%); background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7), 0 30px 80px rgba(0, 0, 0, 0.6); padding: 28px clamp(20px, 4vw, 40px); position: relative; overflow: hidden; }
+.board::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0, rgba(0, 0, 0, 0.18) 1px, transparent 1px, transparent 3px); }
+.board-head { display: grid; grid-template-columns: 70px 1fr 1fr 110px 90px; gap: 18px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px dashed var(--amber-dim); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.22em; color: var(--amber-dim); text-transform: uppercase; font-weight: 500; }
+.row { display: grid; grid-template-columns: 70px 1fr 1fr 110px 90px; gap: 18px; padding: 10px 0; align-items: center; font-size: 30px; line-height: 1; }
+.row.dim { color: var(--amber-dim); }
+.row .from { letter-spacing: 0.05em; }
+.row .to { font-weight: 500; }
+.row .gate { font-size: 22px; }
+.row .status { font-size: 22px; letter-spacing: 0.1em; padding: 4px 8px; border: 1px solid var(--amber-dim); border-radius: 3px; text-align: center; }
+.row.alert .status { border-color: var(--amber); background: var(--amber); color: var(--bg); animation: blink 1.4s infinite; }
+@keyframes blink { 50% { opacity: 0.55; } }
+.row.alert { color: var(--amber); }
+.row .num { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 18px; letter-spacing: 0.12em; }
+.tape { width: min(960px, 100%); display: flex; gap: 20px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255, 183, 51, 0.55); flex-wrap: wrap; justify-content: space-between; padding: 0 8px; }
+.tape a { color: var(--amber); text-decoration: none; border-bottom: 1px solid var(--amber-dim); padding-bottom: 1px; }
+.flicker { animation: flicker 6s infinite; }
+@keyframes flicker { 0%, 96%, 100% { opacity: 1; } 97% { opacity: 0.4; } 98% { opacity: 1; } 99% { opacity: 0.6; } }
+@media (max-width: 720px) { .board-head, .row { grid-template-columns: 60px 1fr 70px; } .board-head > :nth-child(2), .row > :nth-child(2) { grid-column: 2 / 4; } .board-head > :nth-child(3), .row > :nth-child(3) { display: none; } .board-head > :nth-child(4), .row > :nth-child(4) { display: none; } .row { font-size: 22px; } }
+</style>
+</head>
+<body>
+<div class="station"><span><strong>BERLIN HBF</strong></span><span>·</span><span>Hall <strong>3</strong></span><span>·</span><span>23:47</span><span>·</span><span class="flicker">live</span></div>
+<div class="board">
+  <div class="board-head"><span>Time</span><span>Origin</span><span>Destination</span><span>Gate</span><span>Status</span></div>
+  <div class="row dim"><span class="num">22:18</span><span class="from">Hamburg</span><span class="to">Praha</span><span class="gate">B 04</span><span class="status">Departed</span></div>
+  <div class="row dim"><span class="num">22:46</span><span class="from">Wien</span><span class="to">München</span><span class="gate">B 11</span><span class="status">Departed</span></div>
+  <div class="row alert"><span class="num">23:04</span><span class="from">— —</span><span class="to flicker">404 · Page Not Found</span><span class="gate">— —</span><span class="status">Cancelled</span></div>
+  <div class="row"><span class="num">23:18</span><span class="from">Zürich</span><span class="to">Amsterdam</span><span class="gate">A 02</span><span class="status">On Time</span></div>
+  <div class="row"><span class="num">23:55</span><span class="from">Frankfurt</span><span class="to">Köln</span><span class="gate">A 09</span><span class="status">Boarding</span></div>
+  <div class="row dim"><span class="num">00:14</span><span class="from">Hannover</span><span class="to">Bremen</span><span class="gate">C 07</span><span class="status">Delayed</span></div>
+</div>
+<div class="tape"><span>The connection you requested does not exist on this line.</span><a href="/">↩ return to the main hall</a></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Late Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --paper: #f1ead4; --paper-2: #e8e0c4; --ink: #1a1410; --rule: #1a1410; --red: #a8311a; }
+body { background: #2a231d; padding: clamp(20px, 3vw, 40px); min-height: 100svh; display: grid; place-items: center; }
+.sheet { width: min(960px, 100%); background: var(--paper); color: var(--ink); padding: clamp(24px, 4vw, 56px); font-family: "DM Serif Text", serif; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); position: relative; }
+.sheet::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.04) 100%); }
+.flag { display: flex; justify-content: space-between; align-items: end; gap: 14px; padding-bottom: 8px; border-bottom: 4px double var(--ink); }
+.flag-l, .flag-r { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.5; }
+.flag-r { text-align: right; }
+.masthead { font-family: "DM Serif Display", serif; font-size: clamp(48px, 7vw, 84px); line-height: 0.9; text-align: center; padding: 4px 0; letter-spacing: -0.01em; }
+.masthead em { font-style: italic; }
+.subhead { display: flex; justify-content: space-between; gap: 14px; padding: 6px 0 10px; border-bottom: 1px solid var(--ink); font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+.subhead strong { font-weight: 500; }
+.body { padding-top: 16px; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 36px); }
+.lead { display: flex; flex-direction: column; gap: 8px; }
+.kicker { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); font-weight: 500; }
+.headline { font-family: "DM Serif Display", serif; font-size: clamp(40px, 5.5vw, 72px); line-height: 0.95; letter-spacing: -0.02em; }
+.headline em { font-style: italic; color: var(--red); }
+.deck { font-family: "DM Serif Text", serif; font-style: italic; font-size: 18px; line-height: 1.4; padding: 6px 0 12px; max-width: 540px; border-bottom: 1px solid rgba(26, 20, 16, 0.4); }
+.byline { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 0; opacity: 0.75; }
+.lead-body { columns: 2; column-gap: 22px; column-rule: 1px solid rgba(26, 20, 16, 0.18); font-size: 13.5px; line-height: 1.55; padding-top: 8px; }
+.lead-body p { margin-bottom: 8px; text-align: justify; hyphens: auto; }
+.lead-body p:first-child::first-letter { font-family: "DM Serif Display", serif; font-size: 56px; line-height: 0.85; float: left; padding: 4px 6px 0 0; color: var(--red); }
+.aside { display: flex; flex-direction: column; gap: 14px; }
+.aside-head { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 2px solid var(--ink); font-weight: 500; }
+.note { padding: 14px; border: 1.5px solid var(--ink); }
+.note h3 { font-family: "DM Serif Display", serif; font-style: italic; font-size: 22px; line-height: 1.1; padding-bottom: 6px; }
+.note p { font-size: 12.5px; line-height: 1.55; padding-bottom: 8px; }
+.note a { color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--red); padding-bottom: 1px; font-weight: 500; font-size: 12px; letter-spacing: 0.04em; }
+.weather { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px 14px; background: var(--paper-2); }
+.weather strong { display: block; font-family: "DM Serif Display", serif; font-style: italic; font-size: 24px; line-height: 1.05; padding-bottom: 2px; }
+.weather small { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+.cont { padding-top: 14px; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.75; border-top: 1px solid rgba(26, 20, 16, 0.4); margin-top: 14px; display: flex; justify-content: space-between; gap: 14px; }
+.bigblock { padding: 4px 0; font-family: "DM Serif Display", serif; font-style: italic; font-size: 36px; line-height: 1; color: var(--red); border-block: 4px double var(--ink); margin-block: 14px; padding-block: 12px; text-align: center; }
+@media (max-width: 720px) { .body { grid-template-columns: 1fr; } .lead-body { columns: 1; } }
+</style>
+</head>
+<body>
+<article class="sheet">
+  <header class="flag">
+    <div class="flag-l">Vol. CDIV<br />Ed. Late · No. 404</div>
+    <div class="flag-r">Sunday, 26 April 2026<br />the price: $0.00 · daily</div>
+  </header>
+  <h1 class="masthead">The Daily <em>Void</em></h1>
+  <div class="subhead"><span><strong>★★★★★</strong> · est. 1996</span><span>"All the news that wasn't"</span><span>printed in 1 city · circ. 0</span></div>
+  <div class="body">
+    <section class="lead">
+      <p class="kicker">/ front page</p>
+      <h2 class="headline">Page <em>not found</em>: a national mystery deepens.</h2>
+      <p class="deck">Servers stand empty, hyperlinks dangle, and one curious URL has gone missing without leaving a forwarding address.</p>
+      <p class="byline">By a Staff Reporter · Filed at <strong>23:47</strong></p>
+      <div class="lead-body">
+        <p>Late on Sunday evening, an anonymous request for a page known only by its URL was received at our front-of-house terminal. The page, sources confirm, is not where it was last filed — nor where any reasonable archivist might think to look. A search of the basement, the file room, and three editors' desks turned up nothing of substance.</p>
+        <p>"It was right here," said the night editor, gesturing vaguely at a wall. "I'm certain of it. I'd staked my reputation on it being on this server, somewhere between /about and /contact. Now it's just — gone."</p>
+        <p>Authorities are urging the public not to panic. Most pages, they say, are still accounted for. The rest, they admit, may simply have moved on.</p>
+      </div>
+      <div class="bigblock">— this is where the rest of the page would be —</div>
+      <div class="cont"><span>continued on page non-existent</span><span>see also: §B, p. ∅</span></div>
+    </section>
+    <aside class="aside">
+      <p class="aside-head">/ in this issue</p>
+      <div class="note">
+        <h3>Are you also lost?</h3>
+        <p>If you've arrived here by following a link from elsewhere, the link is now stale. The page in question has either moved or never existed in the first place — neither, in our experience, is any consolation.</p>
+        <a href="/">↩ Front page →</a>
+      </div>
+      <div class="weather">
+        <div><strong>0%</strong><small>Found</small></div>
+        <div><strong>404</strong><small>Pages missing</small></div>
+        <div><strong>—</strong><small>Forwarding addr.</small></div>
+        <div><strong>1</strong><small>Editor, embarrassed</small></div>
+      </div>
+    </aside>
+  </div>
+</article>
+</body>
+</html>

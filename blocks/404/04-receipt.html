@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · Receipt</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #1a1714; --paper: #f8f4ec; --ink: #14110a; --rule: rgba(20, 17, 10, 0.5); --shadow: rgba(0, 0, 0, 0.5); }
+body { background: var(--bg); background-image: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.03), transparent 60%); color: var(--paper); font-family: "JetBrains Mono", monospace; min-height: 100svh; padding: clamp(28px, 4vw, 60px); display: flex; align-items: center; justify-content: center; gap: 50px; flex-wrap: wrap; }
+.receipt { width: 320px; background: var(--paper); color: var(--ink); padding: 24px 22px 0; font-family: "VT323", monospace; font-size: 18px; line-height: 1.35; transform: rotate(1.5deg); position: relative; box-shadow: 0 30px 60px var(--shadow), 0 0 0 1px rgba(0, 0, 0, 0.04); }
+.receipt::after { content: ""; position: absolute; left: 0; right: 0; bottom: -14px; height: 14px; background-image: linear-gradient(135deg, var(--paper) 50%, transparent 50%), linear-gradient(225deg, var(--paper) 50%, transparent 50%); background-size: 16px 14px; background-repeat: repeat-x; }
+.r-head { text-align: center; padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+.r-brand { font-size: 22px; letter-spacing: 0.18em; font-weight: 500; }
+.r-addr { font-size: 13px; line-height: 1.5; padding-top: 4px; }
+.r-meta { display: flex; justify-content: space-between; padding: 12px 0; font-size: 13px; border-bottom: 1px dashed var(--rule); }
+.r-items { padding: 12px 0; border-bottom: 1px dashed var(--rule); display: flex; flex-direction: column; gap: 4px; }
+.r-item { display: flex; justify-content: space-between; gap: 12px; }
+.r-item .x { opacity: 0.7; }
+.r-item.err { color: #a8311a; font-weight: 500; }
+.r-section { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 6px; padding-bottom: 4px; opacity: 0.7; }
+.r-totals { padding: 12px 0; font-size: 16px; }
+.r-totals .row { display: flex; justify-content: space-between; padding: 2px 0; }
+.r-totals .row.big { font-size: 22px; padding-top: 8px; border-top: 1px solid var(--ink); margin-top: 6px; letter-spacing: 0.04em; }
+.r-foot { text-align: center; padding: 14px 0 22px; font-size: 14px; line-height: 1.5; border-top: 1px dashed var(--rule); }
+.r-foot .qr { width: 72px; height: 72px; margin: 8px auto 6px; background: conic-gradient(from 0deg, var(--ink) 25%, transparent 25%, transparent 50%, var(--ink) 50%, var(--ink) 75%, transparent 75%); background-size: 8px 8px; border: 6px solid var(--paper); outline: 2px solid var(--ink); }
+.r-thanks { font-size: 13px; letter-spacing: 0.2em; padding-top: 6px; }
+.aside { max-width: 320px; }
+.aside h2 { font-size: 26px; font-family: "JetBrains Mono", monospace; font-weight: 500; line-height: 1.15; padding-bottom: 12px; }
+.aside p { font-family: "JetBrains Mono", monospace; font-size: 13px; line-height: 1.65; opacity: 0.78; }
+.aside a { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(248, 244, 236, 0.4); padding-bottom: 1px; }
+</style>
+</head>
+<body>
+<div class="receipt">
+  <div class="r-head">
+    <div class="r-brand">CORNER STORE</div>
+    <div class="r-addr">404 nowhere lane<br />OPEN 24 HRS · TILL #1</div>
+  </div>
+  <div class="r-meta"><span>26 APR 26 · 23:47</span><span>#0040440</span></div>
+  <div class="r-section">items</div>
+  <div class="r-items">
+    <div class="r-item"><span><span class="x">1×</span> page requested</span><span>$0.00</span></div>
+    <div class="r-item"><span><span class="x">1×</span> server lookup</span><span>$0.00</span></div>
+    <div class="r-item err"><span><span class="x">1×</span> ERROR · 404</span><span>—</span></div>
+    <div class="r-item"><span><span class="x">1×</span> sympathy</span><span>$0.00</span></div>
+  </div>
+  <div class="r-totals">
+    <div class="row"><span>SUBTOTAL</span><span>$0.00</span></div>
+    <div class="row"><span>TAX (8.875%)</span><span>$0.00</span></div>
+    <div class="row big"><span>TOTAL</span><span>NOT FOUND</span></div>
+  </div>
+  <div class="r-foot">
+    <div>thank you, come again.<br />the page you wanted was not in stock.</div>
+    <div class="qr"></div>
+    <div class="r-thanks">★★★★★ · 0/5</div>
+  </div>
+</div>
+<div class="aside">
+  <h2>// transaction failed.</h2>
+  <p>We rang up the page you came for. The barcode scanned, but the shelf was empty. <a href="/">Try the front of the store.</a></p>
+</div>
+</body>
+</html>

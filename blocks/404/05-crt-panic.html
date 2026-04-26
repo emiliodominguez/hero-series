@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 · KERNEL PANIC</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #02100a; --green: #36ff8c; --green-dim: #1a7d44; --red: #ff5a3d; }
+body { background: var(--bg); color: var(--green); font-family: "VT323", monospace; min-height: 100svh; padding: 0; overflow: hidden; position: relative; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0, rgba(0, 0, 0, 0.18) 2px, transparent 2px, transparent 4px); z-index: 50; mix-blend-mode: multiply; }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.7) 100%); z-index: 51; }
+.shell { position: relative; z-index: 1; padding: clamp(28px, 4vw, 56px); min-height: 100svh; display: flex; flex-direction: column; gap: 18px; max-width: 1100px; margin: 0 auto; font-size: 22px; line-height: 1.4; }
+.bar { background: var(--green); color: var(--bg); padding: 4px 12px; font-weight: 400; letter-spacing: 0.08em; align-self: start; font-size: 18px; }
+.title { font-size: clamp(40px, 7vw, 88px); line-height: 0.95; letter-spacing: 0.06em; color: var(--red); text-shadow: 0 0 6px rgba(255, 90, 61, 0.6), 2px 0 0 rgba(54, 255, 140, 0.18); padding: 4px 0; }
+.title em { font-style: normal; color: var(--green); }
+pre { font-family: "VT323", monospace; font-size: 14px; line-height: 1.2; white-space: pre; color: var(--green-dim); overflow-x: auto; padding: 8px 0; }
+.dump { padding: 12px 14px; border: 1px solid var(--green-dim); display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 18px; }
+.dump strong { color: var(--green); font-weight: 400; opacity: 0.7; }
+.dump code { font-family: "VT323", monospace; color: var(--green); }
+.trace { display: flex; flex-direction: column; gap: 2px; font-size: 18px; opacity: 0.85; }
+.trace .file { color: var(--green-dim); }
+.cursor::after { content: "▍"; animation: blink 1s steps(2) infinite; padding-left: 4px; }
+@keyframes blink { 50% { opacity: 0; } }
+.actions { font-size: 18px; color: var(--green-dim); padding-top: 14px; border-top: 1px solid var(--green-dim); display: flex; gap: 24px; flex-wrap: wrap; }
+.actions a { color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green-dim); padding-bottom: 1px; }
+.actions a strong { color: var(--bg); background: var(--green); padding: 0 4px; font-weight: 400; }
+.scan { position: fixed; left: 0; right: 0; height: 80px; background: linear-gradient(180deg, transparent, rgba(54, 255, 140, 0.08), transparent); pointer-events: none; z-index: 49; animation: scan 7s linear infinite; }
+@keyframes scan { from { top: -80px; } to { top: 100%; } }
+@media (max-width: 720px) { pre { font-size: 11px; } .shell { font-size: 18px; } }
+</style>
+</head>
+<body>
+<div class="scan"></div>
+<main class="shell">
+  <span class="bar">SYSTEM · TTY1 · ROOT@VOID</span>
+  <h1 class="title">PANIC: <em>no such page (404)</em></h1>
+  <pre>
+    .--.       .--.
+   ( o  )=====(  o )      ╭────────────────────╮
+    `--' \   / `--'       │  segmentation:     │
+          `-'             │  url → /void/null  │
+       ╔══════╗           │  signal: SIGLOST   │
+       ║  X   ║           ╰────────────────────╯
+       ╚══════╝
+  </pre>
+  <div class="dump">
+    <strong>kernel</strong><code>void 14.2.0 — moving-parts.local</code>
+    <strong>fault</strong><code>0xC0DE404 — RESOURCE NOT FOUND</code>
+    <strong>uptime</strong><code>00:14:08 — last good req. 00:13:54</code>
+    <strong>core</strong><code>dumped to /tmp/why.404</code>
+  </div>
+  <div class="trace">
+    <span>stack trace:</span>
+    <span><span class="file">router.c:204</span> &nbsp;&nbsp;route_match() returned NULL</span>
+    <span><span class="file">resolver.c:88</span> &nbsp;&nbsp;url_resolve() — no candidate</span>
+    <span><span class="file">main.c:42</span> &nbsp;&nbsp;&nbsp;&nbsp;serve() halted on void</span>
+    <span class="cursor">— root@void:~ /</span>
+  </div>
+  <div class="actions">
+    <span>press <strong>ESC</strong> to reboot</span>
+    <span>or</span>
+    <a href="/">↩ return to /home</a>
+  </div>
+</main>
+</body>
+</html>
