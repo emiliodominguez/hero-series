@@ -9,7 +9,7 @@ It is not a component library. There are no tokens to import, no package
 to install, no opinions about how your app should be structured. Read it
 the way you'd read a sketchbook.
 
-**Live:** [https://emiliodominguez.github.io/hero-series/](https://emiliodominguez.github.io/hero-series/)
+**Live:** [https://emiliodominguez.github.io/moving-parts/](https://emiliodominguez.github.io/moving-parts/)
 
 ```
 /
