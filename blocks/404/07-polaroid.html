@@ -15,14 +15,17 @@ body::after { content: ""; position: fixed; inset: 0; pointer-events: none; back
 .polaroid.back { transform: rotate(-9deg) translateX(-22px); filter: brightness(0.94); }
 .polaroid.mid { transform: rotate(5deg) translate(12px, 6px); filter: brightness(0.97); }
 .polaroid.front { transform: rotate(-2deg); }
-.photo { width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #c4b8a4, #a89f8a 50%, #8a7d6a); position: relative; overflow: hidden; }
-.photo.broken { background: repeating-linear-gradient(45deg, #c4b8a4 0, #c4b8a4 16px, #b8ad99 16px, #b8ad99 32px); display: grid; place-items: center; color: rgba(26, 20, 16, 0.6); }
-.photo.broken::before { content: "?"; font-family: "Hanken Grotesk", sans-serif; font-weight: 800; font-size: 110px; line-height: 1; color: rgba(26, 20, 16, 0.45); }
-.photo.broken::after { content: "image not found"; position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(26, 20, 16, 0.55); }
+.photo { width: 100%; aspect-ratio: 1; position: relative; overflow: hidden; background: #c4b8a4; }
+.photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.6) sepia(0.18) contrast(0.95); }
+.photo.broken { background: radial-gradient(circle at 70% 32%, #fff5d6 0%, #f0d9a4 14%, #c89c5a 28%, #6b4a2a 55%, #2a1810 90%); display: grid; place-items: center; color: rgba(26, 20, 16, 0.6); }
+.photo.broken::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(105deg, transparent 0 22px, rgba(255, 245, 214, 0.08) 22px 24px), repeating-linear-gradient(85deg, transparent 0 38px, rgba(0, 0, 0, 0.18) 38px 39px); mix-blend-mode: overlay; }
+.photo.broken::after { content: "frame · undeveloped"; position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255, 245, 214, 0.55); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); }
+.photo.broken span.burn { position: absolute; left: -10%; top: 64%; right: -10%; height: 40%; background: linear-gradient(180deg, rgba(255, 90, 60, 0.48), rgba(40, 16, 8, 0) 80%); filter: blur(14px); pointer-events: none; }
+.photo.broken span.flash { position: absolute; right: 12%; top: 18%; width: 36%; height: 36%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 240, 180, 0.85), rgba(255, 200, 120, 0) 70%); pointer-events: none; }
 .cap { padding-top: 10px; font-family: "Caveat", cursive; font-weight: 500; font-size: 22px; line-height: 1.2; color: var(--ink); transform: rotate(-1deg); padding-left: 4px; }
 .cap small { display: block; font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: 0.18em; padding-top: 2px; opacity: 0.55; text-transform: uppercase; font-weight: 500; }
-.tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg); width: 90px; height: 28px; background: rgba(228, 217, 175, 0.7); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
-.sticker { position: absolute; top: 12px; right: 8px; width: 56px; height: 56px; border-radius: 50%; background: var(--red); color: var(--polaroid); display: grid; place-items: center; font-family: "Hanken Grotesk", system-ui, sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; transform: rotate(12deg); border: 3px solid var(--polaroid); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35); }
+.tape { position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(2deg); width: 110px; height: 32px; background: rgba(228, 217, 175, 0.55); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.15); border-left: 1px dashed rgba(0, 0, 0, 0.08); border-right: 1px dashed rgba(0, 0, 0, 0.08); z-index: 4; }
+.sticker { position: absolute; top: -14px; right: -14px; width: 72px; height: 72px; border-radius: 50%; background: var(--red); color: var(--polaroid); display: grid; place-items: center; font-family: "Hanken Grotesk", system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.02em; transform: rotate(12deg); border: 3px solid var(--polaroid); box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45); z-index: 5; }
 .aside { max-width: 320px; }
 .kicker { display: inline-flex; align-items: center; gap: 10px; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); font-weight: 500; padding-bottom: 16px; }
 .kicker::before { content: ""; width: 22px; height: 1px; background: currentColor; }
@@ -35,12 +38,12 @@ h1 { font-family: "Caveat", cursive; font-weight: 700; font-size: 56px; line-hei
 </head>
 <body>
 <div class="stack">
-  <div class="polaroid back"><div class="photo"></div><p class="cap">somewhere — last april<small>roll 03 · 14/24</small></p></div>
-  <div class="polaroid mid"><div class="photo"></div><p class="cap">the cafe on tuesday<small>roll 03 · 15/24</small></p></div>
+  <div class="polaroid back"><div class="photo"><img src="https://picsum.photos/seed/polaroid-back/600/600" alt="" /></div><p class="cap">somewhere — last april<small>roll 03 · 14/24</small></p></div>
+  <div class="polaroid mid"><div class="photo"><img src="https://picsum.photos/seed/polaroid-mid/600/600" alt="" /></div><p class="cap">the cafe on tuesday<small>roll 03 · 15/24</small></p></div>
   <div class="polaroid front">
     <span class="tape"></span>
+    <div class="photo broken"><span class="flash"></span><span class="burn"></span></div>
     <span class="sticker">404</span>
-    <div class="photo broken"></div>
     <p class="cap">the page that wasn't here<small>roll ⌀ · this one didn't develop</small></p>
   </div>
 </div>
